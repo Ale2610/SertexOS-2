@@ -5,7 +5,7 @@ function clear()
   term.setTextColor(colors.red)
 end
 
-local baseDir = sertex.baseDir
+local baseDir = SertexOS.baseDir
 
 local ope = os.pullEvent
 
