@@ -3,6 +3,7 @@ local files = {
 	["src/api"] = "apis/api",
 	["src/apis/graphics"] = "apis/graphics",
 	["src/apis/sertextext.lua"] = "apis/sertextext",
+	["src/desktop"] = "desktop"
 	["update"] = "update",
 }
 
