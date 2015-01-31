@@ -1,9 +1,9 @@
 local files = {
-	["src/SertexOS"] = "SertexOS",
-	["src/api"] = "apis/api",
-	["src/apis/graphics"] = "apis/graphics",
+	["src/SertexOS.lua"] = "SertexOS",
+	["src/api.lua"] = "apis/api",
+	["src/apis/graphics-lua"] = "apis/graphics",
 	["src/apis/sertextext.lua"] = "apis/sertextext",
-	["src/desktop"] = "desktop"
+	--["src/desktop"] = "desktop.lua"
 	["update"] = "update",
 }
 
