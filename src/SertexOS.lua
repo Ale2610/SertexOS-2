@@ -99,7 +99,13 @@ function desktop()
 		{"Logout", function()
 			print("wip")
 			sleep(1)
-			os.queueEvent("terminate")
+		end},
+		{"Shell", function()
+			term.setBackgroundColor(colors.black)
+			term.clear()
+			term.setCursorPos(1,1)
+			shell.run("/rom/programs/shell")
+			sleep(0.1)
 		end},
 	}
 
