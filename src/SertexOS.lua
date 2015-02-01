@@ -63,10 +63,13 @@ end
 -- desktop
 
 function login()
-	term.clear()
-	term.setCursorPos( 1,1 )
+	clear()
 	if not fs.exists( userFile ) then
-		print( "SertexOS b" .. SertexOS.build )
+		graphics.box(1,1,51,3, colors.red)
+		term.setTextColor(colors.white)
+		sertextext.center(2, "SertexOS b" .. SertexOS.build )
+		term.setBackgroundColor(colors.white)
+		term.setTextColor(colors.red)
 		print( "First Time Setup" )
 		print( "Please Enter A Username." )
 		write( "> " )
@@ -84,7 +87,11 @@ function login()
 			f.close()
 		end
 	else
-		print( "SertexOS b" .. SertexOS.build )
+		graphics.box(1,1,51,3, colors.red)
+		term.setTextColor(colors.white)
+		sertextext.center(2, "SertexOS b" .. SertexOS.build )
+		term.setBackgroundColor(colors.white)
+		term.setTextColor(colors.red)
 		print( "Please Log In" )
 		write( "   Username > " )
 		u = read()
