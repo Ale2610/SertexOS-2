@@ -95,7 +95,9 @@ function login()
 			print( "Welcome " .. u .. "!" )
 			sleep( 3 )
 		else
-			error( "Incorrect Username / Password!", 0 )
+			printError( "Incorrect Username / Password!" )
+			sleep( 3 )
+			os.reboot()
 		end
 	end
 	
