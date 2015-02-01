@@ -63,6 +63,8 @@ end
 -- desktop
 
 function login()
+	term.clear()
+	term.setCursorPos( 1,1 )
 	if not fs.exists( userFile ) then
 		print( "SertexOS b" .. SertexOS.build )
 		print( "First Time Setup" )
