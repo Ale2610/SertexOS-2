@@ -93,6 +93,7 @@ function login()
 		f = fs.open( userFile, "r" )
 		u2 = f.readLine( 1 )
 		p2 = f.readLine( 2 )
+		f.close()
 		if u == u2 and p == p2 then
 			print( "Welcome " .. u .. "!" )
 			sleep( 3 )
