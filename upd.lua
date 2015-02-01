@@ -4,10 +4,10 @@ local systemDir = fs.combine(baseDir, ".SertexOS")
 local files = {
 	["src/SertexOS.lua"] = systemDir.."/SertexOS",
 	["src/apis/api.lua"] = systemDir.."/apis/api",
-	["src/apis/graphics.lua"] = systemDir.."apis/graphics",
-	["src/apis/sertextext.lua"] = systemDir.."apis/sertextext",
-	["src/apis/sha256.lua"] = systemDir.."apis/sha256",
-	["update"] = systemDir.."update",
+	["src/apis/graphics.lua"] = systemDir.."/apis/graphics",
+	["src/apis/sertextext.lua"] = systemDir.."/apis/sertextext",
+	["src/apis/sha256.lua"] = systemDir.."/apis/sha256",
+	["update"] = systemDir.."/update",
 }
 
 local githubUser    = "Sertex-Team"
