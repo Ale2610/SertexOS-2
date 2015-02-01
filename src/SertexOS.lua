@@ -1,5 +1,7 @@
 local args = {...}
 
+local userFile = "/.SertexOS/users.data"
+
 local argData = {
   ["-f"] = false,
   ["-o"] = false,
@@ -60,6 +62,45 @@ end
 
 -- desktop
 
+function login()
+	if not fs.exists( userFile ) then
+		print( "SertexOS b" .. SertexOS.build )
+		print( "First Time Setup" )
+		print( "Please Enter A Username." )
+		write( "> " )
+		u = read()
+		print( "Ok, Now The Password." )
+		write( "> " )
+		p = read( "*" )
+		print( "You entered " .. u .. " as your username. Is this correct?" )
+		write( "y/n > " )
+		yn = read()
+		if yn == "y" then
+			print( "Writing Data..." )
+			f = fs.open( userFile, "w" )
+			f.write( u .. "\n" .. p )
+			f.close()
+		end
+	else
+		print( "SertexOS b" .. SertexOS.build )
+		print( "Please Log In" )
+		write( "   Username > " )
+		u = read()
+		write( "   Password > " )
+		p = read( "*" )
+		f = fs.open( userFile, "r" )
+		u2 = f.readLine( 1 )
+		p2 = f.readLine( 2 )
+		if u == u2 and p == p2 then
+			print( "Welcome " .. u .. "!" )
+			sleep( 3 )
+		else
+			error( "Incorrect Username / Password!", 0 )
+		end
+	end
+	
+end
+
 function desktop()
 	local termW, termH = term.getSize()
 
@@ -108,7 +149,7 @@ function desktop()
 			sleep(0.1)
 		end},
 	}
-
+	
 	local sidebarVisible = false
 	local sidebarWidth = 0
 	for i, v in ipairs(sidebar) do
@@ -137,7 +178,7 @@ function desktop()
 			write("<")
 		end
 	end
-
+	login()
 	while true do
 		redraw()
 		local ev = {os.pullEventRaw()}
