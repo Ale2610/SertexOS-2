@@ -1,5 +1,7 @@
 local args = {...}
 
+local userFile = "/.SertexOS/users.data"
+
 local argData = {
   ["-f"] = false,
   ["-o"] = false,
@@ -21,7 +23,7 @@ if _G.SertexOS and not argData["-f"] then
 end
 
 _G.SertexOS = {
-  build = 3,
+  build = 2,
   quiet = false,
 }
 
@@ -49,6 +51,7 @@ end
 -- find base directory
 local baseDir = fs.getDir(shell.getRunningProgram())
 SertexOS.baseDir = baseDir
+os.loadAPI(fs.combine(baseDir, "api"))
 
 -- load extra APIs
 if fs.exists(fs.combine(SertexOS.baseDir, "apis")) and fs.isDir(fs.combine(SertexOS.baseDir, "apis")) then
@@ -57,28 +60,13 @@ if fs.exists(fs.combine(SertexOS.baseDir, "apis")) and fs.isDir(fs.combine(Serte
   end
 end
 
-systemDir = fs.combine(baseDir, ".SertexOS")
-
-userFile = fs.combine(baseDir, systemDir.."/users.data")
-
--- clear
-
-function clear()
-	term.setBackgroundColor(colors.white)
-	term.clear()
-	term.setCursorPos(1,1)
-	term.setTextColor(colors.red)
-end
-
--- login system (recode please)
+-- desktop
 
 function login()
-	clear()
+	term.clear()
+	term.setCursorPos( 1,1 )
 	if not fs.exists( userFile ) then
-		term.setTextColor(colors.white)
-		graphics.box(1,3, 51,3, colors.red)
-		sertextext.center(2, "SertexOS b" .. SertexOS.build )
-		term.setTextColor(colors.red)
+		print( "SertexOS b" .. SertexOS.build )
 		print( "First Time Setup" )
 		print( "Please Enter A Username." )
 		write( "> " )
@@ -112,7 +100,7 @@ function login()
 		else
 			printError( "Incorrect Username / Password!" )
 			sleep( 3 )
-			login()
+			os.reboot()
 		end
 	end
 	
@@ -168,7 +156,7 @@ function desktop()
 			printMsg(colors.gray)
 			printMsg(colors.black)
 			sleep(0.6)
-			login()
+			os.reboot()
 		end},
 		{"Shell", function()
 			term.setBackgroundColor(colors.black)
