@@ -1,4 +1,4 @@
-baseDir = fs.getDir(shell.getDir())
+baseDir = fs.getDir(shell.dir())
 systemDir = fs.combine(baseDir, "/.SertexOS")
 
 local files = {
