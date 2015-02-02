@@ -123,8 +123,9 @@ function login()
 		write( "   Password > " )
 		p = read( "*" )
 		encryptedPassword = sha256.sha256(p)
-		if not fs.exists(dbUsersDir..u) then
+		if not fs.exists(dbUsersDir.." "..u) then
 			print("Username not registered!")
+			sleep(2)
 			login()
 		end
 		f = fs.open( dbUsersDir..u, "r" )
@@ -133,6 +134,7 @@ function login()
 		if encryptedPassword == p2 then
 			print( "Welcome " .. u .. "!" )
 			sleep( 2 )
+			desktop()
 		else
 			printError( "Incorrect Password!" )
 			sleep( 2 )
