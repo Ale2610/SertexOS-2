@@ -133,6 +133,17 @@ function desktop()
 				sleep(0.1)
 			end},
 		}
+		
+		graphics.box(1,1,51,2, colors.red)
+		term.setBackgroundColor(colors.red)
+		term.setCursorPos(1,1)
+		term.setTextColor(colors.white)
+		sertextext.center(1, "SertexOS 2 b"..SertexOS.build)
+		sertextext.left(1, "Computer ID: "..os.getComputerID())
+		sertextext.right(1, "Logged In As "..u)
+		term.setBackgroundColor(colors.white)
+		term.setTextColor(colors.red)
+		
 	
 		local sidebarVisible = false
 		local sidebarWidth = 0
@@ -198,7 +209,7 @@ function login()
 		print( "Please Enter Your Username." )
 		write( "> " )
 		u = read()
-		print( "Plase Enter A Password." )
+		print( "Please Enter A Password." )
 		write( "> " )
 		p = read( "*" )
 		print( "Please Repeat The Password." )
@@ -221,10 +232,10 @@ function login()
 			f.close()
 			sleep(0.1)
 			login()
-		else
+		elseif key == 49 then
+			sleep(0.1)
 			login()
 		end
-		
 		
 	else
 		graphics.box(1,1,51,3, colors.red)
