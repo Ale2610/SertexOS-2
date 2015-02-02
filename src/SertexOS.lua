@@ -151,7 +151,7 @@ function desktop()
 			term.setTextColor(colors.white)
 			sertextext.center(1, "SertexOS 2 b"..SertexOS.build)
 			sertextext.left(1, "Computer ID: "..os.getComputerID())
-			sertextext.right(1, "Logged In As "..u)
+			sertextext.right(1, "User "..u)
 			term.setBackgroundColor(colors.white)
 			term.setTextColor(colors.red)
 		
