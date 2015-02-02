@@ -106,6 +106,7 @@ function login()
 			f = fs.open( dbUsersDir..u, "w" )
 			f.write( encryptedPassword )
 			f.close()
+			login()
 		else
 			login()
 		end
