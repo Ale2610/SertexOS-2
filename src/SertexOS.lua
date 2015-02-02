@@ -128,7 +128,7 @@ function login()
 			sleep(2)
 			login()
 		end
-		f = fs.open( dbUsersDir..u, "r" )
+		f = fs.open( dbUsersDir.." "..u, "r" )
 		p2 = f.readLine()
 		f.close()
 		if encryptedPassword == p2 then
