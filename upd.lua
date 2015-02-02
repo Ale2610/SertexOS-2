@@ -1,5 +1,5 @@
 baseDir = fs.getDir(shell.getRunningProgram())
-systemDir = fs.combine(baseDir, ".SertexOS")
+systemDir = fs.combine(baseDir, "/.SertexOS")
 
 local files = {
 	["src/SertexOS.lua"] = systemDir.."/SertexOS",
