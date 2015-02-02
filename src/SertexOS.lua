@@ -256,7 +256,7 @@ function login()
 		p2 = f.readLine()
 		f.close()
 		if encryptedPassword == p2 then
-			print( "Welcome " .. u .. "!" )
+			print( "\n  Welcome " .. u .. "!" )
 			sleep( 2 )
 			desktop()
 		else
