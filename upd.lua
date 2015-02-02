@@ -53,7 +53,7 @@ local function get(user, repo, bran, path, save)
 	remote.close()
 	if save then
 		local file = fs.open(save, "w")
-		file.write(text) --# attempt to index ? a nil value
+		file.write(text) --# attempt to index ? a nil valuef
 		file.close()
 		return true
 	end
