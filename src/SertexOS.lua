@@ -133,18 +133,7 @@ function desktop()
 				sleep(0.1)
 			end},
 		}
-		
-		graphics.box(1,1,51,2, colors.red)
-		term.setBackgroundColor(colors.red)
-		term.setCursorPos(1,1)
-		term.setTextColor(colors.white)
-		sertextext.center(1, "SertexOS 2 b"..SertexOS.build)
-		sertextext.left(1, "Computer ID: "..os.getComputerID())
-		sertextext.right(1, "Logged In As "..u)
-		term.setBackgroundColor(colors.white)
-		term.setTextColor(colors.red)
-		
-	
+
 		local sidebarVisible = false
 		local sidebarWidth = 0
 		for i, v in ipairs(sidebar) do
@@ -154,10 +143,16 @@ function desktop()
 		end
 
 		local function redraw()
-			term.setBackgroundColor(colors.white)
-			term.clear()
+			graphics.box(1,1,51,2, colors.red)
+			term.setBackgroundColor(colors.red)
 			term.setCursorPos(1,1)
+			term.setTextColor(colors.white)
+			sertextext.center(1, "SertexOS 2 b"..SertexOS.build)
+			sertextext.left(1, "Computer ID: "..os.getComputerID())
+			sertextext.right(1, "Logged In As "..u)
+			term.setBackgroundColor(colors.white)
 			term.setTextColor(colors.red)
+		
 			graphics.line(termW, 1, termW, termH, colors.red)
 			term.setCursorPos(termW, math.ceil(termH / 2))
 			term.setTextColor(colors.white)
