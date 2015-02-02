@@ -219,6 +219,7 @@ function login()
 			f = fs.open( dbUsersDir..u, "w" )
 			f.write( sha256.sha256(p) )
 			f.close()
+			sleep(0.1)
 			login()
 		else
 			login()
