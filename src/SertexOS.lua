@@ -143,6 +143,7 @@ function desktop()
 		end
 
 		local function redraw()
+			term.setBackgroundColor(colors.white)
 			term.clear()
 			graphics.box(1,1,51,2, colors.red)
 			term.setBackgroundColor(colors.red)
