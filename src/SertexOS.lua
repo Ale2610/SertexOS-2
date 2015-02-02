@@ -73,7 +73,7 @@ end
 
 function login()
 	clear()
-	if not fs.exists( userFile ) then
+	if not fs.exists( dbUsersDir ) then
 		graphics.box(1,1,51,3, colors.red)
 		term.setTextColor(colors.white)
 		sertextext.center(2, "SertexOS b" .. SertexOS.build )
@@ -108,6 +108,8 @@ function login()
 		else
 			login()
 		end
+		
+		
 	else
 		graphics.box(1,1,51,3, colors.red)
 		term.setTextColor(colors.white)
