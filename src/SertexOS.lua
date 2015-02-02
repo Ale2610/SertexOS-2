@@ -60,7 +60,16 @@ if fs.exists(fs.combine(SertexOS.baseDir, "apis")) and fs.isDir(fs.combine(Serte
   end
 end
 
--- desktop
+-- clear
+
+function clear()
+	term.setBackgroundColor(colors.white)
+	term.clear()
+	term.setCursorPos(1,1)
+	term.setTextColor(colors.red)
+end
+
+-- login
 
 function login()
 	clear()
@@ -112,6 +121,8 @@ function login()
 	end
 	
 end
+
+-- desktop
 
 function desktop()
 	local termW, termH = term.getSize()
