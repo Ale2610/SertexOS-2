@@ -104,7 +104,7 @@ function login()
 		if key == 21 then
 			print( "Writing Data..." )
 			f = fs.open( dbUsersDir..u, "w" )
-			f.write( encryptedPassword )
+			f.write( sha256.sha256(p) )
 			f.close()
 			login()
 		else
