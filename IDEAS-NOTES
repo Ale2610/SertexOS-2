@@ -1,13 +1,13 @@
 NOTES
-- background: white
-- main text: red
-- other text: green or blue
-- fix installer
+- [ ] background: white
+- [ ] main text: red
+- [ ] other text: green or blue
+- [ ] fix installer
 
 IDEAS (XX: nope, -: idk, >>: letz do dis, x: done)
-- GUI
-- Touch
+- [ ] GUI
+- [ ] Touch
 XX Command block interface
-- File sharing
-- Better shell
-- 
+- [ ] File sharing
+- [ ] Better shell
+- [ ]
