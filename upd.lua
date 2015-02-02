@@ -107,7 +107,6 @@ print("Press any key to continue.")
 local w, h = term.getSize()
 term.setCursorPos(2, h-1)
 print("100% - "..tostring(filesDownloaded).."/"..tostring(fileCount))
-print("Press any key")
 os.pullEvent("key")
-shell.run("SertexOS")
+shell.run(systemDir.."/SertexOS")
 
