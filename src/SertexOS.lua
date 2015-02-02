@@ -1,6 +1,6 @@
 local args = {...}
 
-local userFile = "/.SertexOS/users.data"
+local dbUsersDir = "/.SertexOS/databaseUsers/"
 
 local argData = {
   ["-f"] = false,
@@ -87,6 +87,14 @@ function login()
 		print( "Plase Enter A Password." )
 		write( "> " )
 		p = read( "*" )
+		print( "Please Repeat The Password." )
+		write( "> " )
+		rp = read("*")
+		if not p == rp then
+			print("Wrong Password.")
+			sleep(2)
+			login()
+		end
 		encrtyptedPassword = sha256.sha256(p)
 		print( "You entered " .. u .. " as your username. Is this correct?" )
 		print("[Y] Yes")
@@ -94,8 +102,8 @@ function login()
 		id, key = os.pullEvent("key")
 		if key == 21 then
 			print( "Writing Data..." )
-			f = fs.open( userFile, "w" )
-			f.write( u .. "\n" .. encryptedPassword )
+			f = fs.open( dbUsersDir..u, "w" )
+			f.write( encryptedPassword )
 			f.close()
 		else
 			login()
@@ -113,15 +121,18 @@ function login()
 		write( "   Password > " )
 		p = read( "*" )
 		encryptedPassword = sha256.sha256(p)
-		f = fs.open( userFile, "r" )
-		u2 = f.readLine( 1 )
-		p2 = f.readLine( 2 )
+		if not fs.exists(dbUsersDir..u) then
+			print("Username not registered!")
+			login()
+		end
+		f = fs.open( dbUsersDir..u, "r" )
+		p2 = f.readLine()
 		f.close()
-		if u == u2 and encryptedPassword == p2 then
+		if encryptedPassword == p2 then
 			print( "Welcome " .. u .. "!" )
 			sleep( 2 )
 		else
-			printError( "Incorrect Username / Password!" )
+			printError( "Incorrect Password!" )
 			sleep( 2 )
 			login()
 		end
@@ -181,7 +192,7 @@ function desktop()
 			printMsg(colors.gray)
 			printMsg(colors.black)
 			sleep(0.6)
-			os.reboot()
+			login()
 		end},
 		{"Shell", function()
 			term.setBackgroundColor(colors.black)
