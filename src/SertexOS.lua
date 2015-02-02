@@ -70,84 +70,6 @@ function clear()
 	term.setTextColor(colors.red)
 end
 
--- login
-
-function login()
-	clear()
-	if not fs.exists( dbUsersDir ) then
-		graphics.box(1,1,51,3, colors.red)
-		term.setTextColor(colors.white)
-		sertextext.center(2, "SertexOS b" .. SertexOS.build )
-		term.setBackgroundColor(colors.white)
-		term.setTextColor(colors.red)
-		term.setCursorPos(1,5)
-		print( "SertexOS 2 Account Setup" )
-		print( "Please Enter Your Username." )
-		write( "> " )
-		u = read()
-		print( "Plase Enter A Password." )
-		write( "> " )
-		p = read( "*" )
-		print( "Please Repeat The Password." )
-		write( "> " )
-		rp = read("*")
-		if not p == rp then
-			print("Wrong Password.")
-			sleep(2)
-			login()
-		end
-		encrtyptedPassword = sha256.sha256(p)
-		print( "You entered " .. u .. " as your username. Is this correct?" )
-		print("[Y] Yes")
-		print("[N] No")
-		id, key = os.pullEvent("key")
-		if key == 21 then
-			print( "Writing Data..." )
-			f = fs.open( dbUsersDir..u, "w" )
-			f.write( sha256.sha256(p) )
-			f.close()
-			login()
-		else
-			login()
-		end
-		
-		
-	else
-		graphics.box(1,1,51,3, colors.red)
-		term.setTextColor(colors.white)
-		sertextext.center(2, "SertexOS b" .. SertexOS.build )
-		term.setBackgroundColor(colors.white)
-		term.setTextColor(colors.red)
-		term.setCursorPos(1,5)
-		print( "Please Log In" )
-		write( "   Username > " )
-		u = read()
-		write( "   Password > " )
-		p = read( "*" )
-		encryptedPassword = sha256.sha256(p)
-		if not fs.exists(dbUsersDir..u) then
-			print("Username not registered!")
-			sleep(2)
-			login()
-		end
-		f = fs.open( dbUsersDir..u, "r" )
-		p2 = f.readLine()
-		f.close()
-		if encryptedPassword == p2 then
-			print( "Welcome " .. u .. "!" )
-			sleep( 2 )
-			desktop()
-		else
-			printError( "Incorrect Password!" )
-			sleep( 2 )
-			login()
-		end
-	end
-	
-end
-
-login()
-
 -- desktop
 
 function desktop()
@@ -260,3 +182,81 @@ function desktop()
 		end
 	end
 end
+
+-- login
+
+function login()
+	clear()
+	if not fs.exists( dbUsersDir ) then
+		graphics.box(1,1,51,3, colors.red)
+		term.setTextColor(colors.white)
+		sertextext.center(2, "SertexOS b" .. SertexOS.build )
+		term.setBackgroundColor(colors.white)
+		term.setTextColor(colors.red)
+		term.setCursorPos(1,5)
+		print( "SertexOS 2 Account Setup" )
+		print( "Please Enter Your Username." )
+		write( "> " )
+		u = read()
+		print( "Plase Enter A Password." )
+		write( "> " )
+		p = read( "*" )
+		print( "Please Repeat The Password." )
+		write( "> " )
+		rp = read("*")
+		if not p == rp then
+			print("Wrong Password.")
+			sleep(2)
+			login()
+		end
+		encrtyptedPassword = sha256.sha256(p)
+		print( "You entered " .. u .. " as your username. Is this correct?" )
+		print("[Y] Yes")
+		print("[N] No")
+		id, key = os.pullEvent("key")
+		if key == 21 then
+			print( "Writing Data..." )
+			f = fs.open( dbUsersDir..u, "w" )
+			f.write( sha256.sha256(p) )
+			f.close()
+			login()
+		else
+			login()
+		end
+		
+		
+	else
+		graphics.box(1,1,51,3, colors.red)
+		term.setTextColor(colors.white)
+		sertextext.center(2, "SertexOS b" .. SertexOS.build )
+		term.setBackgroundColor(colors.white)
+		term.setTextColor(colors.red)
+		term.setCursorPos(1,5)
+		print( "Please Log In" )
+		write( "   Username > " )
+		u = read()
+		write( "   Password > " )
+		p = read( "*" )
+		encryptedPassword = sha256.sha256(p)
+		if not fs.exists(dbUsersDir..u) then
+			print("Username not registered!")
+			sleep(2)
+			login()
+		end
+		f = fs.open( dbUsersDir..u, "r" )
+		p2 = f.readLine()
+		f.close()
+		if encryptedPassword == p2 then
+			print( "Welcome " .. u .. "!" )
+			sleep( 2 )
+			desktop()
+		else
+			printError( "Incorrect Password!" )
+			sleep( 2 )
+			login()
+		end
+	end
+	
+end
+
+login()
