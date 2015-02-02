@@ -23,7 +23,7 @@ if _G.SertexOS and not argData["-f"] then
 end
 
 _G.SertexOS = {
-  build = 2,
+  build = 3,
   quiet = false,
 }
 
@@ -235,7 +235,6 @@ function desktop()
 			write("<")
 		end
 	end
-	login()
 	while true do
 		redraw()
 		local ev = {os.pullEventRaw()}
@@ -256,4 +255,4 @@ function desktop()
 	end
 end
 
-desktop()
+login()
