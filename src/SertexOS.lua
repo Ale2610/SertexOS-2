@@ -200,7 +200,7 @@ end
 
 function login()
 		clear()
-	if not fs.exists(systemDir.."/.userCreateOk") then
+	if not fs.exists("/.SertexOS/.userCreateOk") then
 	while true do
 		graphics.box(1,1,51,3, colors.red)
 		term.setTextColor(colors.white)
