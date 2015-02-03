@@ -7,6 +7,7 @@ systemDir = ".SertexOS"
 
 local files = {
 	["src/SertexOS.lua"] = systemDir.."/SertexOS",
+	["src/apps/shell.lua"] = systemDir.."/apps/shell"
 	["src/apis/api.lua"] = systemDir.."/apis/api",
 	["src/apis/graphics.lua"] = systemDir.."/apis/graphics",
 	["src/apis/sertextext.lua"] = systemDir.."/apis/sertextext",
