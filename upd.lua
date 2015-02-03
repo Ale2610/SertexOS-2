@@ -12,7 +12,7 @@ local files = {
 	["src/apis/graphics.lua"] = systemDir.."/apis/graphics",
 	["src/apis/sertextext.lua"] = systemDir.."/apis/sertextext",
 	["src/apis/sha256.lua"] = systemDir.."/apis/sha256",
-	["update"] = systemDir.."/update",
+	["upd.lua"] = systemDir.."/update",
 	["src/startup"] = "/startup"
 }
 
