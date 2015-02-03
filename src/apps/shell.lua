@@ -201,7 +201,7 @@ if multishell then
         	if sPath == "rom/programs/shell" then
                 return multishell.launch( tEnv, sPath, unpack( tWords, 2 ) )
             elseif sPath ~= nil then
-                return multishell.launch( tEnv, ".SertexOS/apps/shell")", sPath, unpack( tWords, 2 ) )
+                return multishell.launch( tEnv, ".SertexOS/apps/shell", sPath, unpack( tWords, 2 ) )
             else
                 printError( "No such program" )
             end
