@@ -1,4 +1,8 @@
 shell.setDir("/")
+if fs.exists("startup") then
+	fs.move("startup", "startup.bak")
+end
+
 systemDir = ".SertexOS"
 
 local files = {
@@ -8,6 +12,7 @@ local files = {
 	["src/apis/sertextext.lua"] = systemDir.."/apis/sertextext",
 	["src/apis/sha256.lua"] = systemDir.."/apis/sha256",
 	["update"] = systemDir.."/update",
+	["src/startup"] = "/startup"
 }
 
 local githubUser    = "Sertex-Team"

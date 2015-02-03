@@ -59,7 +59,12 @@ if fs.exists(fs.combine(SertexOS.baseDir, "apis")) and fs.isDir(fs.combine(Serte
   end
 end
 
+if u == nil then
+	u = "root"
+end
+
 local dbUsersDir = "/.SertexOS/databaseUsers/"
+local folderUsersDir = "/user/"..u.."/desktop"
 
 -- clear
 
@@ -129,7 +134,7 @@ function desktop()
 				term.setBackgroundColor(colors.black)
 				term.clear()
 				term.setCursorPos(1,1)
-				shell.run("/rom/programs/shell")
+				shell.run("/.SertexOS/apps/shell")
 				sleep(0.1)
 			end},
 		}
@@ -149,7 +154,7 @@ function desktop()
 			term.setBackgroundColor(colors.red)
 			term.setCursorPos(1,1)
 			term.setTextColor(colors.white)
-			sertextext.center(1, "SertexOS 2 b"..SertexOS.build)
+			sertextext.center(1, "SertexOS 2")
 			sertextext.left(1, "Computer ID: "..os.getComputerID())
 			sertextext.right(1, "User "..u)
 			term.setBackgroundColor(colors.white)
@@ -227,6 +232,7 @@ function login()
 			f = fs.open( dbUsersDir..u, "w" )
 			f.write( sha256.sha256(p) )
 			f.close()
+			fs.makeDir(folderUsersDir)
 			sleep(0.1)
 			login()
 		elseif key == 49 then
@@ -256,7 +262,7 @@ function login()
 		p2 = f.readLine()
 		f.close()
 		if encryptedPassword == p2 then
-			print( "\n  Welcome " .. u .. "!" )
+			print( "\n   Welcome " .. u .. "!" )
 			sleep( 2 )
 			desktop()
 		else
