@@ -1,3 +1,5 @@
+--SertexOS 2 Installer
+
 shell.setDir("/")
 if fs.exists("startup") then
 	fs.move("startup", "startup.bak")
