@@ -12,13 +12,8 @@ local files = {
 	["src/apis/graphics.lua"] = systemDir.."/apis/graphics",
 	["src/apis/sertextext.lua"] = systemDir.."/apis/sertextext",
 	["src/apis/sha256.lua"] = systemDir.."/apis/sha256",
-<<<<<<< HEAD
 	["update"] = systemDir.."/update",
 	["src/startup"] = "/startup",
-=======
-	["upd.lua"] = systemDir.."/update",
-	["src/startup"] = "/startup"
->>>>>>> origin/master
 }
 
 local githubUser    = "Sertex-Team"
