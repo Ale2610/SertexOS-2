@@ -258,7 +258,7 @@ function login()
 		end
 	end	
 	end
-	
+		clear()
 		graphics.box(1,1,51,3, colors.red)
 		term.setTextColor(colors.white)
 		sertextext.center(2, "SertexOS b" .. SertexOS.build )
