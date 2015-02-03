@@ -1,8 +1,6 @@
 sleep(0.1)
 local args = {...}
 
-local dbUsersDir = "/.SertexOS/databaseUsers/"
-
 local argData = {
   ["-f"] = false,
   ["-o"] = false,
@@ -60,6 +58,8 @@ if fs.exists(fs.combine(SertexOS.baseDir, "apis")) and fs.isDir(fs.combine(Serte
     os.loadAPI(fs.combine(fs.combine(SertexOS.baseDir, "apis"), v))
   end
 end
+
+local dbUsersDir = "/.SertexOS/databaseUsers/"
 
 -- clear
 
