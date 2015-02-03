@@ -11,6 +11,7 @@ local files = {
 	["src/SertexOS.lua"] = systemDir.."/SertexOS",
 	["src/apps/shell.lua"] = systemDir.."/apps/shell",
 	["src/root/multitask.lua"] = systemDir.."/root/multitask",
+	["src/apps/fg.lua"] = systemDir.."/apps/fg",
 	["src/apis/api.lua"] = systemDir.."/apis/api",
 	["src/apis/graphics.lua"] = systemDir.."/apis/graphics",
 	["src/apis/sertextext.lua"] = systemDir.."/apis/sertextext",

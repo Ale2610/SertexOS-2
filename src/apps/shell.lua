@@ -213,6 +213,8 @@ if multishell then
     end
 end
 
+shell.setAlias( "fg", "/.SertexOS/apps/fg" )
+
 local tArgs = { ... }
 if #tArgs > 0 then
     -- "shell x y z"
