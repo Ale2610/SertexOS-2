@@ -2,6 +2,9 @@
 
 shell.setDir("/")
 if fs.exists("startup") then
+	if fs.exists("startup.bak")
+		fs.delete("startup.bak")
+	end
 	fs.move("startup", "startup.bak")
 end
 
