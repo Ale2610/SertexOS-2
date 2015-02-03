@@ -198,7 +198,7 @@ function login()
 	if not fs.exists( dbUsersDir ) then
 		graphics.box(1,1,51,3, colors.red)
 		term.setTextColor(colors.white)
-		sertextext.center(2, "SertexOS b" .. SertexOS.build )
+		sertextext.center(2, "SertexOS 2")
 		term.setBackgroundColor(colors.white)
 		term.setTextColor(colors.red)
 		term.setCursorPos(1,5)
