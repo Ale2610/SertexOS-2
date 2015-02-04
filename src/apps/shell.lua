@@ -123,7 +123,7 @@ function shell.resolveProgram( _sCommand )
     -- If the path is a global path, use it directly
     local sStartChar = string.sub( _sCommand, 1, 1 )
     if sStartChar == "/" or sStartChar == "\\" then
-    	local sPath = fs.combine( "", _sCommand )
+    	local sPath = fs.combine( "/", _sCommand )
     	if fs.exists( sPath ) and not fs.isDir( sPath ) then
 			return sPath
     	end
@@ -214,6 +214,7 @@ if multishell then
 end
 
 shell.setAlias( "fg", "/.SertexOS/apps/fg" )
+shell.setAlias( "bg", "/.SertexOS/apps/fg" )
 
 local tArgs = { ... }
 if #tArgs > 0 then
@@ -240,7 +241,7 @@ else
         term.redirect( parentTerm )
         term.setBackgroundColor( bgColour )
         term.setTextColour( promptColour )
-        write(u.."@".. shell.dir() .. "> " )
+        write(u.." @ ".. shell.dir() .. "> " )
         term.setTextColour( textColour )
 
         local sLine = read( nil, tCommandHistory )
