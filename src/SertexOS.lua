@@ -64,7 +64,7 @@ if u == nil then
 end
 
 local systemDir = ".SertexOS"
-local dbUsersDir = systemDir.."/databaseUsers/"
+local dbUsersDir = systemDir.."/databaseUsers"
 local folderUsersDir = "/user"
 
 -- clear
@@ -76,6 +76,19 @@ function clear()
 	term.setTextColor(colors.red)
 end
 
+function desktopHeader()
+	term.setBackgroundColor(colors.white)
+	term.clear()
+	graphics.box(1,1,51,1, colors.red)
+	term.setBackgroundColor(colors.red)
+	term.setCursorPos(1,1)
+	term.setTextColor(colors.white)
+	sertextext.center(1, "SertexOS 2")
+	sertextext.left(1, "Computer ID: "..os.getComputerID())
+	sertextext.right(1, "User: "..u)		
+	term.setBackgroundColor(colors.white)
+	term.setTextColor(colors.red)
+end
 -- desktop
 
 function desktop()
@@ -135,8 +148,9 @@ function desktop()
 				term.setBackgroundColor(colors.black)
 				term.clear()
 				term.setCursorPos(1,1)
-				shell.setDir("/user/"..u.."/desktop")
-				shell.run("/.SertexOS/apps/shell")
+				shell.setDir("/")
+				shell.openTab("/.SertexOS/apps/shell")
+				shell.switchTab(2)
 				sleep(0.1)
 			end},
 		}
@@ -150,18 +164,7 @@ function desktop()
 		end
 
 		local function redraw()
-			term.setBackgroundColor(colors.white)
-			term.clear()
-			graphics.box(1,1,51,1, colors.red)
-			term.setBackgroundColor(colors.red)
-			term.setCursorPos(1,1)
-			term.setTextColor(colors.white)
-			sertextext.center(1, "SertexOS 2")
-			sertextext.left(1, "Computer ID: "..os.getComputerID())
-			sertextext.right(1, "User "..u)
-			term.setBackgroundColor(colors.white)
-			term.setTextColor(colors.red)
-		
+			desktopHeader()
 			graphics.line(termW, 1, termW, termH, colors.red)
 			term.setCursorPos(termW, math.ceil(termH / 2))
 			term.setTextColor(colors.white)
@@ -198,18 +201,23 @@ function desktop()
 	end
 end
 
+local function loginHeader()
+	clear()
+	graphics.box(1,1,51,3, colors.red)
+	term.setTextColor(colors.white)
+	sertextext.center(2, "SertexOS 2")
+	term.setBackgroundColor(colors.white)
+	term.setTextColor(colors.red)
+	term.setCursorPos(1,5)
+end
+
 -- login
 
 function login()
-		clear()
+	clear()
 	if not fs.exists("/.SertexOS/.userCreateOk") then
 	while true do
-		graphics.box(1,1,51,3, colors.red)
-		term.setTextColor(colors.white)
-		sertextext.center(2, "SertexOS 2")
-		term.setBackgroundColor(colors.white)
-		term.setTextColor(colors.red)
-		term.setCursorPos(1,5)
+		loginHeader()
 		print( "  SertexOS 2 Account Setup" )
 		print( "\n  Please Enter Your Username." )
 		write( "  > " )
@@ -226,6 +234,7 @@ function login()
 			login()
 		end
 		encrtyptedPassword = sha256.sha256(p)
+		loginHeader()
 		print( "  You entered " .. u .. " as your username. Is this correct?" )
 		print("  [Y] Yes")
 		print("  [N] No")
@@ -241,7 +250,7 @@ function login()
 			sleep(0.1)
 			login()
 		end
-		
+		loginHeader()
 		print( "  Do you want to create another account?" )
 		print("  [Y] Yes")
 		print("  [N] No")
@@ -261,12 +270,7 @@ function login()
 	end	
 	end
 		clear()
-		graphics.box(1,1,51,3, colors.red)
-		term.setTextColor(colors.white)
-		sertextext.center(2, "SertexOS b" .. SertexOS.build )
-		term.setBackgroundColor(colors.white)
-		term.setTextColor(colors.red)
-		term.setCursorPos(1,5)
+		loginHeader()
 		print( "  Please Log In" )
 		write( "\n  Username > " )
 		u = read()
