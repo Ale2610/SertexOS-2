@@ -12,7 +12,7 @@ if multishell then
 end
 
 local bExit = false
-local sDir = (parentShell and parentShell.dir()) or ""
+local sDir = (parentShell and parentShell.dir()) or "/"
 local sPath = (parentShell and parentShell.path()) or ".:/rom/programs"
 local tAliases = (parentShell and parentShell.aliases()) or {}
 local tProgramStack = {}
@@ -220,6 +220,11 @@ shell.setAlias( "shell", "/.SertexOS/apps/shell" )
 if u == nil then
 	u = "root"
 end
+
+if shell.dir() == "/user/"..u.."/desktop" then
+	return "Desktop"
+end
+
 local tArgs = { ... }
 if #tArgs > 0 then
     -- "shell x y z"
