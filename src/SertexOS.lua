@@ -63,7 +63,8 @@ if u == nil then
 	u = "root"
 end
 
-local dbUsersDir = "/.SertexOS/databaseUsers/"
+local systemDir = ".SertexOS"
+local dbUsersDir = systemDir.."/databaseUsers/"
 local folderUsersDir = "/user"
 
 -- clear
