@@ -213,13 +213,7 @@ if multishell then
     end
 end
 
-shell.setAlias( "fg", "/.SertexOS/apps/fg" )
-shell.setAlias( "bg", "/.SertexOS/apps/fg" )
 shell.setAlias( "shell", "/.SertexOS/apps/shell" )
-
-if u == nil then
-	u = "root"
-end
 
 local tArgs = { ... }
 if #tArgs > 0 then
@@ -246,7 +240,7 @@ else
         term.redirect( parentTerm )
         term.setBackgroundColor( bgColour )
         term.setTextColour( promptColour )
-        write(u.."@".. shell.dir() .. "> " )
+        write(shell.dir() .. "> " )
         term.setTextColour( textColour )
 
         local sLine = read( nil, tCommandHistory )
