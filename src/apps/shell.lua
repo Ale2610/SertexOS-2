@@ -198,7 +198,7 @@ if multishell then
         local sCommand = tWords[1]
         if sCommand then
         	local sPath = shell.resolveProgram( sCommand )
-        	if sPath == "rom/programs/shell" then
+        	if sPath == ".SertexOS/apps/shell" then
                 return multishell.launch( tEnv, sPath, unpack( tWords, 2 ) )
             elseif sPath ~= nil then
                 return multishell.launch( tEnv, ".SertexOS/apps/shell", sPath, unpack( tWords, 2 ) )
@@ -240,7 +240,7 @@ else
         term.redirect( parentTerm )
         term.setBackgroundColor( bgColour )
         term.setTextColour( promptColour )
-        write( shell.dir() .. "> " )
+        write(u.."@".. shell.dir() .. "> " )
         term.setTextColour( textColour )
 
         local sLine = read( nil, tCommandHistory )
