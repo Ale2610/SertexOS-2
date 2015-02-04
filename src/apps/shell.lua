@@ -221,10 +221,6 @@ if u == nil then
 	u = "root"
 end
 
-if shell.dir() == "/user/"..u.."/desktop" then
-	return "Desktop"
-end
-
 local tArgs = { ... }
 if #tArgs > 0 then
     -- "shell x y z"
@@ -250,6 +246,9 @@ else
         term.redirect( parentTerm )
         term.setBackgroundColor( bgColour )
         term.setTextColour( promptColour )
+				if shell.dir() == "/user/"..u.."/desktop" then
+					sDir = (parentShell and parentShell.dir()) or "Desktop"
+				end
         write(u.." @ ".. shell.dir() .. "> " )
         term.setTextColour( textColour )
 
