@@ -153,6 +153,9 @@ function desktop()
 				shell.switchTab(2)
 				sleep(0.1)
 			end},
+			{"Update", function()
+				shell.run("/.SertexOS/update")
+			end},
 		}
 
 		local sidebarVisible = false
