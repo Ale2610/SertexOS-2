@@ -64,7 +64,7 @@ if u == nil then
 end
 
 local dbUsersDir = "/.SertexOS/databaseUsers/"
-local folderUsersDir = "/user/"..u.."/desktop"
+local folderUsersDir = "/user"
 
 -- clear
 
@@ -134,6 +134,7 @@ function desktop()
 				term.setBackgroundColor(colors.black)
 				term.clear()
 				term.setCursorPos(1,1)
+				shell.setDir("/user/"..u.."/desktop")
 				shell.run("/.SertexOS/apps/shell")
 				sleep(0.1)
 			end},
@@ -233,7 +234,7 @@ function login()
 			f = fs.open( dbUsersDir..u, "w" )
 			f.write( sha256.sha256(p) )
 			f.close()
-			fs.makeDir(folderUsersDir)
+			fs.makeDir(folderUsersDir.."/"..u.."/desktop")
 			sleep(0.1)
 		elseif key == 49 then
 			sleep(0.1)

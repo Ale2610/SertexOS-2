@@ -215,7 +215,11 @@ end
 
 shell.setAlias( "fg", "/.SertexOS/apps/fg" )
 shell.setAlias( "bg", "/.SertexOS/apps/fg" )
+shell.setAlias( "shell", "/.SertexOS/apps/shell" )
 
+if u == nil then
+	u = "root"
+end
 local tArgs = { ... }
 if #tArgs > 0 then
     -- "shell x y z"
