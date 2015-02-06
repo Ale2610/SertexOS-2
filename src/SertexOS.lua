@@ -135,6 +135,7 @@ function desktop()
 					term.clear()
 					term.setCursorPos(1, 1)
 					sertextext.centerDisplay("Logging Out...")
+					api.log("Logged Out "..u)
 					sleep(0.1)
 				end
 				printMsg(colors.white)
@@ -154,6 +155,7 @@ function desktop()
 				sleep(0.1)
 			end},
 			{"Update", function()
+				api.log("Update")
 				shell.run("/.SertexOS/update")
 			end},
 		}
@@ -248,6 +250,7 @@ function login()
 			f.write( sha256.sha256(p) )
 			f.close()
 			fs.makeDir(folderUsersDir.."/"..u.."/desktop")
+			api.log("Created Account "..u)
 			sleep(0.1)
 		elseif key == 49 then
 			sleep(0.1)
@@ -290,6 +293,7 @@ function login()
 		f.close()
 		if encryptedPassword == p2 then
 			print( "\n  Welcome " .. u .. "!" )
+			api.log("Logged In As "..u)
 			sleep( 2 )
 			desktop()
 		else
