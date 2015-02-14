@@ -27,7 +27,7 @@ _G.SertexOS = {
 }
 
 function os.version()
-  return "SertexOS 2 b"..SertexOS.build
+  return "SertexOS 2 b"..SertexOS.build'
 end
 
 SertexOS.launchArgs = {...}
@@ -76,22 +76,26 @@ function clear()
 	term.setTextColor(colors.red)
 end
 
-function desktopHeader()
-	term.setBackgroundColor(colors.white)
-	term.clear()
-	graphics.box(1,1,51,1, colors.red)
-	term.setBackgroundColor(colors.red)
-	term.setCursorPos(1,1)
-	term.setTextColor(colors.white)
-	sertextext.center(1, "SertexOS 2")
-	sertextext.left(1, "Computer ID: "..os.getComputerID())
-	sertextext.right(1, "User: "..u)		
-	term.setBackgroundColor(colors.white)
-	term.setTextColor(colors.red)
-end
 -- desktop
 
 function desktop()
+
+	function desktopHeader()
+		local termW, termH = term.getSize()		
+
+		term.setBackgroundColor(colors.white)
+		term.clear()
+		graphics.box(1,1,termW,1, colors.red)
+		term.setBackgroundColor(colors.red)
+		term.setCursorPos(1,1)
+		term.setTextColor(colors.white)
+		sertextext.center(1, "SertexOS 2")
+		sertextext.left(1, "Computer ID: "..os.getComputerID())
+		sertextext.right(1, "User: "..u)		
+		term.setBackgroundColor(colors.white)
+		term.setTextColor(colors.red)
+	end
+
 	while true do
 		local termW, termH = term.getSize()
 
