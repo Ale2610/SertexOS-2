@@ -27,7 +27,7 @@ _G.SertexOS = {
 }
 
 function os.version()
-  return "SertexOS 2 b"..SertexOS.build'
+  return "SertexOS 2 b"..SertexOS.build
 end
 
 SertexOS.launchArgs = {...}
