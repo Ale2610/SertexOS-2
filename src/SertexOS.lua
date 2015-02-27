@@ -59,6 +59,8 @@ if fs.exists(fs.combine(SertexOS.baseDir, "apis")) and fs.isDir(fs.combine(Serte
   end
 end
 
+api.log("System Online")
+
 if u == nil then
 	u = "root"
 end
@@ -114,6 +116,7 @@ function desktop()
 				printMsg(colors.gray)
 				printMsg(colors.black)
 				sleep(0.6)
+				api.log("Shutdown")
 				os.shutdown()
 			end},
 			{"Reboot", function()
@@ -130,6 +133,7 @@ function desktop()
 				printMsg(colors.gray)
 				printMsg(colors.black)
 				sleep(0.6)
+				api.log("Reboot")
 				os.reboot()
 			end},
 			{"Logout", function()
@@ -150,6 +154,7 @@ function desktop()
 				login()
 			end},
 			{"Shell", function()
+				api.log("Opened Shell")
 				term.setBackgroundColor(colors.black)
 				term.clear()
 				term.setCursorPos(1,1)
@@ -239,6 +244,7 @@ function login()
 		rp = read("*")
 		if not p == rp then
 			print("  Wrong Password.")
+			api.log("Wrong Password on setup")
 			sleep(2)
 			login()
 		end
@@ -257,6 +263,7 @@ function login()
 			api.log("Created Account "..u)
 			sleep(0.1)
 		elseif key == 49 then
+			api.log("User deleted")
 			sleep(0.1)
 			login()
 		end
@@ -269,8 +276,10 @@ function login()
 		
 		if key == 21 then
 			sleep(0.1)
+			api.log("Making new user")
 			login()
 		elseif key == 49 then
+			api.log("Stop making new users")
 			userOk = fs.open(systemDir.."/.userCreateOk", "w")
 			userOk.write("ignore me please")
 			userOk.close()
@@ -302,6 +311,7 @@ function login()
 			desktop()
 		else
 			printError( "  Incorrect Password!" )
+			api.log("Incorrect Password from "..u.." Password: "..p)
 			sleep( 2 )
 			login()
 		end
