@@ -38,10 +38,10 @@ end
 function bios(reason,message) --for crash
 	lock()
 	reasons = {
-		["bypass"] = "System Bypassed"
-		["crash"] = "System Crashed"
-		["unknown"] = "Unknown Error"
-		["seretx"] = "SeretxOS 2 crashed again :C"
+		["bypass"] = "System Bypassed",
+		["crash"] = "System Crashed",
+		["unknown"] = "Unknown Error",
+		["seretx"] = "SeretxOS 2 crashed again :C",
 	}
 		term.setBackgroundColor(colors.blue)
 		term.clear()
