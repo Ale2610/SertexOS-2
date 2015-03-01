@@ -23,7 +23,7 @@ end
 
 _G.SertexOS = {
   build = 3,
-  quiet = false,
+  quiet = true,
 }
 
 function os.version()
