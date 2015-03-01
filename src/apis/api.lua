@@ -42,7 +42,7 @@ function bios(reason,message) --for crash
 		["crash"] = "System Crashed"
 		["unknown"] = "Unknown Error"
 		["seretx"] = "SeretxOS 2 crashed again :C"
-		
+	}
 		term.setBackgroundColor(colors.blue)
 		term.clear()
 		term.setCursorPos(1,1)
