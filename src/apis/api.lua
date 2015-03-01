@@ -34,3 +34,22 @@ function setLogging(val)
     SertexOS.quiet = not val
   end
 end
+
+function bios(reason,message) --for crash
+	lock()
+	reasons = {
+		["bypass"] = "System Bypassed"
+		["crash"] = "System Crashed"
+		["unknown"] = "Unknown Error"
+		["seretx"] = "SeretxOS 2 crashed again :C"
+		
+		term.setBackgroundColor(colors.blue)
+		term.clear()
+		term.setCursorPos(1,1)
+		term.setTextColor(colors.white)
+		sertextext.center(1,"SertexOS 2 Crashed")
+		sertextext.center(2,reason)
+		sertextext.center(4,message)
+		sertextext.center(7,"Please, Reboot System")
+	}
+end
