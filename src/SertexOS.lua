@@ -61,10 +61,6 @@ end
 
 api.log("System Online")
 
-if u == nil then
-	u = "root"
-end
-
 local systemDir = ".SertexOS"
 local dbUsersDir = systemDir.."/databaseUsers/"
 local folderUsersDir = "/user"
@@ -81,6 +77,21 @@ end
 -- desktop
 
 function desktop()
+
+	if u == nil then
+		term.setBackgroundColor(colors.lightBlue)
+		term.clear()
+		term.setCursorPos(1,1)
+		term.setTextColor(colors.white)
+		api.lock()
+		sertextext.center(1,"SertexOS 2")
+		sertextext.center(2,"System Bypassed")
+		sertextext.center(4,"user = \"nil\"")
+		sertextext.center(6,"Please, Reboot System!")
+		while true do
+			sleep(0)
+		end
+	end
 
 	function desktopHeader()
 		local termW, termH = term.getSize()		
