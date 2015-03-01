@@ -79,7 +79,7 @@ end
 function desktop()
 
 	if u == nil then
-		term.setBackgroundColor(colors.lightBlue)
+		term.setBackgroundColor(colors.blue)
 		term.clear()
 		term.setCursorPos(1,1)
 		term.setTextColor(colors.white)
