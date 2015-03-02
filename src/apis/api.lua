@@ -51,5 +51,4 @@ function bios(reason,message) --for crash (please code it)
 		sertextext.center(2,reason)
 		sertextext.center(4,message)
 		sertextext.center(7,"Please, Reboot System")
-	}
 end
