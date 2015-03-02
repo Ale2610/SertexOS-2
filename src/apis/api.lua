@@ -35,7 +35,7 @@ function setLogging(val)
   end
 end
 
-function bios(reason,message) --for crash
+function bios(reason,message) --for crash (please code it)
 	lock()
 	reasons = {
 		["bypass"] = "System Bypassed",
