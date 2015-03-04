@@ -1,12 +1,12 @@
 local oldFs = fs
-fs.isReadOnly = funtion(file)
+fs.isReadOnly = function(file)
   if file:sub(1,#".SertexOS") == ".SertexOS" then
     return true
   else
     return oldFs.isReadOnly(file)
   end
 end
-fs.open = funtion(file,mode)
+fs.open = function(file,mode)
   if file:sub(1,#".SertexOS") == ".SertexOS" and (mode == "w" or mode == "wb" or mode == "ab" or mode == "a") then
     return nil
   else
