@@ -42,15 +42,23 @@ function crash(reason,message) --for crash (please code it)
 		["security"] = "System Security Issue",
 		["crash"] = "System Crashed",
 		["unknown"] = "Unknown Error",
-		["seretx"] = "SeretxOS 2 crashed again :C",
+		["seretx"] = "SeretxOS 2 crashed again :C", -- Devs need fun
 	}
 		term.setBackgroundColor(colors.blue)
 		term.clear()
 		term.setCursorPos(1,1)
 		term.setTextColor(colors.white)
 		sertextext.center(1,"SertexOS 2 Crashed:")
-		sertextext.center(2,reasons[reason])
-		sertextext.center(4,message)
+		if not reasons or not reasons[reason] then
+			sertextext.center(2,reasons["crash"])
+		else
+			sertextext.center(2,reasons[reason])
+		end
+		if not message then
+			sertextext.center(4, "Undefined Crash")
+		else
+			sertextext.center(4,message)
+		end
 		sertextext.center(7,"Automatic Reboot In 10 Seconds.")
 		sertextext.center(8,"Please report on the github repo")
 		sleep(10)
