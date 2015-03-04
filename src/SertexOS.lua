@@ -307,7 +307,7 @@ function login()
 		write( "  Password > " )
 		p = read( "*" )
 		encryptedPassword = sha256.sha256(p)
-		if not fs.exists(dbUsersDir..u) then
+		if not fs.exists(dbUsersDir..u) or u == "" then
 			print("  Username not registered!")
 			sleep(2)
 			login()
