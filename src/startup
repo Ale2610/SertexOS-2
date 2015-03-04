@@ -1,4 +1,4 @@
-local oldFs = fs
+oldFs = fs
 fs.isReadOnly = function(file)
   if file:sub(1,#".SertexOS") == ".SertexOS" then
     return true
