@@ -35,10 +35,11 @@ function setLogging(val)
   end
 end
 
-function bios(reason,message) --for crash (please code it)
+function crash(reason,message) --for crash (please code it)
 	lock()
 	reasons = {
 		["bypass"] = "System Bypassed",
+		["security"] = "System Security Issue",
 		["crash"] = "System Crashed",
 		["unknown"] = "Unknown Error",
 		["seretx"] = "SeretxOS 2 crashed again :C",
@@ -47,8 +48,11 @@ function bios(reason,message) --for crash (please code it)
 		term.clear()
 		term.setCursorPos(1,1)
 		term.setTextColor(colors.white)
-		sertextext.center(1,"SertexOS 2 Crashed")
-		sertextext.center(2,reason)
+		sertextext.center(1,"SertexOS 2 Crashed:")
+		sertextext.center(2,reasons[reason])
 		sertextext.center(4,message)
-		sertextext.center(7,"Please, Reboot System")
+		sertextext.center(7,"Automatic Reboot In 10 Seconds.")
+		sertextext.center(8,"Please report on the github repo")
+		sleep(10)
+		os.reboot()
 end
