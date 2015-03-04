@@ -59,8 +59,9 @@ function crash(reason,message) --for crash (please code it)
 		else
 			sertextext.center(4,message)
 		end
-		sertextext.center(7,"Automatic Reboot In 10 Seconds.")
+		sertextext.center(7,"Please reboot system!")
 		sertextext.center(8,"Please report on the github repo")
-		sleep(10)
-		os.reboot()
+		while true do
+			sleep(0)
+		end
 end
