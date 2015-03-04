@@ -121,5 +121,6 @@ local w, h = term.getSize()
 term.setCursorPos(2, h-1)
 print("100% - "..tostring(filesDownloaded).."/"..tostring(fileCount))
 os.pullEvent("key")
-shell.run(systemDir.."/SertexOS -f -o")
+
+os.reboot()
 
