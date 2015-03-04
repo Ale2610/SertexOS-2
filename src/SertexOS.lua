@@ -253,7 +253,7 @@ function login()
 		print( "  Please Repeat The Password." )
 		write( "  > " )
 		rp = read("*")
-		if not p == rp then
+		if p ~= rp then
 			print("  Wrong Password.")
 			api.log("Wrong Password on setup")
 			sleep(2)
