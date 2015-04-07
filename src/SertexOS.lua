@@ -226,7 +226,7 @@ function desktop()
 	end
 end
 
-local function loginHeader()
+function header()
 	clear()
 	graphics.box(1,1,51,3, colors.red)
 	term.setTextColor(colors.white)
@@ -242,7 +242,7 @@ function login()
 	clear()
 	if not fs.exists("/.SertexOS/.userCreateOk") then
 	while true do
-		loginHeader()
+		header()
 		print( "  SertexOS 2 Account Setup" )
 		print( "\n  Please Enter Your Username." )
 		write( "  > " )
@@ -260,8 +260,9 @@ function login()
 			login()
 		end
 		encrtyptedPassword = sha256.sha256(p)
-		loginHeader()
-		print( "  You entered " .. u .. " as your username. Is this correct?" )
+		header()
+		print("  You entered " .. u .. " as your username. Is this")
+		print("  correct?")
 		print("  [Y] Yes")
 		print("  [N] No")
 		id, key = os.pullEvent("key")
@@ -278,7 +279,7 @@ function login()
 			sleep(0.1)
 			login()
 		end
-		loginHeader()
+		header()
 		print( "  Do you want to create another account?" )
 		print("  [Y] Yes")
 		print("  [N] No")
@@ -300,7 +301,7 @@ function login()
 	end	
 	end
 		clear()
-		loginHeader()
+		header()
 		print( "  Please Log In" )
 		write( "\n  Username > " )
 		u = read()

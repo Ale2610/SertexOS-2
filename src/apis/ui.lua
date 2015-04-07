@@ -1,3 +1,5 @@
+-- UI API From LMNetOS
+
 xLen,yLen = term.getSize()
 
 function isSpace()
@@ -6,7 +8,7 @@ function isSpace()
 end
 
 function version() 
-	return 1,"LMNetUI"
+	return 1,"LMNetUI for SertexOS 2"
 end
 
 function has(pWhat)
@@ -159,7 +161,8 @@ function menu(items, title, start,allowNil,moreTitle)
 	local page = 1
 	
 	local function redraw()
-		term.setBackgroundColor(colors.black)
+		term.setBackgroundColor(colors.white)
+		term.setTextColor(colors.red)
 		clear()
 		cprint(title)
 		if moreTitle then
@@ -280,10 +283,10 @@ function yesno(text, title, start)
 			end
 		end
 		term.setCursorPos(x+math.floor((x2-x)/2)-math.floor(buttonText:len()/2), y+math.floor((y2-y+1)/2))
-		term.setTextColor(colors.black)
+		term.setTextColor(colors.red)
 		write(buttonText)
-		term.setTextColor(colors.white)
-		term.setBackgroundColor(colors.black)
+		term.setTextColor(colors.red)
+		term.setBackgroundColor(colors.white)
 	end
 	
 	local selected = true
@@ -292,7 +295,7 @@ function yesno(text, title, start)
 		clear()
 		cprint(title)
 		term.setCursorPos(1, 3)
-		print(text)
+		cprint(text)
 		local w, h = term.getSize()
 		drawButton("Yes", 2, h-1, math.floor(w/2)-1, h-1, selected)
 		drawButton("No", math.floor(w/2)+1, h-1, w-1, h-1, not selected)
