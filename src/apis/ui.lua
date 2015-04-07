@@ -266,6 +266,8 @@ function yesno(text, title, start)
 		term.clear()
 		term.setCursorPos(1, 1)
 	end
+	term.setBackgroundColor(colors.white)
+	clear()
 	
 	local function drawButton(buttonText, x, y, x2, y2, enabled)
 		if enabled then
@@ -286,7 +288,7 @@ function yesno(text, title, start)
 		term.setTextColor(colors.white)
 		write(buttonText)
 		term.setTextColor(colors.white)
-		term.setBackgroundColor(colors.blue)
+		term.setBackgroundColor(colors.white)
 	end
 	
 	local selected = true
