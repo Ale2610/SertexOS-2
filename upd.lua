@@ -16,6 +16,7 @@ local files = {
 	["src/root/multitask.lua"] = systemDir.."/root/multitask",
 	["src/apps/fg.lua"] = systemDir.."/apps/fg",
 	["src/apis/api.lua"] = systemDir.."/apis/api",
+	["src/apis/ui.lua"] = systemDir.."/apis/ui",
 	["src/apis/graphics.lua"] = systemDir.."/apis/graphics",
 	["src/apis/sertextext.lua"] = systemDir.."/apis/sertextext",
 	["src/apis/sha256.lua"] = systemDir.."/apis/sha256",
