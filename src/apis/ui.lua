@@ -296,6 +296,7 @@ function yesno(text, title, start)
 	
 	local function redraw()
 		clear()
+		header()
 		cprint(title)
 		term.setCursorPos(1, 3)
 		cprint(text)
@@ -328,6 +329,7 @@ function yesno(text, title, start)
 					return false
 				elseif eventData[3] >= 2 and eventData[3] <= math.floor(w/2)-1 then
 					clear()
+					term.setTextColor(colors.red)
 					return true
 				end
 			end
