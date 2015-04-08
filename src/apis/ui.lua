@@ -264,6 +264,7 @@ end
 function yesno(text, title, start)
 	local function clear()
 		term.clear()
+		term.setBackgroundColor(colors.white)
 		term.setCursorPos(1, 1)
 	end
 	term.setBackgroundColor(colors.white)
