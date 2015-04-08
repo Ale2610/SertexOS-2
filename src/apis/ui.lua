@@ -1,10 +1,26 @@
 -- UI API From LMNetOS
 
+
 function header()
+function center(y, text ) --from SertexText API
+        w, h = term.getSize()
+        term.setCursorPos((w - #text) / 2, y)
+        write(text)
+end
+
+function box(x, y, x2, y2, color) --from graphic API for SertexOS 2
+  local ox, oy = term.getCursorPos()
+  term.setBackgroundColor(color)
+  for _y = y, y2 do
+    term.setCursorPos(x, _y)
+    term.write(string.rep(" ", (x2 - x) + 1))
+  end
+  term.setCursorPos(ox, oy)
+end
 	clear()
-	graphics.box(1,1,51,3, colors.red)
+	box(1,1,51,3, colors.red)
 	term.setTextColor(colors.white)
-	sertextext.center(2, "SertexOS 2")
+	center(2, "SertexOS 2")
 	term.setBackgroundColor(colors.white)
 	term.setTextColor(colors.red)
 	term.setCursorPos(1,5)
