@@ -106,7 +106,11 @@ function settings()
 		f = fs.open(dbUsersDir..u, "r")
 		pw = f.readLine()
 		f.close()
-		if sha256.sha256(currentPW) == pw then
+		if sha256.sha256(currentPW) ~= pw then
+			print("\n  Wrong Password!")
+			sleep(2)
+			changePassword()
+		else
 			print("  Please Enter Your New Password.")
 			write("  > ")
 			local newPW = read("*")
@@ -124,10 +128,6 @@ function settings()
 				sleep(2)
 				changePassword()
 			end
-		else
-			print("\n  Wrong Password!")
-			sleep(2)
-			changePassword()
 		end
 		return
 	end
