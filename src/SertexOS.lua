@@ -66,11 +66,11 @@ api.log("System Online")
 dofile("/.SertexOS/config")
 
 if language == "en" then
-	dofile("/.SertexOS/lang/en")
+	dofile("/.SertexOS/lang/en.lang")
 elseif language == "it" then
-	dofile("/.SertexOS/lang/it")
+	dofile("/.SertexOS/lang/it.lang")
 elseif language == "de" then
-	dofile("/.SertexOS/lang/de")
+	dofile("/.SertexOS/lang/de.lang")
 else
 	api.crash("crash", "Language Not Found")
 end
