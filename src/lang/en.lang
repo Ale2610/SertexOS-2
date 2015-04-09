@@ -1,0 +1,44 @@
+system_shuttingDown = "Shutting Down..."
+system_rebooting = "Rebooting..."
+account_loggingOut = "Logging Out..."
+
+mainMenu_shutdown = "Shutdown"
+mainMenu_reboot = "Reboot"
+mainMenu_logout = "Logout"
+mainMenu_shell = "Shell"
+mainMenu_settings = "Settings"
+
+desktop_user = "User: "
+desktop_computerID = "Computer ID: "
+
+setup_title = "SertexOS 2 Account Setup"
+setup_enterUsername = "Please Enter Your Username."
+setup_enterPassword = "Please Enter A Password."
+setup_repeatEnterPassword = "Please Repeat The Password."
+setup_isUsernameCorrect1 = "You entered " .. u .. " as your username."
+setup_isUsernameCorrect2 = "It's this correct?"
+setup_createAnotherUser = "Do you want to create another user?"
+
+login_title = "Please Log In"
+login_username = "Username"
+login_password = "Password"
+login_notRegistered = "Username not registered!"
+login_welcome = "Welcome "..u.."!"
+
+settings_title = "Settings"
+settings_changeLang = "Change Language"
+settings_changePassword = "Change Password"
+settings_update = "Update"
+
+changePassword_title = "Change Password For"
+changePassword_enterCurrentPassword = "Please Enter Your Current Password."
+changePassword_enterNewPassword = "Please Enter Your New Password."
+changePassword_repeatNewPassword = "Please Repeat Your New Password."
+
+language_title = "Choose A Language"
+
+writingData = "Wring Data..."
+wrongPassword = "Wrong Password!"
+exit = "Exit"
+done = "Done"
+

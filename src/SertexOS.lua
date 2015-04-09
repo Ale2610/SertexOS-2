@@ -91,8 +91,12 @@ end
 function settings()
 	
 	local function changeLang()
-		print("WIP")
-		sleep(2)
+		langs = {
+			"English", --1
+			"Italiano", --2
+			"Deutsch", --3
+		}
+		item, id = ui.menu(langs, "Choose A Language")
 		return
 	end
 	
@@ -341,7 +345,7 @@ function login()
 		
 		if choose then
 			sleep(0.1)
-			api.log("Making new user")
+			api.log("Creating new user")
 			login()
 		else
 			api.log("Stop making new users")
