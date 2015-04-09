@@ -74,6 +74,18 @@ function clear()
 	term.setTextColor(colors.red)
 end
 
+-- header
+function header()
+	clear()
+	graphics.box(1,1,51,3, colors.red)
+	term.setTextColor(colors.white)
+	sertextext.center(2, "SertexOS 2")
+	term.setBackgroundColor(colors.white)
+	term.setTextColor(colors.red)
+	term.setCursorPos(1,5)
+end
+
+
 -- settings
 
 function settings()
@@ -85,8 +97,38 @@ function settings()
 	end
 	
 	local function changePassword()
-		print("WIP")
-		sleep(2)
+		clear()
+		header()
+		sertextext.center(5, "Change Password For "..u.."\n")
+		print("  Please Enter Your Current Password.")
+		write("  > ")
+		local currentPW = read("*")
+		local f = fs.open(dbUsersDir..u, "r")
+		pw = f.readLine()
+		f.close()
+		if not sha256.sha256(currentPW) == pw then
+			print("\n  Wrong Password!")
+			sleep(2)
+			changePassword()
+		else
+			print("  Please Enter Your New Password.")
+			write("  > ")
+			local newPW = read("*")
+			print("  Please Repeat Your New Password.")
+			write("  > ")
+			local repeatNewPW = read("*")
+			if newPW == repeatNewPW then
+				local f = fs.open(dbUsersDir..u, "w")
+				f.write(sha256.sha256(newPW))
+				f.close()
+				print("\n  Done")
+				sleep(2)
+			else
+				print("\n  Wrong Password!")
+				sleep(2)
+				changePassword()
+			end
+		end
 		return
 	end
 	
@@ -259,17 +301,6 @@ function desktop()
 		end
 	end
 end
-
-function header()
-	clear()
-	graphics.box(1,1,51,3, colors.red)
-	term.setTextColor(colors.white)
-	sertextext.center(2, "SertexOS 2")
-	term.setBackgroundColor(colors.white)
-	term.setTextColor(colors.red)
-	term.setCursorPos(1,5)
-end
-
 -- login
 
 function login()
@@ -288,7 +319,7 @@ function login()
 		write( "  > " )
 		rp = read("*")
 		if p ~= rp then
-			print("  Wrong Password.")
+			print("  Wrong Password!")
 			api.log("Wrong Password on setup")
 			sleep(2)
 			login()
@@ -346,7 +377,7 @@ function login()
 			sleep( 2 )
 			desktop()
 		else
-			printError( "  Incorrect Password!" )
+			printError( "  Wrong Password!" )
 			api.log("Incorrect Password from "..u.." Password: "..p)
 			sleep( 2 )
 			login()
