@@ -190,32 +190,34 @@ function menu(items, title, start,allowNil,moreTitle)
 		term.setBackgroundColor(colors.white)
 		term.setTextColor(colors.red)
 		clear()
+		header()
+		term.setCursorPos(1,5)
 		cprint(title)
 		if moreTitle then
 			head = moreTitle
 		else
-			head = {"Select with arrow keys or with mouse.","Press enter to select.",}
+			head = {"Choose an option\n",}
 			if not allowNil or allowNil == true then
-				head[3] = 'Terminate to cancel.'
+				--head[3] = 'Terminate to cancel.'
 			end
 		end
-		for i=1,3 do
+		for i=1,#head do
 			print(head[i])
 		end
 		pages = "<- (page "..page.." of "..maxPages()..") ->"
 		print(pages)
 		for i = 1, #pagedItems()[page] do
 			if selected == drawSize*(page-1)+i then
-				term.setBackgroundColor(colors.white)
-				term.setTextColor(colors.black)
-			else
-				term.setBackgroundColor(colors.black)
+				term.setBackgroundColor(colors.red)
 				term.setTextColor(colors.white)
+			else
+				term.setBackgroundColor(colors.white)
+				term.setTextColor(colors.red)
 			end
 			term.clearLine()
 			print(iif(selected == drawSize*(page-1)+i, ">", " ").." "..pagedItems()[page][i])
-			term.setBackgroundColor(colors.black)
-			term.setTextColor(colors.white)
+			term.setBackgroundColor(colors.white)
+			term.setTextColor(colors.red)
 		end
 	end
 
