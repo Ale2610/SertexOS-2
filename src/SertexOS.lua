@@ -157,8 +157,6 @@ function settings()
 		update()
 	elseif id == 4 then
 		exitSettings()
-	else
-		settings()
 	end
 end
 
