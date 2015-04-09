@@ -39,6 +39,8 @@ if OneOS and not argData["-o"] then
   printError("Sorry, SertexOS and OneOS can't run in parallel.")
   print("Please reboot the computer without OneOS and start SertexOS.")
   print("If you *really* want to use OneOS *and* SertexOS, use the command line argument '-o' when starting SertexOS.")
+	_G.SertexOS = nil
+	SertexOS = nil
   return
 end
 
@@ -60,6 +62,18 @@ if fs.exists(fs.combine(SertexOS.baseDir, "apis")) and fs.isDir(fs.combine(Serte
 end
 
 api.log("System Online")
+
+dofile("/.SertexOS/config")
+
+if language == "en" then
+	dofile("/.SertexOS/lang/en")
+elseif language == "it" then
+	dofile("/.SertexOS/lang/it")
+elseif language == "de" then
+	dofile("/.SertexOS/lang/de")
+else
+	api.crash("crash", "Language Not Found")
+end
 
 local systemDir = ".SertexOS"
 local dbUsersDir = systemDir.."/databaseUsers/"
@@ -96,39 +110,39 @@ function settings()
 			"Italiano", --2
 			"Deutsch", --3
 		}
-		item, id = ui.menu(langs, "Choose A Language")
+		item, id = ui.menu(langs, language_title)
 		return
 	end
 	
 	local function changePassword()
 		clear()
 		header()
-		sertextext.center(5, "Change Password For "..u.."\n\n")
-		print("  Please Enter Your Current Password.")
+		sertextext.center(5, changePassword_title.." "..u.."\n\n")
+		print("  "..changePassword_enterCurrentPassword)
 		write("  > ")
 		currentPW = read("*")
 		f = fs.open(dbUsersDir..u, "r")
 		pw = f.readLine()
 		f.close()
 		if sha256.sha256(currentPW) ~= pw then
-			print("\n  Wrong Password!")
+			print("\n  "..wrongPassword)
 			sleep(2)
 			changePassword()
 		else
-			print("  Please Enter Your New Password.")
+			print("  "..changePassword_enterNewPassword)
 			write("  > ")
 			local newPW = read("*")
-			print("  Please Repeat Your New Password.")
+			print("  "..changePassword_repeatNewPassword)
 			write("  > ")
 			local repeatNewPW = read("*")
 			if newPW == repeatNewPW then
 				local f = fs.open(dbUsersDir..u, "w")
 				f.write(sha256.sha256(newPW))
 				f.close()
-				print("\n  Done")
+				print("\n  "..lang_done)
 				sleep(2)
 			else
-				print("\n  Wrong Password!")
+				print("\n  "..wrongPassword)
 				sleep(2)
 				changePassword()
 			end
@@ -145,13 +159,13 @@ function settings()
 		return
 	end
 	options = {
-		"Change Language", --1
-		"Change Password", --2
-		"Update", --3
-		"Exit", --4
+		settings_changeLang, --1
+		settings_changePassword, --2
+		settings_update, --3
+		lang_exit, --4
 	}
 	
-	item, id = ui.menu(options, "Settings")
+	item, id = ui.menu(options, settings_title)
 	
 	if id == 1 then
 		changeLang()

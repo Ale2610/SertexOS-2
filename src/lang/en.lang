@@ -1,3 +1,6 @@
+-- Default Language for SertexOS 2
+-- By _Ale2610_, MultMine and lewislovesgames
+
 system_shuttingDown = "Shutting Down..."
 system_rebooting = "Rebooting..."
 account_loggingOut = "Logging Out..."
@@ -39,6 +42,6 @@ language_title = "Choose A Language"
 
 writingData = "Wring Data..."
 wrongPassword = "Wrong Password!"
-exit = "Exit"
-done = "Done"
+lang_exit = "Exit"
+lang_done = "Done"
 

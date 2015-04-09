@@ -1,3 +1,6 @@
+-- Language for SertexOS 2
+-- By _Ale2610_
+
 system_shuttingDown = "Arresto..."
 system_rebooting = "Riavvio..."
 account_loggingOut = "Disconnessione..."
@@ -39,6 +42,6 @@ language_title = "Scegli Una Lingua"
 
 writingData = "Scrittura Dati..."
 wrongPassword = "Password Errata!"
-exit = "Esci"
-done = "Fatto"
+lang_exit = "Esci"
+lang_done = "Fatto"
 

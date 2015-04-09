@@ -8,6 +8,19 @@ if fs.exists("startup") then
 	fs.move("startup", "startup.bak")
 end
 
+if not fs.exists("/.SertexOS/config") then
+	local f = fs.open("/.SertexOS/config","w")
+	f.write("configVersion = 1\nlanguage = \"en\"")
+	f.close()
+else
+	dofile("/.SertexOS/config")
+	if not configVersion == 1 then
+		local f = fs.open("/.SertexOS/config","w")
+		f.write("configVersion = 1\nlanguage = \"en\"")
+		f.close()
+	end
+end
+
 systemDir = ".SertexOS"
 
 local files = {

@@ -1,1 +1,2 @@
-shell.run(".SertexOS/SertexOS -f -o")
+local tArgs = {...}
+shell.run(".SertexOS/SertexOS", ...)
