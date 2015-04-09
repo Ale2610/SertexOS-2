@@ -260,13 +260,8 @@ function login()
 			login()
 		end
 		encrtyptedPassword = sha256.sha256(p)
-		header()
-		print("  You entered " .. u .. " as your username. Is this")
-		print("  correct?")
-		print("  [Y] Yes")
-		print("  [N] No")
-		id, key = os.pullEvent("key")
-		if key == 21 then
+		choose = ui.yesno("You entered " .. u .. " as your username.", "It's this correct?")
+		if choose then
 			print( "   Writing Data..." )
 			f = fs.open( dbUsersDir..u, "w" )
 			f.write( sha256.sha256(p) )
@@ -274,23 +269,18 @@ function login()
 			fs.makeDir(folderUsersDir.."/"..u.."/desktop")
 			api.log("Created Account "..u)
 			sleep(0.1)
-		elseif key == 49 then
+		else
 			api.log("User deleted")
 			sleep(0.1)
 			login()
 		end
-		header()
-		print( "  Do you want to create another account?" )
-		print("  [Y] Yes")
-		print("  [N] No")
+		choose = ui.yesno("Do you want to create another user?")
 		
-		id, key = os.pullEvent("key")
-		
-		if key == 21 then
+		if choose then
 			sleep(0.1)
 			api.log("Making new user")
 			login()
-		elseif key == 49 then
+		else
 			api.log("Stop making new users")
 			userOk = fs.open(systemDir.."/.userCreateOk", "w")
 			userOk.write("ignore me please")
