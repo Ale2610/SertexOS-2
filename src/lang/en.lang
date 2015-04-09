@@ -1,6 +1,8 @@
 -- Default Language for SertexOS 2
 -- By _Ale2610_, MultMine and lewislovesgames
 
+u = "username"
+
 system_shuttingDown = "Shutting Down..."
 system_rebooting = "Rebooting..."
 account_loggingOut = "Logging Out..."

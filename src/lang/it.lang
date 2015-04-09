@@ -1,6 +1,8 @@
 -- Language for SertexOS 2
 -- By _Ale2610_
 
+u = "username"
+
 system_shuttingDown = "Arresto..."
 system_rebooting = "Riavvio..."
 account_loggingOut = "Disconnessione..."

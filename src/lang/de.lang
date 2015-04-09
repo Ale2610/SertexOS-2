@@ -1,6 +1,8 @@
 -- Language for SertexOS 2
 -- By MultMine (todo)
 
+u = "username"
+
 system_shuttingDown = "Shutting Down..."
 system_rebooting = "Rebooting..."
 account_loggingOut = "Logging Out..."
