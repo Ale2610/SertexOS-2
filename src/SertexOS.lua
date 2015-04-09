@@ -260,7 +260,7 @@ function login()
 			login()
 		end
 		encrtyptedPassword = sha256.sha256(p)
-		choose = ui.yesno("You entered " .. u .. " as your username.", "It's this correct?")
+		choose = ui.yesno("It's this correct?", "You entered " .. u .. " as your username.")
 		if choose then
 			print( "   Writing Data..." )
 			f = fs.open( dbUsersDir..u, "w" )
