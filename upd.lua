@@ -22,6 +22,10 @@ local files = {
 	["src/apis/sha256.lua"] = systemDir.."/apis/sha256",
 	["update"] = systemDir.."/update",
 	["src/startup"] = "/startup",
+	
+	["src/lang/en.lang"] = systemDir.."/lang/en.lang",
+	["src/lang/it.lang"] = systemDir.."/lang/it.lang",
+	["src/lang/de.lang"] = systemDir.."/lang/de.lang",
 }
 
 local githubUser    = "Sertex-Team"
