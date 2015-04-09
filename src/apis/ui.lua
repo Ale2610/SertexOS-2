@@ -323,9 +323,9 @@ function yesno(text, title, start)
 	local function redraw()
 		clear()
 		header()
-		term.setCursorPos(1,4)
+		term.setCursorPos(1,5)
 		cprint(title)
-		term.setCursorPos(1, 5)
+		term.setCursorPos(1,7)
 		cprint(text)
 		local w, h = term.getSize()
 		drawButton("Yes", 2, h-1, math.floor(w/2)-1, h-1, selected)
@@ -361,6 +361,7 @@ function yesno(text, title, start)
 				end
 			end
 		end
+		term.setTextColor(colors.red)
 		sleep(0)
 	end
 end
