@@ -22,7 +22,7 @@ if _G.SertexOS and not argData["-f"] then
 end
 
 _G.SertexOS = {
-  build = 3,
+  build = 4,
   quiet = true,
 }
 
