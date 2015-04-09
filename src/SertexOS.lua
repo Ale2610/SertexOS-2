@@ -74,23 +74,58 @@ function clear()
 	term.setTextColor(colors.red)
 end
 
+-- settings
+
+function settings()
+	
+	local function changeLang()
+		print("WIP")
+		sleep(2)
+		return
+	end
+	
+	local function changePassword()
+		print("WIP")
+		sleep(2)
+		return
+	end
+	
+	local function update()
+		api.log("System Update")
+		shell.run("pastebin run x01uD8Uc")
+	end
+	
+	function exitSettings()
+		desktop()
+	end
+	options = {
+		"Change Language", --1
+		"Change Password", --2
+		"Update", --3
+		"Exit", --4
+	}
+	
+	item, id = ui.menu(options, "Settings")
+	
+	if id == 1 then
+		changeLang()
+	elseif id == 2 then
+		changePassword()
+	elseif id == 3 then	
+		update()
+	elseif id == 4 then
+		exitSetting()
+	else
+		settings()
+	end
+end
+
 -- desktop
 
 function desktop()
 
 	if u == nil then
-		term.setBackgroundColor(colors.blue)
-		term.clear()
-		term.setCursorPos(1,1)
-		term.setTextColor(colors.white)
-		api.lock()
-		sertextext.center(1,"SertexOS 2")
-		sertextext.center(2,"System Bypassed")
-		sertextext.center(4,"user = \"nil\"")
-		sertextext.center(6,"Please, Reboot System!")
-		while true do
-			sleep(0)
-		end
+		api.crash("bypass", "Username = nil")
 	end
 
 	function desktopHeader()
@@ -174,9 +209,8 @@ function desktop()
 				shell.switchTab(2)
 				sleep(0.1)
 			end},
-			{"Update", function()
-				api.log("Update")
-				shell.run("/.SertexOS/update")
+			{"Settings", function()
+				settings()
 			end},
 		}
 
