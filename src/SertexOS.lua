@@ -96,7 +96,7 @@ function settings()
 	end
 	
 	local function exitSettings()
-		desktop()
+		return
 	end
 	options = {
 		"Change Language", --1
