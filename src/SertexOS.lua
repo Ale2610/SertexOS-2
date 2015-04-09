@@ -95,7 +95,7 @@ function settings()
 		shell.run("pastebin run x01uD8Uc")
 	end
 	
-	function exitSettings()
+	local function exitSettings()
 		desktop()
 	end
 	options = {
