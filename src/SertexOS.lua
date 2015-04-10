@@ -417,8 +417,9 @@ function desktop()
 				else
 					local mx = ev[3]
 					local my = ev[4]
-					if (mx > x - 1 and my > y - 1) and (mx < maxX + 1 and my < maxY + 1) then
-						shell.run(appDir.."/app")
+					if (mx > 2 - 1 and my > 3 - 1) and (mx < 6 + 1 and my < 8 + 1) then
+						shell.run("/.SertexOS/apps/shell/app")
+					elseif (mx > 8 - 1 and my > 3 - 1) and (mx < 12 + 1 and my < 8 + 1) then
 					end
 			end
 				end

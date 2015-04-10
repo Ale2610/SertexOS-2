@@ -25,7 +25,10 @@ systemDir = ".SertexOS"
 
 local files = {
 	["src/SertexOS.lua"] = systemDir.."/SertexOS",
-	["src/apps/shell.lua"] = systemDir.."/apps/shell",
+	["src/apps/shell/shell.lua"] = systemDir.."/apps/shell/shell",
+	["src/apps/shell/logo"] = systemDir.."/apps/shell/logo",
+	["src/apps/firewolf/firewolf.lua"] = systemDir.."/apps/firewolf/firewolf",
+	["src/apps/firewolf/logo"] = systemDir.."/apps/firewolf/logo",
 	["src/root/multitask.lua"] = systemDir.."/root/multitask",
 	["src/apps/fg.lua"] = systemDir.."/apps/fg",
 	["src/apis/api.lua"] = systemDir.."/apis/api",
