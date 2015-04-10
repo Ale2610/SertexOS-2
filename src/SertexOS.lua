@@ -349,6 +349,38 @@ function desktop()
 				settings()
 			end},
 		}
+		
+		
+		local function app(name, x, y)
+			local applications = {
+				["Shell"] = "shell",
+				["Firewolf"] = "firewolf",
+			}
+			
+			local appDir = "/.SertexOS/apps/"..applications[name]
+			local appLogo = paintutils.loadImage(appDir.."/logo")
+			
+			paintutils.drawImage(appLogo, x, y)
+			
+			maxX = x + 4
+			maxY = y + 5
+			
+			term.setCursorPos(x - 1, maxY + 1)
+			term.setTextColor(colors.red)
+			write(name)
+			
+			while true do
+				local ev = {os.pullEvent()}
+				if ev[1] == "mouse_click" then
+					local mx = ev[3]
+					local my = ev[4]
+					if (mx > x - 1 and my > y - 1) and (mx < maxX + 1 and my < maxY + 1) then
+						shell.run(appDir.."/app")
+					end
+				end
+				sleep(0)
+			end
+		end
 
 		local sidebarVisible = false
 		local sidebarWidth = 0
@@ -378,23 +410,34 @@ function desktop()
 		
 		api.lock()
 		
-		while true do
-			redraw()
-			local ev = {os.pullEventRaw()}
-			if ev[1] == "terminate" then
-				return
-			elseif ev[1] == "mouse_click" then
-				if ev[3] == termW then
-					sidebarVisible = not sidebarVisible
-				elseif ev[3] >= termW - sidebarWidth
-				and    ev[3] <= termW - 1
-				and    ev[4] >= 2
-				and    sidebarVisible then
-					if sidebar[ev[4] - 1] then
-						sidebar[ev[4] - 1][2]()
+		local function sidebarMain()
+			while true do
+		
+				redraw()
+				local ev = {os.pullEventRaw()}
+				if ev[1] == "mouse_click" then
+					if ev[3] == termW then
+						sidebarVisible = not sidebarVisible
+					elseif ev[3] >= termW - sidebarWidth
+					and    ev[3] <= termW - 1
+					and    ev[4] >= 2
+					and    sidebarVisible then
+						if sidebar[ev[4] - 1] then
+							sidebar[ev[4] - 1][2]()
+						end
 					end
 				end
 			end
+			
+			corSidebar = coroutine.create(sidebarMain)
+			corApp = coroutine.create(app)
+			
+			
+			coroutine.resume(sidebarMain)
+			
+			coroutine.resume(corApp, "Shell", 2, 3)
+			coroutine.resume(corApp, "Firewolf", 9, 3)
+			
 		end
 	end
 end
