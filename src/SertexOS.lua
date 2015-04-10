@@ -341,7 +341,7 @@ function desktop()
 				term.clear()
 				term.setCursorPos(1,1)
 				shell.setDir("/")
-				shell.openTab("/.SertexOS/apps/shell")
+				shell.openTab("/.SertexOS/apps/shell/shell")
 				shell.switchTab(2)
 				sleep(0.1)
 			end},
