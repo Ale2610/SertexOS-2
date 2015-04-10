@@ -41,6 +41,8 @@ changePassword_enterNewPassword = "Inserisci La Nuova Password"
 changePassword_repeatNewPassword = "Ripeti La Nuova Password"
 
 language_title = "Scegli Una Lingua"
+language_reboot1 = "Riavviare Il Sistema Per Cambiare Lingua"
+language_reboot2 = "Riavviare Il System?"
 
 writingData = "Scrittura Dati..."
 wrongPassword = "Password Errata!"

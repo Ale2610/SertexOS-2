@@ -111,7 +111,43 @@ function settings()
 			"Deutsch", --3
 		}
 		item, id = ui.menu(langs, language_title)
-		return
+		
+		if id == 1 then
+			local f = fs.open("/.SertexOS/config","w")
+			f.write("configVersion = "..configVersion.."\nlanguage = \"en\"")
+			f.close()
+		elseif id == 2 then
+			local f = fs.open("/.SertexOS/config","w")
+			f.write("configVersion = "..configVersion.."\nlanguage = \"it\"")
+			f.close()
+		elseif id == 3 then
+			local f = fs.open("/.SertexOS/config","w")
+			f.write("configVersion = "..configVersion.."\nlanguage = \"de\"")
+			f.close()
+		else
+			api.crash("crash", "language id not found")
+		end
+		
+		requestReboot = ui.yesno(language_reboot2, language_reboot1)
+		if requestReboot then
+			local function printMsg(color)
+					term.setBackgroundColor(color)
+					term.setTextColor(colors.white)
+					term.clear()
+					term.setCursorPos(1, 1)
+					sertextext.centerDisplay(system_rebooting)
+					sleep(0.1)
+				end
+				printMsg(colors.white)
+				printMsg(colors.lightGray)
+				printMsg(colors.gray)
+				printMsg(colors.black)
+				sleep(0.6)
+				api.log("Reboot")
+				os.reboot()
+			else
+				return
+			end
 	end
 	
 	local function changePassword()
