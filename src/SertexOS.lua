@@ -35,10 +35,6 @@ function crash(reason,message)
 		end
 end
 
-api = {}
-
-api.crash = crash
-
 function kernel(...)
 sleep(0.1)
 local args = {...}
@@ -64,7 +60,7 @@ if _G.SertexOS and not argData["-f"] then
 end
 
 _G.SertexOS = {
-  build = 4,
+  build = 5,
   quiet = true,
 }
 
