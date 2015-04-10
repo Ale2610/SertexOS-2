@@ -428,16 +428,19 @@ function desktop()
 					end
 				end
 			end
+			desktopHeader()
 			
 			corSidebar = coroutine.create(sidebarMain)
 			corApp = coroutine.create(app)
 			
-			
-			coroutine.resume(sidebarMain)
-			
-			coroutine.resume(corApp, "Shell", 2, 3)
-			coroutine.resume(corApp, "Firewolf", 9, 3)
-			
+			while true do
+				coroutine.resume(sidebarMain)
+				coroutine.resume(corApp, "Shell", 2, 3)
+				coroutine.resume(corApp, "Firewolf", 9, 3)
+				
+				sleep(0)
+			end
+			sleep(0)
 		end
 	end
 end
