@@ -149,24 +149,26 @@ function settings()
 			"Italiano", --2
 			"Deutsch", --3
 		}
-		item, id = ui.menu(langs, language_title)
+		while true do
+			item, id = ui.menu(langs, language_title)
 		
-		if id == 1 then
-			local f = fs.open("/.SertexOS/config","w")
-			f.write("configVersion = "..configVersion.."\nlanguage = \"en\"")
-			f.close()
-		elseif id == 2 then
-			local f = fs.open("/.SertexOS/config","w")
-			f.write("configVersion = "..configVersion.."\nlanguage = \"it\"")
-			f.close()
-		elseif id == 3 then
-			local f = fs.open("/.SertexOS/config","w")
-			f.write("configVersion = "..configVersion.."\nlanguage = \"de\"")
-			f.close()
-		else
-			crash("crash", "language id not found")
+			if id == 1 then
+				local f = fs.open("/.SertexOS/config","w")
+				f.write("configVersion = "..configVersion.."\nlanguage = \"en\"")
+				f.close()
+				break
+			elseif id == 2 then
+				local f = fs.open("/.SertexOS/config","w")
+				f.write("configVersion = "..configVersion.."\nlanguage = \"it\"")
+				f.close()
+				break
+			elseif id == 3 then
+				local f = fs.open("/.SertexOS/config","w")
+				f.write("configVersion = "..configVersion.."\nlanguage = \"de\"")
+				f.close()
+				break
+			end
 		end
-		
 		requestReboot = ui.yesno(language_reboot2, language_reboot1)
 		if requestReboot then
 			local function printMsg(color)
