@@ -204,7 +204,7 @@ function menu(items, title, start,allowNil,moreTitle)
 		for i=1,#head do
 			print(head[i])
 		end
-		if maxPages > 1 then
+		if maxPages() > 1 then
 			pages = "<- (page "..page.." of "..maxPages()..") ->"
 			print(pages)
 		end
