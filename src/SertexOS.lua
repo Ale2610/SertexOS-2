@@ -1,3 +1,45 @@
+function crash(reason,message)
+
+	local function center(y, text )
+		w, h = term.getSize()
+		term.setCursorPos((w - #text) / 2, y)
+		write(text)
+	end
+	os.pullEvent = os.pullEventRaw
+	reasons = {
+		["bypass"] = "System Bypassed",
+		["security"] = "System Security Issue",
+		["crash"] = "System Crashed",
+		["unknown"] = "Unknown Error",
+		["seretx"] = "SeretxOS 2 crashed again :C", -- Devs need fun
+	}
+		term.setBackgroundColor(colors.blue)
+		term.clear()
+		term.setCursorPos(1,1)
+		term.setTextColor(colors.white)
+		center(1,"SertexOS 2 Crashed:")
+		if not reasons or not reasons[reason] then
+			center(2,reasons["crash"])
+		else
+			center(2,reasons[reason])
+		end
+		if not message then
+			center(4, "Undefined Crash")
+		else
+			center(4,message)
+		end
+		center(7,"Please reboot system!")
+		center(8,"Please report on the github repo")
+		while true do
+			sleep(0)
+		end
+end
+
+api = {}
+
+api.crash = crash
+
+function kernel(...)
 sleep(0.1)
 local args = {...}
 
@@ -438,3 +480,10 @@ function login()
 end
 
 login()
+end --end kernel
+
+local ok, err = pcall(kernel)
+	
+if not ok then
+
+end
