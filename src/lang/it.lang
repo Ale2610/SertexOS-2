@@ -41,10 +41,12 @@ changePassword_repeatNewPassword = "Ripeti La Nuova Password"
 
 language_title = "Scegli Una Lingua"
 language_reboot1 = "Riavviare Il Sistema Per Cambiare Lingua"
-language_reboot2 = "Riavviare Il System?"
+language_reboot2 = "Riavviare Il Sistema?"
 
 writingData = "Scrittura Dati..."
 wrongPassword = "Password Errata!"
 lang_exit = "Esci"
 lang_done = "Fatto"
+lang_yes = "Si"
+lang_no = "No"
 

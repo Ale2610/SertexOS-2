@@ -47,4 +47,6 @@ writingData = "Writing Data..."
 wrongPassword = "Wrong Password!"
 lang_exit = "Exit"
 lang_done = "Done"
+lang_yes = "Yes"
+lang_no = "No"
 
