@@ -149,6 +149,7 @@ function settings()
 			"Italiano", --2
 			"Deutsch", --3
 		}
+		api.lock()
 		while true do
 			item, id = ui.menu(langs, language_title)
 		
@@ -374,6 +375,9 @@ function desktop()
 				write("<")
 			end
 		end
+		
+		api.lock()
+		
 		while true do
 			redraw()
 			local ev = {os.pullEventRaw()}
@@ -397,6 +401,7 @@ end
 -- login
 
 function login()
+	api.lock()
 	clear()
 	if not fs.exists("/.SertexOS/.userCreateOk") then
 	while true do

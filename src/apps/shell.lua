@@ -230,7 +230,7 @@ else
 		term.setTextColor(colors.white)
 		print(os.version())
 		local w, h = term.getSize()
-    local wShell = window.create(term.current(),1,2,w,h)
+    local wShell = window.create(term.current(),1,2,w,h-1)
 		term.redirect(wShell)
 		term.setBackgroundColor(colors.black)
 		term.setTextColor(colors.white)
