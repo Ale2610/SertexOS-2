@@ -1,7 +1,6 @@
 -- Default Language for SertexOS 2
 -- By _Ale2610_, MultMine and lewislovesgames
-
-u = "username"
+-- using %s for string.format
 
 system_shuttingDown = "Shutting Down..."
 system_rebooting = "Rebooting..."
@@ -20,15 +19,15 @@ setup_title = "SertexOS 2 Account Setup"
 setup_enterUsername = "Please Enter Your Username."
 setup_enterPassword = "Please Enter A Password."
 setup_repeatEnterPassword = "Please Repeat The Password."
-setup_isUsernameCorrect1 = "You entered " .. u .. " as your username."
-setup_isUsernameCorrect2 = "It's this correct?"
+setup_isUsernameCorrect1 = "You entered %s as your username."
+setup_isUsernameCorrect2 = "Is this correct?"
 setup_createAnotherUser = "Do you want to create another user?"
 
 login_title = "Please Log In"
 login_username = "Username"
 login_password = "Password"
 login_notRegistered = "Username not registered!"
-login_welcome = "Welcome "..u.."!"
+login_welcome = "Welcome %s!"
 
 settings_title = "Settings"
 settings_changeLang = "Change Language"
