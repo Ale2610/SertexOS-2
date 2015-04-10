@@ -231,7 +231,7 @@ else
 		term.setBackgroundColor(colors.red)
 		term.setTextColor(colors.white)
 		term.clear()
-		print(os.version..string.rep(" ", pVersion)
+		print(os.version..string.rep(" ", pVersion))
 		term.setBackgroundColor(colors.black)
 		term.setTextColor(colors.white)
     -- Run the startup program
