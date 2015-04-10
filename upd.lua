@@ -30,7 +30,6 @@ local files = {
 	["src/apps/firewolf/firewolf.lua"] = systemDir.."/apps/firewolf/firewolf",
 	["src/apps/firewolf/logo"] = systemDir.."/apps/firewolf/logo",
 	["src/root/multitask.lua"] = systemDir.."/root/multitask",
-	["src/apps/fg.lua"] = systemDir.."/apps/fg",
 	["src/apis/api.lua"] = systemDir.."/apis/api",
 	["src/apis/ui.lua"] = systemDir.."/apis/ui",
 	["src/apis/graphics.lua"] = systemDir.."/apis/graphics",
