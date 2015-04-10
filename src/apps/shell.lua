@@ -242,7 +242,7 @@ else
     -- Read commands and execute them
     local tCommandHistory = {}
     while not bExit do
-        term.redirect( parentTerm )
+        term.redirect( wShell )
         term.setBackgroundColor( bgColour )
         term.setTextColour( promptColour )
         write(shell.dir() .. "> " )
