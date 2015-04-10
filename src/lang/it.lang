@@ -22,7 +22,7 @@ setup_enterPassword = "Inserisci La Tua Password."
 setup_repeatEnterPassword = "Ripeti La Password."
 setup_isUsernameCorrect1 = "Hai inserito " .. u .. " come il tuo nome utente."
 setup_isUsernameCorrect2 = "E' corretto?"
-setup_createAnotherUser = "Vui creare un'altro utente?"
+setup_createAnotherUser = "Vuoi creare un'altro utente?"
 
 login_title = "Entra"
 login_username = "Nome Utente"
