@@ -231,7 +231,7 @@ else
 		term.clear()
 		term.setCursorPos(1,1)
 		print(os.version()..string.rep(" ", w-#os.version()))
-		graphics.box(1,1,w,h, colors.black)
+		graphics.box(1,2,w,h, colors.black)
 		term.setBackgroundColor(colors.black)
 		term.setTextColor(colors.white)
     -- Run the startup program
