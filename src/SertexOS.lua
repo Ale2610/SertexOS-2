@@ -110,7 +110,7 @@ elseif language == "it" then
 elseif language == "de" then
 	dofile("/.SertexOS/lang/de.lang")
 else
-	api.crash("crash", "Language Not Found")
+	crash("crash", "Language Not Found")
 end
 
 local systemDir = ".SertexOS"
@@ -163,7 +163,7 @@ function settings()
 			f.write("configVersion = "..configVersion.."\nlanguage = \"de\"")
 			f.close()
 		else
-			api.crash("crash", "language id not found")
+			crash("crash", "language id not found")
 		end
 		
 		requestReboot = ui.yesno(language_reboot2, language_reboot1)
@@ -257,7 +257,7 @@ end
 function desktop()
 
 	if u == nil then
-		api.crash("bypass", "Username = nil")
+		crash("bypass", "Username = nil")
 	end
 
 	function desktopHeader()
