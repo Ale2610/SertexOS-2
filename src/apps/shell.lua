@@ -224,14 +224,7 @@ if #tArgs > 0 then
 else
     -- "shell"
     -- Print the header
-		w, h = term.getSize()
-		
-		term.setBackgroundColor(colors.red)
-		term.setTextColor(colors.white)
-		term.clear()
-		term.setCursorPos(1,1)
-		print(os.version()..string.rep(" ", w-#os.version()))
-		graphics.box(1,2,w,h, colors.black)
+		print(os.version())
 		term.setBackgroundColor(colors.black)
 		term.setTextColor(colors.white)
     -- Run the startup program
