@@ -196,7 +196,7 @@ function menu(items, title, start,allowNil,moreTitle)
 		if moreTitle then
 			head = moreTitle
 		else
-			head = {"Choose an option\n",}
+			head = {"\n",}
 			if not allowNil or allowNil == true then
 				--head[3] = 'Terminate to cancel.'
 			end
@@ -204,8 +204,10 @@ function menu(items, title, start,allowNil,moreTitle)
 		for i=1,#head do
 			print(head[i])
 		end
-		pages = "<- (page "..page.." of "..maxPages()..") ->"
-		print(pages)
+		if maxPages > 1 then
+			pages = "<- (page "..page.." of "..maxPages()..") ->"
+			print(pages)
+		end
 		for i = 1, #pagedItems()[page] do
 			if selected == drawSize*(page-1)+i then
 				term.setBackgroundColor(colors.red)
