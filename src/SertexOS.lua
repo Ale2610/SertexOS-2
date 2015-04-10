@@ -377,7 +377,7 @@ function login()
 			login()
 		end
 		encrtyptedPassword = sha256.sha256(p)
-		choose = ui.yesno(setup_isUsernameCorrect2, setup_isUsernameCorrect1)
+		choose = ui.yesno(setup_isUsernameCorrect2, setup_isUsernameCorrect1:format(u))
 		if choose then
 			print( "   "..writingData )
 			f = fs.open( dbUsersDir..u, "w" )
@@ -424,7 +424,7 @@ function login()
 		p2 = f.readLine()
 		f.close()
 		if encryptedPassword == p2 then
-			print( "\n  "..login_welcome )
+			print( "\n  "..login_welcome:format(u) )
 			api.log("Logged In As "..u)
 			sleep( 2 )
 			desktop()
