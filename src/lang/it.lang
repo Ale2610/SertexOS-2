@@ -1,7 +1,6 @@
 -- Language for SertexOS 2
--- By _Ale2610_
-
-u = "username"
+-- By _Ale2610_ (and MultMine for %s)
+-- using %s for string.format
 
 system_shuttingDown = "Arresto..."
 system_rebooting = "Riavvio..."
@@ -20,7 +19,7 @@ setup_title = "Configurazione profili SertexOS 2"
 setup_enterUsername = "Inserisci Il Tuo Nome Utente."
 setup_enterPassword = "Inserisci La Tua Password."
 setup_repeatEnterPassword = "Ripeti La Password."
-setup_isUsernameCorrect1 = "Hai inserito " .. u .. " come il tuo nome utente."
+setup_isUsernameCorrect1 = "Hai inserito %s come il tuo nome utente."
 setup_isUsernameCorrect2 = "E' corretto?"
 setup_createAnotherUser = "Vuoi creare un'altro utente?"
 
@@ -28,7 +27,7 @@ login_title = "Entra"
 login_username = "Nome Utente"
 login_password = "Password"
 login_notRegistered = "Nome Utente Non Registrato!"
-login_welcome = "Benvenuto "..u.."!"
+login_welcome = "Benvenuto %s!"
 
 settings_title = "Impostazioni"
 settings_changeLang = "Cambia Lingua"
