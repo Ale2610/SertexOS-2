@@ -485,5 +485,5 @@ end --end kernel
 local ok, err = pcall(kernel)
 	
 if not ok then
-
+	crash("crash", err)
 end
