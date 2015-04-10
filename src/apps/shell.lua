@@ -229,6 +229,7 @@ else
 		term.setBackgroundColor(colors.red)
 		term.setTextColor(colors.white)
 		term.clear()
+		term.setCursorPos(1,1)
 		print(os.version()..string.rep(" ", w-#os.version()))
 		term.setBackgroundColor(colors.black)
 		term.setTextColor(colors.white)
