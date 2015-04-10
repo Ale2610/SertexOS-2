@@ -44,7 +44,7 @@ language_title = "Choose A Language"
 language_reboot1 = "Reboot System To Change Language"
 language_reboot2 = "Reboot System?"
 
-writingData = "Wring Data..."
+writingData = "Writing Data..."
 wrongPassword = "Wrong Password!"
 lang_exit = "Exit"
 lang_done = "Done"
