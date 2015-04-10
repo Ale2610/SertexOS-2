@@ -231,7 +231,7 @@ else
 		term.clear()
 		term.setCursorPos(1,1)
 		print(os.version()..string.rep(" ", w-#os.version()))
-		term.setBackgroundColor(colors.black)
+		graphics.box(1,1,w,h, colors.black)
 		term.setTextColor(colors.white)
     -- Run the startup program
     if parentShell == nil then
