@@ -226,12 +226,10 @@ else
     -- Print the header
 		w, h = term.getSize()
 		
-		pVersion = math.ceil(w - #os.version())
-		
 		term.setBackgroundColor(colors.red)
 		term.setTextColor(colors.white)
 		term.clear()
-		print(os.version..string.rep(" ", pVersion))
+		print(os.version..string.rep(" ", w-#os.version()))
 		term.setBackgroundColor(colors.black)
 		term.setTextColor(colors.white)
     -- Run the startup program
