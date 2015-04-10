@@ -217,7 +217,7 @@ function menu(items, title, start,allowNil,moreTitle)
 				term.setTextColor(colors.red)
 			end
 			term.clearLine()
-			cprint(iif(selected == drawSize*(page-1)+i, ">", " ").." "..pagedItems()[page][i])
+			cprint(iif(selected == drawSize*(page-1)+i).." "..pagedItems()[page][i])
 			term.setBackgroundColor(colors.white)
 			term.setTextColor(colors.red)
 		end
