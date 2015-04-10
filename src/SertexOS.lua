@@ -29,7 +29,8 @@ function crash(reason,message)
 			center(4,message)
 		end
 		center(7,"Please reboot system!")
-		center(8,"Please report on the github repo")
+		center(8,"Please report the issue here:")
+		center(9,"https://github.com/Sertex-Team/SertexOS-2/issues")
 		while true do
 			sleep(0)
 		end
