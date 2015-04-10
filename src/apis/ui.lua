@@ -269,9 +269,9 @@ function menu(items, title, start,allowNil,moreTitle)
 				changePage(1)
 			end
 		elseif eventData[1] == 'mouse_click' then
-			if eventData[4] > 5 then
+			if eventData[4] > 7 then
 				clear()
-				selected = (eventData[4]-6+((page-1)*drawSize))+1
+				selected = (eventData[4]-8+((page-1)*drawSize))+1
 				return items[selected], selected
 			elseif eventData[4] == 5 then
 				if eventData[3] == 1 or eventData[3] == 2 then
