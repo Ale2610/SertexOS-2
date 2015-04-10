@@ -350,15 +350,14 @@ function desktop()
 			end},
 		}
 		
-		
 		local function app(name, x, y)
 			local applications = {
 				["Shell"] = "shell",
 				["Firewolf"] = "firewolf",
 			}
 			
-			local appDir = "/.SertexOS/apps/"..applications[name]
-			local appLogo = paintutils.loadImage(appDir.."/logo")
+			appDir = "/.SertexOS/apps/"..applications[name]
+			appLogo = paintutils.loadImage(appDir.."/logo")
 			
 			paintutils.drawImage(appLogo, x, y)
 			
@@ -368,19 +367,8 @@ function desktop()
 			term.setCursorPos(x - 1, maxY + 1)
 			term.setTextColor(colors.red)
 			write(name)
-			
-			while true do
-				local ev = {os.pullEvent()}
-				if ev[1] == "mouse_click" then
-					local mx = ev[3]
-					local my = ev[4]
-					if (mx > x - 1 and my > y - 1) and (mx < maxX + 1 and my < maxY + 1) then
-						shell.run(appDir.."/app")
-					end
-				end
-				sleep(0)
-			end
 		end
+		
 
 		local sidebarVisible = false
 		local sidebarWidth = 0
@@ -410,6 +398,9 @@ function desktop()
 		
 		api.lock()
 		
+		app("Shell", 2,3)
+		app("Firewolf", 8,3)
+		
 		local function sidebarMain()
 			while true do
 		
@@ -418,27 +409,19 @@ function desktop()
 				if ev[1] == "mouse_click" then
 					if ev[3] == termW then
 						sidebarVisible = not sidebarVisible
-					elseif ev[3] >= termW - sidebarWidth
-					and    ev[3] <= termW - 1
-					and    ev[4] >= 2
-					and    sidebarVisible then
+					elseif ev[3] >= termW - sidebarWidth and    ev[3] <= termW - 1 and    ev[4] >= 2 and    sidebarVisible then
 						if sidebar[ev[4] - 1] then
 							sidebar[ev[4] - 1][2]()
 						end
 					end
-				end
+				else
+					local mx = ev[3]
+					local my = ev[4]
+					if (mx > x - 1 and my > y - 1) and (mx < maxX + 1 and my < maxY + 1) then
+						shell.run(appDir.."/app")
+					end
 			end
-			desktopHeader()
-			
-			corSidebar = coroutine.create(sidebarMain)
-			corApp = coroutine.create(app)
-			
-			while true do
-				coroutine.resume(sidebarMain)
-				coroutine.resume(corApp, "Shell", 2, 3)
-				coroutine.resume(corApp, "Firewolf", 9, 3)
-				
-				sleep(0)
+				end
 			end
 			sleep(0)
 		end
