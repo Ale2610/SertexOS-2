@@ -274,10 +274,12 @@ function menu(items, title, start,allowNil,moreTitle)
 				selected = (eventData[4]-8+((page-1)*drawSize))+1
 				return items[selected], selected
 			elseif eventData[4] == 5 then
-				if eventData[3] == 1 or eventData[3] == 2 then
-					changePage(-1)
-				elseif eventData[3] == pages:len()-1 or eventData[3] == pages:len()-2 then
-					changePage(1)
+				if maxPages() > 1 then
+					if eventData[3] == 1 or eventData[3] == 2 then
+						changePage(-1)
+					elseif eventData[3] == pages:len()-1 or eventData[3] == pages:len()-2 then
+						changePage(1)
+					end
 				end
 			end
 		elseif eventData[1] == 'mouse_scroll' then
