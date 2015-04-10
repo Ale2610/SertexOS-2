@@ -224,14 +224,14 @@ if #tArgs > 0 then
 else
     -- "shell"
     -- Print the header
-		oldTerm = term.current
+		w, h = term.getSize()
+		
+		pVersion = math.ceil(w - #os.version())
+		
 		term.setBackgroundColor(colors.red)
-		term.clear()
 		term.setTextColor(colors.white)
-		print(os.version())
-		local w, h = term.getSize()
-    local wShell = window.create(term.current(),1,2,w,h-1)
-		term.redirect(wShell)
+		term.clear()
+		print(os.version..string.rep(" ", pVersion)
 		term.setBackgroundColor(colors.black)
 		term.setTextColor(colors.white)
     -- Run the startup program
@@ -242,7 +242,7 @@ else
     -- Read commands and execute them
     local tCommandHistory = {}
     while not bExit do
-        term.redirect( wShell )
+        term.redirect( parentTerm )
         term.setBackgroundColor( bgColour )
         term.setTextColour( promptColour )
         write(shell.dir() .. "> " )
