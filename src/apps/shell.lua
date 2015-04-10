@@ -224,11 +224,16 @@ if #tArgs > 0 then
 else
     -- "shell"
     -- Print the header
-    term.setBackgroundColor( bgColour )
-    term.setTextColour( promptColour )
-    print( os.version() )
-    term.setTextColour( textColour )
-
+		oldTerm = term.current
+		term.setBackgroundColor(colors.red)
+		term.clear()
+		term.setTextColor(colors.white)
+		print(os.version())
+		local w, h = term.getSize()
+    local wShell = window.create(term.current(),1,2,w,h)
+		term.redirect(wShell)
+		term.setBackgroundColor(colors.black)
+		term.setTextColor(colors.white)
     -- Run the startup program
     if parentShell == nil then
         shell.run( "/.SertexOS/SertexOS" )
