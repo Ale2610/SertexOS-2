@@ -98,7 +98,7 @@ if fs.exists(fs.combine(SertexOS.baseDir, "apis")) and fs.isDir(fs.combine(Serte
     os.loadAPI(fs.combine(fs.combine(SertexOS.baseDir, "apis"), v))
   end
 end
-
+api.lock()
 api.log("System Online")
 
 dofile("/.SertexOS/config")
