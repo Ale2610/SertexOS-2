@@ -420,8 +420,8 @@ function desktop()
 					if (mx > 2 - 1 and my > 3 - 1) and (mx < 6 + 1 and my < 8 + 1) then
 						shell.run("/.SertexOS/apps/shell/app")
 					elseif (mx > 8 - 1 and my > 3 - 1) and (mx < 12 + 1 and my < 8 + 1) then
+						shell.run("/.SertexOS/apps/firewolf/app")
 					end
-			end
 				end
 			end
 			sleep(0)
