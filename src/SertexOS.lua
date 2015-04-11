@@ -398,10 +398,10 @@ function desktop()
 			end
 		end
 		
-		api.lock()
+			api.lock()
 		
-			while true do
-		
+		while true do
+			sleep(0)
 			redraw()
 			local ev = {os.pullEventRaw()}
 			if ev[1] == "mouse_click" then
@@ -421,8 +421,8 @@ function desktop()
 					shell.run("/.SertexOS/apps/firewolf/app")
 				end
 			end
+			sleep(0)
 		end
-		sleep(0)
 	end
 end
 -- login
