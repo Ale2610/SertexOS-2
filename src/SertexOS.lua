@@ -406,6 +406,8 @@ function desktop()
 			redraw()
 			local ev = {os.pullEventRaw()}
 			if ev[1] == "mouse_click" then
+				local mx = ev[3]
+				local my = ev[4]
 				if not quiet then
 					term.setCursorPos(1, termH)
 					term.setBackgroundColor(colors.white)
@@ -418,8 +420,6 @@ function desktop()
 					if sidebar[ev[4] - 1] then
 						sidebar[ev[4] - 1][2]()
 					end
-				mx = ev[3]
-				my = ev[4]
 				elseif (mx > 2 - 1 and my > 3 - 1) and (mx < 6 + 1 and my < 8 + 1) then
 					shell.run("/.SertexOS/apps/shell/app")
 				elseif (mx > 8 - 1 and my > 3 - 1) and (mx < 12 + 1 and my < 8 + 1) then
