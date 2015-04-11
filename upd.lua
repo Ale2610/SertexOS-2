@@ -24,21 +24,18 @@ end
 systemDir = ".SertexOS"
 
 local files = {
-	["src/SertexOS.lua"] = systemDir.."/SertexOS",
-	["src/apps/shell/shell.lua"] = systemDir.."/apps/shell/shell",
-	["src/apps/shell/logo"] = systemDir.."/apps/shell/logo",
-	["src/root/multitask.lua"] = systemDir.."/root/multitask",
-	["src/apis/api.lua"] = systemDir.."/apis/api",
-	["src/apis/ui.lua"] = systemDir.."/apis/ui",
-	["src/apis/graphics.lua"] = systemDir.."/apis/graphics",
-	["src/apis/sertextext.lua"] = systemDir.."/apis/sertextext",
-	["src/apis/sha256.lua"] = systemDir.."/apis/sha256",
-	["update"] = systemDir.."/update",
+	["src/SertexOS.lua"] = "/.SertexOS/SertexOS",
+	["src/apps/shell/shell.lua"] = "/.SertexOS/apps/shell/shell",
+	["src/apps/shell/logo"] = "/.SertexOS/apps/shell/logo",
+	["src/root/multitask.lua"] = "/.SertexOS/root/multitask",
+	["src/apis/api.lua"] = "/.SertexOS/apis/api",
+	["src/apis/ui.lua"] = "/.SertexOS/apis/ui",
+	["src/apis/graphics.lua"] = "/.SertexOS/apis/graphics",
+	["src/apis/sertextext.lua"] = "/.SertexOS/apis/sertextext",
+	["src/apis/sha256.lua"] = "/.SertexOS/apis/sha256",
+	["update"] = "/.SertexOS/update",
 	["src/startup"] = "/startup",
 	
-	["src/lang/en.lang"] = systemDir.."/lang/en.lang",
-	["src/lang/it.lang"] = systemDir.."/lang/it.lang",
-	["src/lang/de.lang"] = systemDir.."/lang/de.lang",
 }
 
 local githubUser    = "Sertex-Team"
