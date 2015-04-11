@@ -364,7 +364,7 @@ function desktop()
 			maxX = x + 4
 			maxY = y + 5
 			
-			term.setCursorPos(x - 1, maxY + 1)
+			term.setCursorPos(x - 1, maxY - 1)
 			term.setBackgroundColor(colors.white)
 			term.setTextColor(colors.red)
 			write(name)
@@ -408,12 +408,12 @@ function desktop()
 			if ev[1] == "mouse_click" then
 				local mx = ev[3]
 				local my = ev[4]
-				if not quiet then
-					term.setCursorPos(1, termH)
-					term.setBackgroundColor(colors.white)
-					term.setTextColor(colors.red)
-					write("X: "..ev[3].."    Y: "..ev[4].."   ")
-				end
+				--if not quiet then
+					--term.setCursorPos(1, termH)
+					--term.setBackgroundColor(colors.white)
+					--term.setTextColor(colors.red)
+					--write("X: "..ev[3].."    Y: "..ev[4].."   ")
+				--end
 				if ev[3] == termW then
 					sidebarVisible = not sidebarVisible
 				elseif ev[3] >= termW - sidebarWidth and    ev[3] <= termW - 1 and    ev[4] >= 2 and    sidebarVisible then
