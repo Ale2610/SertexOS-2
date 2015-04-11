@@ -335,16 +335,6 @@ function desktop()
 				sleep(0.6)
 				login()
 			end},
-			{mainMenu_shell, function()
-				api.log("Opened Shell")
-				term.setBackgroundColor(colors.black)
-				term.clear()
-				term.setCursorPos(1,1)
-				shell.setDir("/")
-				shell.openTab("/.SertexOS/apps/shell/shell")
-				shell.switchTab(2)
-				sleep(0.1)
-			end},
 			{mainMenu_settings, function()
 				settings()
 			end},
@@ -352,7 +342,7 @@ function desktop()
 		
 		local function app(name, x, y)
 			local applications = {
-				["Shell"] = "shell",
+				[mainMenu_shell] = "shell",
 				["Firewolf"] = "firewolf",
 			}
 			
@@ -381,7 +371,7 @@ function desktop()
 
 		local function redraw()
 			desktopHeader()
-			app("Shell", 2,3)
+			app(mainMenu_shell, 2,3)
 			app("Firewolf", 8,3)
 			graphics.line(termW, 1, termW, termH, colors.red)
 			term.setCursorPos(termW, math.ceil(termH / 2))
@@ -421,9 +411,9 @@ function desktop()
 						sidebar[ev[4] - 1][2]()
 					end
 				elseif (mx > 2 - 1 and my > 3 - 1) and (mx < 6 + 1 and my < 8 + 1) then
-					shell.run("/.SertexOS/apps/shell/app")
+					shell.openTab("/.SertexOS/apps/shell/app")
 				elseif (mx > 8 - 1 and my > 3 - 1) and (mx < 12 + 1 and my < 8 + 1) then
-					shell.run("/.SertexOS/apps/firewolf/app")
+					shell.openTab("/.SertexOS/apps/firewolf/app")
 				end
 			end
 			sleep(0)
