@@ -380,6 +380,8 @@ function desktop()
 
 		local function redraw()
 			desktopHeader()
+			app("Shell", 2,3)
+			app("Firewolf", 8,3)
 			graphics.line(termW, 1, termW, termH, colors.red)
 			term.setCursorPos(termW, math.ceil(termH / 2))
 			term.setTextColor(colors.white)
@@ -398,34 +400,29 @@ function desktop()
 		
 		api.lock()
 		
-		app("Shell", 2,3)
-		app("Firewolf", 8,3)
-		
-		local function sidebarMain()
 			while true do
 		
-				redraw()
-				local ev = {os.pullEventRaw()}
-				if ev[1] == "mouse_click" then
-					if ev[3] == termW then
-						sidebarVisible = not sidebarVisible
-					elseif ev[3] >= termW - sidebarWidth and    ev[3] <= termW - 1 and    ev[4] >= 2 and    sidebarVisible then
-						if sidebar[ev[4] - 1] then
-							sidebar[ev[4] - 1][2]()
-						end
-					end
-				else
-					local mx = ev[3]
-					local my = ev[4]
-					if (mx > 2 - 1 and my > 3 - 1) and (mx < 6 + 1 and my < 8 + 1) then
-						shell.run("/.SertexOS/apps/shell/app")
-					elseif (mx > 8 - 1 and my > 3 - 1) and (mx < 12 + 1 and my < 8 + 1) then
-						shell.run("/.SertexOS/apps/firewolf/app")
+			redraw()
+			local ev = {os.pullEventRaw()}
+			if ev[1] == "mouse_click" then
+				if ev[3] == termW then
+					sidebarVisible = not sidebarVisible
+				elseif ev[3] >= termW - sidebarWidth and    ev[3] <= termW - 1 and    ev[4] >= 2 and    sidebarVisible then
+					if sidebar[ev[4] - 1] then
+						sidebar[ev[4] - 1][2]()
 					end
 				end
+			else
+				local mx = ev[3]
+				local my = ev[4]
+				if (mx > 2 - 1 and my > 3 - 1) and (mx < 6 + 1 and my < 8 + 1) then
+					shell.run("/.SertexOS/apps/shell/app")
+				elseif (mx > 8 - 1 and my > 3 - 1) and (mx < 12 + 1 and my < 8 + 1) then
+					shell.run("/.SertexOS/apps/firewolf/app")
+				end
 			end
-			sleep(0)
 		end
+		sleep(0)
 	end
 end
 -- login
