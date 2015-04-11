@@ -35,7 +35,9 @@ local files = {
 	["src/apis/sha256.lua"] = "/.SertexOS/apis/sha256",
 	["update"] = "/.SertexOS/update",
 	["src/startup"] = "/startup",
-	
+	["src/lang/en.lang"] = "/.SertexOS/lang/en.lang",
+	["src/lang/it.lang"] = "/.SertexOS/lang/it.lang",
+	["src/lang/de.lang"] = "/.SertexOS/lang/de.lang",
 }
 
 local githubUser    = "Sertex-Team"
