@@ -29,7 +29,6 @@ local files = {
 	["src/apps/shell/logo"] = "/.SertexOS/apps/shell/logo",
 	["src/apps/firewolf/firewolf.lua"] = "/.SertexOS/apps/firewolf/app",
 	["src/apps/firewolf/logo"] = "/.SertexOS/apps/firewolf/logo",
-	["src/root/multitask.lua"] = "/.SertexOS/root/multitask",
 	["src/apis/api.lua"] = "/.SertexOS/apis/api",
 	["src/apis/ui.lua"] = "/.SertexOS/apis/ui",
 	["src/apis/graphics.lua"] = "/.SertexOS/apis/graphics",
@@ -54,6 +53,7 @@ local function clear()
 end
 
 local function httpGet(url, save)
+	fs.delete(save)
 	if not url then
 		error("not enough arguments, expected 1 or 2", 2)
 	end
