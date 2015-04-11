@@ -365,6 +365,7 @@ function desktop()
 			maxY = y + 5
 			
 			term.setCursorPos(x - 1, maxY + 1)
+			term.setBackgroundColor(colors.white)
 			term.setTextColor(colors.red)
 			write(name)
 		end
@@ -405,17 +406,21 @@ function desktop()
 			redraw()
 			local ev = {os.pullEventRaw()}
 			if ev[1] == "mouse_click" then
+				if not quiet then
+					term.setCursorPos(1, termH)
+					term.setBackgroundColor(colors.white)
+					term.setTextColor(colors.red)
+					write("X: "..ev[3].."    Y: "..ev[4].."   ")
+				end
 				if ev[3] == termW then
 					sidebarVisible = not sidebarVisible
 				elseif ev[3] >= termW - sidebarWidth and    ev[3] <= termW - 1 and    ev[4] >= 2 and    sidebarVisible then
 					if sidebar[ev[4] - 1] then
 						sidebar[ev[4] - 1][2]()
 					end
-				end
-			else
 				local mx = ev[3]
 				local my = ev[4]
-				if (mx > 2 - 1 and my > 3 - 1) and (mx < 6 + 1 and my < 8 + 1) then
+				elseif (mx > 2 - 1 and my > 3 - 1) and (mx < 6 + 1 and my < 8 + 1) then
 					shell.run("/.SertexOS/apps/shell/app")
 				elseif (mx > 8 - 1 and my > 3 - 1) and (mx < 12 + 1 and my < 8 + 1) then
 					shell.run("/.SertexOS/apps/firewolf/app")
