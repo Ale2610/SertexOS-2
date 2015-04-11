@@ -8,6 +8,10 @@
 --  RednetExplorer Made by ComputerCraftFan11
 --
 
+if multishell then
+	multishell.setTitle( multishell.getCurrent(), "Firewolf" )
+end
+
 
 --  -------- Variables
 
