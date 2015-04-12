@@ -533,7 +533,7 @@ local x, y = term.getCursorPos()
 		"Get Free Space", --4
 		"Wipe Computer", --5
 		"Add Password for BIOS", --6
-		"Removed Password for BIOS", --7
+		"Remove Password for BIOS", --7
 	}
 	while true do
 
