@@ -600,7 +600,7 @@ local x, y = term.getCursorPos()
 					f.close()
 					print("Done")
 					sleep(2)
-					return
+					break
 				else
 					print("Wrong Password")
 					sleep(2)
