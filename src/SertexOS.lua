@@ -575,6 +575,8 @@ local x, y = term.getCursorPos()
 				break
 			end
 				term.setBackgroundColor(colors.black)
+				term.clear()
+				term.setCursorPos(1,1)
 				term.setTextColor(colors.red)
 				list = fs.list("")
 				
