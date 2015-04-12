@@ -543,6 +543,10 @@ local x, y = term.getCursorPos()
 			crash = nil
 			SertexOS = nil
 			os.unloadAPI("/.SertexOS/apis/ui")
+			term.setBackgroundColor(colors.black)
+			term.clear()
+			term.setCursorPos(1,1)
+			sleep(0.1)
 			shell.run("/rom/programs/shell")
 			break
 		elseif c == 3 then
@@ -593,7 +597,7 @@ local x, y = term.getCursorPos()
 					f.close()
 					print("Done")
 					sleep(2)
-					break
+					return
 				else
 					print("Wrong Password")
 					sleep(2)
