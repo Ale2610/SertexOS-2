@@ -563,7 +563,36 @@ local x, y = term.getCursorPos()
 			term.setBackgroundColor(colors.white)
 			term.clear()
 			term.setTextColor(colors.red)
-			centerDisplay("Free Space: "..fs.getFreeSpace("/").." Bytes")
+			bytes = fs.getFreeSpace("/")
+	   		kbytes = bytes/1024
+   			bytes = bytes%1024
+   			mbytes = kbytes/1024
+   			kbytes = kbytes%1024
+   			gbytes = mbytes/1024
+   			mbytes = mbytes%1024
+   			tbytes = gbytes/1024
+   			gbytes = gbytes%1024
+   
+   			tbytes = tbytes*100
+   			gbytes = gbytes*100
+			mbytes = mbytes*100
+   			kbytes = kbytes*100
+   			bytes = bytes*100
+   
+   			tbytes = math.floor(tbytes)
+   			gbytes = math.floor(gbytes)
+   			mbytes = math.floor(mbytes)
+   			kbytes = math.floor(kbytes)
+   			bytes = math.floor(bytes)
+   
+   			tbytes = tbytes/100
+   			gbytes = gbytes/100
+   			mbytes = mbytes/100
+   			kbytes = kbytes/100
+   			bytes = bytes/100
+   
+   			space = tbytes.."TB "..gbytes.."GB "..mbytes.."MB "..kbytes.."KB "..bytes.."B"
+			centerDisplay("Free Space: "..space)
 			local w, h = term.getSize()
 			local x, y = term.getCursorPos()
 			center(y + 2, "Press Any Key")
