@@ -509,6 +509,7 @@ login()
 end --end kernel
 
 local function bios()
+	os.pullEvent = os.pullEventRaw
 	os.loadAPI("/.SertexOS/apis/ui")
 	
 	function centerDisplay( text )
@@ -535,6 +536,7 @@ local x, y = term.getCursorPos()
 		"Removed Password for BIOS", --7
 	}
 	while true do
+
 	n, c = ui.menu(opt, "BIOS")
 	
 		if c == 1 then
