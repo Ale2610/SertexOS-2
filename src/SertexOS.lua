@@ -551,7 +551,7 @@ local x, y = term.getCursorPos()
 			break
 		elseif c == 3 then
 			local f = fs.open("/.SertexOS/config","w")
-			f.write("configVersion = "..configVersion.."\nlanguage = \"en\"")
+			f.write("configVersion = 1\nlanguage = \"en\"")
 			f.close()
 		elseif c == 4 then
 			term.setBackgroundColor(colors.white)
