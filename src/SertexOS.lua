@@ -483,7 +483,7 @@ function login()
 		write( "  "..login_password.." > " )
 		p = read( "*" )
 		encryptedPassword = sha256.sha256(p)
-		if not fs.exists(dbUsersDir..u) or u == "" then
+		if not fs.exists(dbUsersDir..u) or u == "" or fs.isDir(dbUsersDir..u) then
 			print("  "..login_notRegistered)
 			sleep(2)
 			login()
