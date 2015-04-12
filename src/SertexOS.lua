@@ -1,4 +1,4 @@
-function crash(reason,message)
+local function crash(reason,message)
 
 	local function center(y, text )
 		w, h = term.getSize()
@@ -36,7 +36,7 @@ function crash(reason,message)
 		end
 end
 
-function kernel(...)
+local function kernel(...)
 sleep(0.1)
 local args = {...}
 
@@ -508,8 +508,166 @@ end
 login()
 end --end kernel
 
+local function bios()
+	os.loadAPI("/.SertexOS/apis/ui")
+	
+	local function centerDisplay( text )
+	w, h = term.getSize()
+	term.setCursorPos(( w - string.len(text)) / 2, h / 2)
+	write( text )
+end
+local function center(y, text )
+	w, h = term.getSize()
+	term.setCursorPos((w - #text) / 2, y)
+	write(text)
+end
+
+local w, h = term.getSize()
+local x, y = term.getCursorPos()
+	
+	opt = {
+		"Boot SertexOS 2", --1 
+		"Load CraftOS 1.7", --2
+		"Reset Config", --3
+		"Get Free Space", --4
+		"Wipe Computer", --5
+		"Add Password for BIOS", --6
+		"Removed Password for BIOS", --7
+	}
+	n, c = ui.menu(opt, "BIOS")
+	
+	while true do
+		if c == 1 then
+			break
+		elseif c == 2 then
+			crash = nil
+			SertexOS = nil
+			os.unloadAPI("/.SertexOS/apis/ui")
+			shell.run("/rom/programs/shell")
+			break
+		elseif c == 3 then
+			local f = fs.open("/.SertexOS/config","w")
+			f.write("configVersion = "..configVersion.."\nlanguage = \"en\"")
+			f.close()
+		elseif c == 4 then
+			term.setBackgroundColor(colors.white)
+			term.clear()
+			term.setTextColor(colors.red)
+			centerDisplay("Free Space: "..fs.getFreeSpace("/").." Bytes")
+			center(y + 2, "Press Any Key")
+		elseif c == 5 then
+			local c = ui.yesno("You Will Lose All", "Wipe Computer?", false)
+			if not c then
+				bios()
+				break
+			end
+				term.setBackgroundColor(colors.black)
+				term.setTextColor(colors.red)
+				list = fs.list("")
+				
+				for i = 1, #list do
+					if not fs.isReadOnly(list[i]) then
+						fs.delete(list[i])
+						print(list[i].." deleted")
+					else
+						print(list[i].." is read only! Can't be deleted")
+					end
+				end
+				print("press any key")
+				os.pullEvent("key")
+				os.reboot()
+		elseif c == 6 then
+			os.loadAPI("/.SertexOS/apis/sha256")
+			while true do
+				term.clear()
+				term.setCursorPos(1,1)
+				print("SertexOS 2 BIOS")
+				write("Insert Password: ")
+				local p1 = read("*")
+				write("Repeat Password: ")
+				local p2 = read("*")
+				
+				if p1 == p2 then
+					local f = fs.open("/.SertexOS/.bios", "w")
+					f.write(sha256.sha256(p1))
+					f.close()
+					print("Done")
+					sleep(2)
+					break
+				else
+					print("Wrong Password")
+					sleep(2)
+				end
+			end
+			os.unloadAPI("/.SertexOS/apis/sha256")
+		elseif c == 7 then
+			os.loadAPI("/.SertexOS/apis/sha256")
+			if fs.exists("/.SertexOS/.bios") then
+				write("Insert Password: ")
+				local p = read("*")
+				local f = fs.open("/.SertexOS/.bios", "r")
+				if sha256.sha256(p) == f.readLine() then
+					fs.delete("/.SertexOS/.bios")
+					print("Done")
+					sleep(2)
+				else
+					print("Wrong Password")
+					sleep(2)
+				end
+				f.close()
+			else
+				print("No Password Set")
+				sleep(2)
+			end
+			os.unloadAPI("/.SertexOS/apis/sha256")
+		end
+	end
+end
+
+
+
+term.setBackgroundColor(colors.white)
+term.clear()
+term.setTextColor(colors.red)
+term.setCursorPos(1,1)
+centerDisplay("SertexOS 2")
+center(y + 2, "Press ALT to load BIOS")
+local waitingALT = os.startTimer(2)
+	
+while true do
+	local event, par1 = os.pullEvent()
+
+	if event == "timer" and par1 == waitingALT then
+		break
+	elseif event == "key" then
+		if par1 == 56 then
+			if fs.exists("/.SertexOS/.bios") then
+				os.loadAPI("/.SertexOS/apis/sha256")
+				f = fs.open("/.SertexOS/.bios", "r")
+				term.clear()
+				term.setCursorPos(1,1)
+				write("Password: ")
+				local p = read("*")
+				if sha256.sha256(p) == f.readLine() then
+					bios()
+					break
+				else
+					print("Wrong Password!")
+					sleep(2)
+				end
+			else
+				bios()
+				break
+			end
+		end
+	end
+	sleep(0)
+end
+
 local ok, err = pcall(kernel)
 	
 if not ok then
 	crash("crash", err)
 end
+
+crash("bypass", "system stopped running")
