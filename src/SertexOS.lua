@@ -558,6 +558,8 @@ local x, y = term.getCursorPos()
 			term.clear()
 			term.setTextColor(colors.red)
 			centerDisplay("Free Space: "..fs.getFreeSpace("/").." Bytes")
+			local w, h = term.getSize()
+			local x, y = term.getCursorPos()
 			center(y + 2, "Press Any Key")
 		elseif c == 5 then
 			local c = ui.yesno("You Will Lose All", "Wipe Computer?", false)
@@ -639,14 +641,13 @@ end
 	write(text)
 end
 
-local w, h = term.getSize()
-local x, y = term.getCursorPos()
-
 term.setBackgroundColor(colors.white)
 term.clear()
 term.setTextColor(colors.red)
 term.setCursorPos(1,1)
 centerDisplay("SertexOS 2")
+local w, h = term.getSize()
+local x, y = term.getCursorPos()
 center(y + 2, "Press ALT to load BIOS")
 local waitingALT = os.startTimer(2)
 	
