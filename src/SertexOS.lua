@@ -511,12 +511,12 @@ end --end kernel
 local function bios()
 	os.loadAPI("/.SertexOS/apis/ui")
 	
-	local function centerDisplay( text )
+	function centerDisplay( text )
 	w, h = term.getSize()
 	term.setCursorPos(( w - string.len(text)) / 2, h / 2)
 	write( text )
 end
-local function center(y, text )
+	function center(y, text )
 	w, h = term.getSize()
 	term.setCursorPos((w - #text) / 2, y)
 	write(text)
