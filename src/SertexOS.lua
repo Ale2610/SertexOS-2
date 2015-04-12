@@ -552,9 +552,13 @@ local x, y = term.getCursorPos()
 			shell.run("/rom/programs/shell")
 			break
 		elseif c == 3 then
+			term.clear()
+			term.setCursorPos(1,1)
 			local f = fs.open("/.SertexOS/config","w")
 			f.write("configVersion = 1\nlanguage = \"en\"")
 			f.close()
+			print("Done")
+			sleep(2)
 		elseif c == 4 then
 			term.setBackgroundColor(colors.white)
 			term.clear()
