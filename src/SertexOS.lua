@@ -512,9 +512,9 @@ local function bios()
 	os.loadAPI("/.SertexOS/apis/ui")
 	
 	function centerDisplay( text )
-	w, h = term.getSize()
-	term.setCursorPos(( w - string.len(text)) / 2, h / 2)
-	write( text )
+		w, h = term.getSize()
+		term.setCursorPos(( w - string.len(text)) / 2, h / 2)
+		write( text )
 end
 	function center(y, text )
 	w, h = term.getSize()
@@ -624,7 +624,8 @@ local x, y = term.getCursorPos()
 	end
 end
 
-
+local w, h = term.getSize()
+local x, y = term.getCursorPos()
 
 term.setBackgroundColor(colors.white)
 term.clear()
