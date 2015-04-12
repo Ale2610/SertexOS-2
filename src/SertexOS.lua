@@ -534,9 +534,9 @@ local x, y = term.getCursorPos()
 		"Add Password for BIOS", --6
 		"Removed Password for BIOS", --7
 	}
+	while true do
 	n, c = ui.menu(opt, "BIOS")
 	
-	while true do
 		if c == 1 then
 			break
 		elseif c == 2 then
@@ -561,6 +561,7 @@ local x, y = term.getCursorPos()
 			local w, h = term.getSize()
 			local x, y = term.getCursorPos()
 			center(y + 2, "Press Any Key")
+			os.pullEvent("key")
 		elseif c == 5 then
 			local c = ui.yesno("You Will Lose All", "Wipe Computer?", false)
 			if not c then
