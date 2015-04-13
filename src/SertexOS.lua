@@ -339,6 +339,9 @@ function desktop()
 			{mainMenu_settings, function()
 				settings()
 			end},
+			{mainMenu_about, function()
+				about()
+			end},
 		}
 		
 		local function app(name, x, y)
@@ -694,11 +697,11 @@ while true do
 	local event, par1 = os.pullEvent()
 
 	if event == "timer" and par1 == waitingALT then
-    local ok, err = pcall(kernel)
+		local ok, err = pcall(kernel)
 	
-if not ok then
-	crash("crash", err)
-end
+		if not ok then
+			crash("crash", err)
+		end
 		break
 	elseif event == "key" then
 		if par1 == 56 then
@@ -712,9 +715,9 @@ end
 				if sha256.sha256(p) == f.readLine() then
 					local ok, err = pcall(bios)
 	
-if not ok then
-	crash("crash", err)
-end
+					if not ok then
+						crash("bios", err)
+					end
 					break
 				else
 					print("Wrong Password!")
@@ -731,6 +734,3 @@ end
 	end
 	sleep(0)
 end
-
-
-crash("bypass", "system stopped running")
