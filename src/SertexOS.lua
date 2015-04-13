@@ -11,6 +11,7 @@ local function crash(reason,message)
 		["security"] = "System Security Issue",
 		["crash"] = "System Crashed",
 		["unknown"] = "Unknown Error",
+              ["bios"] = "BIOS Error",
 		["seretx"] = "SeretxOS 2 crashed again :C", -- Devs need fun
 	}
 		term.setBackgroundColor(colors.blue)
@@ -693,6 +694,11 @@ while true do
 	local event, par1 = os.pullEvent()
 
 	if event == "timer" and par1 == waitingALT then
+    local ok, err = pcall(kernel)
+	
+if not ok then
+	crash("crash", err)
+end
 		break
 	elseif event == "key" then
 		if par1 == 56 then
@@ -704,14 +710,21 @@ while true do
 				write("Password: ")
 				local p = read("*")
 				if sha256.sha256(p) == f.readLine() then
-					bios()
+					local ok, err = pcall(bios)
+	
+if not ok then
+	crash("crash", err)
+end
 					break
 				else
 					print("Wrong Password!")
 					sleep(2)
 				end
 			else
-				bios()
+				local ok, err = pcall(bios)
+      if not ok then
+        crash("bios", err)
+      end
 				break
 			end
 		end
@@ -719,10 +732,5 @@ while true do
 	sleep(0)
 end
 
-local ok, err = pcall(kernel)
-	
-if not ok then
-	crash("crash", err)
-end
 
 crash("bypass", "system stopped running")
