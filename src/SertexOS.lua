@@ -145,7 +145,7 @@ local function about()
 	header()
 	sertextext.center(5, about_title)
 	sertextext.left(7, "(c) Copyright 2015 SertexOS 2 - All Rights Reserved")
-	
+	sertextext.left(9, "Firewolf by GravityScore")
 	local bytes = fs.getFreeSpace("/")
 	kbytes = bytes/1024
 	bytes = bytes%1024
@@ -173,8 +173,8 @@ local function about()
   kbytes = kbytes/100
   bytes = bytes/100
 	
-	sertextext.center(9,about_freeSpace.." "..mbytes.."MB")
-	sertextext.center(11, lang_pressAnyKey)
+	sertextext.center(11,about_freeSpace.." "..mbytes.."MB")
+	sertextext.center(13, lang_pressAnyKey)
 	os.pullEvent("key")
 	return
 end
@@ -397,7 +397,11 @@ local function desktop()
 			maxX = x + 4
 			maxY = y + 5
 			
-			term.setCursorPos(x - 1, maxY - 1)
+			if tonumber(#name) > 5 then
+				term.setCursorPos(x - 1, maxY - 1)
+			else
+				term.setCursorPos(x, maxY - 1)
+			end
 			term.setBackgroundColor(colors.white)
 			term.setTextColor(colors.red)
 			write(name)
