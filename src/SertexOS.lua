@@ -121,7 +121,7 @@ local folderUsersDir = "/user"
 
 -- clear
 
-function clear()
+local function clear()
 	term.setBackgroundColor(colors.white)
 	term.clear()
 	term.setCursorPos(1,1)
@@ -129,7 +129,7 @@ function clear()
 end
 
 -- header
-function header()
+local function header()
 	clear()
 	graphics.box(1,1,51,3, colors.red)
 	term.setTextColor(colors.white)
@@ -139,10 +139,47 @@ function header()
 	term.setCursorPos(1,5)
 end
 
+-- about
+
+local function about()
+	header()
+	sertextext.left(7, "(c) Copyright 2015 SertexOS 2 - All Rights Reserved")
+	
+	local bytes = fs.getFreeSpace("/")
+	kbytes = bytes/1024
+	bytes = bytes%1024
+	mbytes = kbytes/1024
+	kbytes = kbytes%1024
+	gbytes = mbytes/1024
+	mbytes = mbytes%1024
+	tbytes = gbytes/1024
+	gbytes = gbytes%1024
+	 tbytes = tbytes*100
+	bytes = gbytes*100
+	mbytes = mbytes*100
+  kbytes = kbytes*100
+  bytes = bytes*100
+   
+  tbytes = math.floor(tbytes)
+  gbytes = math.floor(gbytes)
+  mbytes = math.floor(mbytes)
+  kbytes = math.floor(kbytes)
+  bytes = math.floor(bytes)
+   
+	tbytes = tbytes/100
+  gbytes = gbytes/100
+  mbytes = mbytes/100
+  kbytes = kbytes/100
+  bytes = bytes/100
+	
+	sertextext.center(9,about_freeSpace.." "..mbytes.."MB")
+	os.pullEvent("key")
+	return
+end
 
 -- settings
 
-function settings()
+local function settings()
 	
 	local function changeLang()
 		langs = {
@@ -259,7 +296,7 @@ end
 
 -- desktop
 
-function desktop()
+local function desktop()
 
 	if u == nil then
 		crash("bypass", "Username = nil")
@@ -426,7 +463,7 @@ function desktop()
 end
 -- login
 
-function login()
+local function login()
 	api.lock()
 	clear()
 	if not fs.exists("/.SertexOS/.userCreateOk") then

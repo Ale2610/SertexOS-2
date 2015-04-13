@@ -34,6 +34,9 @@ settings_changeLang = "Change Language"
 settings_changePassword = "Change Password"
 settings_update = "Update"
 
+about_title = "About"
+about_freeSpace = "Free Space:"
+
 changePassword_title = "Change Password For"
 changePassword_enterCurrentPassword = "Please Enter Your Current Password."
 changePassword_enterNewPassword = "Please Enter Your New Password."
@@ -49,4 +52,5 @@ lang_exit = "Exit"
 lang_done = "Done"
 lang_yes = "Yes"
 lang_no = "No"
+lang_pressAnyKey = "Press Any Key"
 

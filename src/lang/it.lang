@@ -10,6 +10,7 @@ mainMenu_shutdown = "Arresta"
 mainMenu_reboot = "Riavvia"
 mainMenu_logout = "Esci"
 mainMenu_shell = "Shell"
+mainMenu_about = "Info"
 mainMenu_settings = "Impostazioni"
 
 desktop_user = "Utente: "
@@ -34,6 +35,9 @@ settings_changeLang = "Cambia Lingua"
 settings_changePassword = "Cambia Password"
 settings_update = "Aggiorna"
 
+about_title = "Info"
+about_freeSpace = "Spazio Libero:"
+
 changePassword_title = "Cambia Password Per"
 changePassword_enterCurrentPassword = "Inserisci La Corrente Password"
 changePassword_enterNewPassword = "Inserisci La Nuova Password"
@@ -49,4 +53,5 @@ lang_exit = "Esci"
 lang_done = "Fatto"
 lang_yes = "Si"
 lang_no = "No"
+lang_pressAnyKey = "Premi Qualsiasi Tasto"
 
