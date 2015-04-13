@@ -143,6 +143,7 @@ end
 
 local function about()
 	header()
+	sertextext.center(5, about_title)
 	sertextext.left(7, "(c) Copyright 2015 SertexOS 2 - All Rights Reserved")
 	
 	local bytes = fs.getFreeSpace("/")
@@ -173,6 +174,7 @@ local function about()
   bytes = bytes/100
 	
 	sertextext.center(9,about_freeSpace.." "..mbytes.."MB")
+	sertextext.center(11, lang_pressAnyKey)
 	os.pullEvent("key")
 	return
 end
