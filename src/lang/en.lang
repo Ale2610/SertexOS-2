@@ -10,6 +10,7 @@ mainMenu_shutdown = "Shutdown"
 mainMenu_reboot = "Reboot"
 mainMenu_logout = "Logout"
 mainMenu_shell = "Shell"
+mainMenu_about = "About"
 mainMenu_settings = "Settings"
 
 desktop_user = "User: "
