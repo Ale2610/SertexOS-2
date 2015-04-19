@@ -38,29 +38,9 @@ local function crash(reason,message)
 		end
 end
 
-local function kernel(...)
-sleep(0.1)
-local args = {...}
 
-local argData = {
-  ["-f"] = false,
-  ["-o"] = false,
-}
 
-if #args > 0 then
-  while #args > 0 do
-    local arg = table.remove(args, 1)
-    if argData[arg] ~= nil then
-      argData[arg] = true
-    end
-  end
-end
-
-if _G.SertexOS and not argData["-f"] then
-  printError("Found SertexOS data in memory!")
-  print("If you want to reload SertexOS, launch with arguments '-f'")
-  return
-end
+local function kernel()
 
 _G.SertexOS = {
   build = 5,
@@ -69,25 +49,6 @@ _G.SertexOS = {
 
 function os.version()
   return "SertexOS 2 b"..SertexOS.build
-end
-
-SertexOS.launchArgs = {...}
-
-if OneOS and not argData["-o"] then
-  -- devs need some fun too
-  --printError("OneOS is not a stable system, and SertexOS 2 requires a stable system.")
-  --printError("So what do you *really* want? SertexOS 2 or OneOS?")
-  printError("Sorry, SertexOS and OneOS can't run in parallel.")
-  print("Please reboot the computer without OneOS and start SertexOS.")
-  print("If you *really* want to use OneOS *and* SertexOS, use the command line argument '-o' when starting SertexOS.")
-	_G.SertexOS = nil
-	SertexOS = nil
-  return
-end
-
-if not term.isColor() then
-  print("SertexOS 2 is only for advanced computers")
-  return
 end
 
 -- find base directory
@@ -729,6 +690,41 @@ end
 	w, h = term.getSize()
 	term.setCursorPos((w - #text) / 2, y)
 	write(text)
+end
+
+sleep(0.1)
+local args = {...}
+
+local argData = {
+  ["-f"] = false,
+  ["-o"] = false,
+}
+
+if #args > 0 then
+  while #args > 0 do
+    local arg = table.remove(args, 1)
+    if argData[arg] ~= nil then
+      argData[arg] = true
+    end
+  end
+end
+
+if not term.isColor() then
+  print("SertexOS 2 is only for advanced computers")
+  return
+end
+
+if _G.SertexOS and not argData["-f"] then
+  printError("Found SertexOS data in memory!")
+  print("If you want to reload SertexOS, launch with arguments '-f'")
+  return
+end
+
+if OneOS and not argData["-o"] then
+  printError("Sorry, SertexOS and OneOS can't run in parallel.")
+  print("Please reboot the computer without OneOS and start SertexOS.")
+  print("If you *really* want to use OneOS *and* SertexOS, use the command line argument '-o' when starting SertexOS.")
+  return
 end
 
 term.setBackgroundColor(colors.white)
