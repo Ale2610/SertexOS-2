@@ -294,6 +294,15 @@ function menu(items, title, start,allowNil,moreTitle)
 end
 
 function yesno(text, title, start)
+	dofile("/.SertexOS/config")
+
+	if language == "en" then
+		dofile("/.SertexOS/lang/en.lang")
+	elseif language == "it" then
+		dofile("/.SertexOS/lang/it.lang")
+	elseif language == "de" then
+		dofile("/.SertexOS/lang/de.lang")
+	end
 	local function clear()
 		term.clear()
 		term.setBackgroundColor(colors.white)
@@ -334,8 +343,8 @@ function yesno(text, title, start)
 		term.setCursorPos(1,7)
 		cprint(text)
 		local w, h = term.getSize()
-		drawButton("Yes", 2, h-1, math.floor(w/2)-1, h-1, selected)
-		drawButton("No", math.floor(w/2)+1, h-1, w-1, h-1, not selected)
+		drawButton(lang_yes, 2, h-1, math.floor(w/2)-1, h-1, selected)
+		drawButton(lang_no, math.floor(w/2)+1, h-1, w-1, h-1, not selected)
 	end
 	
 	if start ~= nil and type(start) == "boolean" then
