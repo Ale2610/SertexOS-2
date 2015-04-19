@@ -650,7 +650,7 @@ local x, y = term.getCursorPos()
 			center(y + 2, "Press Any Key")
 			os.pullEvent("key")
 		elseif c == 5 then
-			local c = ui.yesno("You Will Lose All", "Wipe Computer?", false)
+			local c = ui.yesno("You Will Lose All Files", "Wipe Computer?", false)
 			if not c then
 				bios()
 				break
@@ -666,7 +666,7 @@ local x, y = term.getCursorPos()
 						fs.delete(list[i])
 						print(list[i].." deleted")
 					else
-						print(list[i].." is read only! Can't be deleted")
+						print(list[i].." is read only! (Can't be deleted)")
 					end
 				end
 				print("press any key")
@@ -735,9 +735,11 @@ term.setBackgroundColor(colors.white)
 term.clear()
 term.setTextColor(colors.red)
 term.setCursorPos(1,1)
-centerDisplay("SertexOS 2")
+print("BUILD: "..SertexOS.build)
+centerDisplay("")
 local w, h = term.getSize()
 local x, y = term.getCursorPos()
+center(y - 1, "SertexOS 2")
 center(y + 1, "Loading...")
 center(y + 3, "Press ALT to load BIOS")
 local waitingALT = os.startTimer(2)
@@ -755,22 +757,25 @@ while true do
 	elseif event == "key" then
 		if par1 == 56 then
 			if fs.exists("/.SertexOS/.bios") then
-				os.loadAPI("/.SertexOS/apis/sha256")
-				f = fs.open("/.SertexOS/.bios", "r")
-				term.clear()
-				term.setCursorPos(1,1)
-				write("Password: ")
-				local p = read("*")
-				if sha256.sha256(p) == f.readLine() then
-					local ok, err = pcall(bios)
+				while true do
+					os.loadAPI("/.SertexOS/apis/sha256")
+					f = fs.open("/.SertexOS/.bios", "r")
+					term.clear()
+					term.setCursorPos(1,1)
+					print("SertexOS 2 BIOS")
+					write("Password: ")
+					local p = read("*")
+					if sha256.sha256(p) == f.readLine() then
+						local ok, err = pcall(bios)
 	
-					if not ok then
-						crash("bios", err)
+						if not ok then
+							crash("bios", err)
+						end
+						break
+					else
+						print("Wrong Password!")
+						sleep(2)
 					end
-					break
-				else
-					print("Wrong Password!")
-					sleep(2)
 				end
 			else
 				local ok, err = pcall(bios)
