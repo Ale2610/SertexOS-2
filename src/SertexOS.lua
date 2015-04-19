@@ -539,7 +539,7 @@ local x, y = term.getCursorPos()
 		"Boot SertexOS 2", --1 
 		"Load CraftOS 1.7", --2
 		"Reset Config", --3
-		"Get Free Space", --4
+		"Show Free Space", --4
 		"Wipe Computer", --5
 		"Add Password for BIOS", --6
 		"Remove Password for BIOS", --7
