@@ -11,8 +11,8 @@ local function crash(reason,message)
 		["security"] = "System Security Issue",
 		["crash"] = "System Crashed",
 		["unknown"] = "Unknown Error",
-                ["bios"] = "BIOS Error",
-                ["bootlder"] = "Bootloader Error (This should never happen)", -- Just in case xD
+		["bios"] = "BIOS Error",
+		["bootloader"] = "Bootloader Error", -- Just in case xD
 		["seretx"] = "SeretxOS 2 crashed again :C", -- Devs need fun
 	}
 		term.setBackgroundColor(colors.blue)
@@ -588,7 +588,11 @@ local x, y = term.getCursorPos()
 	n, c = ui.menu(opt, "BIOS")
 	
 		if c == 1 then
-			break
+			local ok, err = pcall(kernel)
+	
+			if not ok then
+				crash("crash", err)
+			end
 		elseif c == 2 then
 			crash = nil
 			SertexOS = nil
@@ -734,7 +738,8 @@ term.setCursorPos(1,1)
 centerDisplay("SertexOS 2")
 local w, h = term.getSize()
 local x, y = term.getCursorPos()
-center(y + 2, "Press ALT to load BIOS")
+center(y + 1, "Loading...")
+center(y + 3, "Press ALT to load BIOS")
 local waitingALT = os.startTimer(2)
 	
 while true do
