@@ -431,7 +431,7 @@ local function desktop()
 end
 -- login
 
-local function login()
+function login()
 	api.lock()
 	clear()
 	if not fs.exists("/.SertexOS/.userCreateOk") then
