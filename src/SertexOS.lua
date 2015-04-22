@@ -503,7 +503,7 @@ function login()
 		write( "\n  "..login_password.." > " )
 		p = read( "*" )
 		encryptedPassword = sha256.sha256(p)
-		if not fs.exists(dbUsersDir..SertexOS.u) or SertexOS.u == "" or fs.isDir(dbUsersDir..u) then
+		if not fs.exists(dbUsersDir..SertexOS.u) or SertexOS.u == "" or fs.isDir(dbUsersDir..SertexOS.u) then
 			print("  "..login_notRegistered)
 			sleep(2)
 			login()
