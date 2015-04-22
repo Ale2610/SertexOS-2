@@ -494,7 +494,7 @@ function login()
 			end
 		end
 		
-		local u = ui.menu(users, login_title)
+		u = ui.menu(users, login_title)
 		clear()
 		header()
 		
