@@ -21,18 +21,19 @@ local function crash(reason,message)
 		term.setTextColor(colors.white)
 		center(1,"SertexOS 2 Crashed:")
 		if not reasons or not reasons[reason] then
-			center(2,reasons["crash"])
+			print(reasons["crash"])
 		else
-			center(2,reasons[reason])
+			print(reasons[reason])
 		end
+		local x, y = term.getCursorPos()
 		if not message then
-			center(4, "Undefined Crash")
+			center(y+2, "Undefined Crash")
 		else
-			center(4,message)
+			center(y+2,message)
 		end
-		center(7,"Please reboot system!")
-		center(8,"Please report the issue here:")
-		center(9,"https://github.com/Sertex-Team/SertexOS-2/issues")
+		center(y+5,"Please reboot system!")
+		center(y+6,"Please report the issue here:")
+		center(y+7,"https://github.com/Sertex-Team/SertexOS-2/issues")
 		while true do
 			sleep(0)
 		end
