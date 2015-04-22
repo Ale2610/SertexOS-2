@@ -278,7 +278,7 @@ local function desktop()
 		term.setTextColor(colors.white)
 		sertextext.center(1, "SertexOS 2")
 		sertextext.left(1, desktop_computerID..os.getComputerID())
-		sertextext.right(1, desktop_user..u)		
+		sertextext.right(1, desktop_user..SertexOS.u)		
 		term.setBackgroundColor(colors.white)
 		term.setTextColor(colors.red)
 	end
@@ -496,6 +496,7 @@ function login()
 		end
 		
 		SertexOS.u = ui.menu(users, login_title)
+		
 		clear()
 		header()
 		
