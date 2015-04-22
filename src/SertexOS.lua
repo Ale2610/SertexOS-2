@@ -496,7 +496,9 @@ function login()
 		end
 		
 		SertexOS.u = ui.menu(users, login_title)
-		
+		if not SertexOS.u then
+			login()
+		end
 		clear()
 		header()
 		
