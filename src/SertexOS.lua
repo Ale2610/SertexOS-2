@@ -197,11 +197,11 @@ local function settings()
 	local function changePassword()
 		clear()
 		header()
-		sertextext.center(5, changePassword_title.." "..u.."\n\n")
+		sertextext.center(5, changePassword_title.." "..SertexOS.u.."\n\n")
 		print("  "..changePassword_enterCurrentPassword)
 		write("  > ")
 		currentPW = read("*")
-		f = fs.open(dbUsersDir..u, "r")
+		f = fs.open(dbUsersDir..SertexOS.u, "r")
 		pw = f.readLine()
 		f.close()
 		if sha256.sha256(currentPW) ~= pw then
@@ -216,7 +216,7 @@ local function settings()
 			write("  > ")
 			local repeatNewPW = read("*")
 			if newPW == repeatNewPW then
-				local f = fs.open(dbUsersDir..u, "w")
+				local f = fs.open(dbUsersDir..SertexOS.u, "w")
 				f.write(sha256.sha256(newPW))
 				f.close()
 				print("\n  "..lang_done)
@@ -262,7 +262,7 @@ end
 
 local function desktop()
 
-	if u == nil then
+	if SertexOS.u == nil then
 		crash("bypass", "Username = nil")
 	end
 
@@ -494,31 +494,31 @@ function login()
 			end
 		end
 		
-		u = ui.menu(users, login_title)
+		SertexOS.u = ui.menu(users, login_title)
 		clear()
 		header()
 		
 		print("  "..login_title)
-		print("\n  "..u)
+		print("\n  "..SertexOS.u)
 		write( "\n  "..login_password.." > " )
 		p = read( "*" )
 		encryptedPassword = sha256.sha256(p)
-		if not fs.exists(dbUsersDir..u) or u == "" or fs.isDir(dbUsersDir..u) then
+		if not fs.exists(dbUsersDir..SertexOS.u) or SertexOS.u == "" or fs.isDir(dbUsersDir..u) then
 			print("  "..login_notRegistered)
 			sleep(2)
 			login()
 		end
-		f = fs.open( dbUsersDir..u, "r" )
+		f = fs.open( dbUsersDir..SertexOS.u, "r" )
 		p2 = f.readLine()
 		f.close()
 		if encryptedPassword == p2 then
-			print( "\n  "..login_welcome:format(u) )
-			api.log("Logged In As "..u)
+			print( "\n  "..login_welcome:format(SertexOS.u) )
+			api.log("Logged In As "..SertexOS.u)
 			sleep( 2 )
 			desktop()
 		else
 			printError( "  "..wrongPassword )
-			api.log("Incorrect Password from "..u.." Password: "..p)
+			api.log("Incorrect Password from "..SertexOS.u.." Password: "..p)
 			sleep( 2 )
 			login()
 		end
