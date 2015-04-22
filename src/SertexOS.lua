@@ -435,61 +435,72 @@ function login()
 	api.lock()
 	clear()
 	if not fs.exists("/.SertexOS/.userCreateOk") then
-	while true do
-		header()
-		print( "  "..setup_title )
-		print( "\n  "..setup_enterUsername )
-		write( "  > " )
-		u = read()
-		print( "  "..setup_enterPassword )
-		write( "  > " )
-		p = read( "*" )
-		print( "  "..setup_repeatEnterPassword )
-		write( "  > " )
-		rp = read("*")
-		if p ~= rp then
-			print("  "..wrongPassword)
-			api.log("Wrong Password on setup")
-			sleep(2)
-			login()
-		end
-		encrtyptedPassword = sha256.sha256(p)
-		choose = ui.yesno(setup_isUsernameCorrect2, setup_isUsernameCorrect1:format(u))
-		if choose then
-			print( "   "..writingData )
-			f = fs.open( dbUsersDir..u, "w" )
-			f.write( sha256.sha256(p) )
-			f.close()
-			fs.makeDir(folderUsersDir.."/"..u.."/desktop")
-			api.log("Created Account "..u)
-			sleep(0.1)
-		else
-			api.log("User deleted")
-			sleep(0.1)
-			login()
-		end
-		choose = ui.yesno(setup_createAnotherUser)
+		while true do
+			header()
+			print( "  "..setup_title )
+			print( "\n  "..setup_enterUsername )
+			write( "  > " )
+			u = read()
+			print( "  "..setup_enterPassword )
+			write( "  > " )
+			p = read( "*" )
+			print( "  "..setup_repeatEnterPassword )
+			write( "  > " )
+			rp = read("*")
+			if p ~= rp then
+				print("  "..wrongPassword)
+				api.log("Wrong Password on setup")
+				sleep(2)
+				login()
+			end
+			encrtyptedPassword = sha256.sha256(p)
+			choose = ui.yesno(setup_isUsernameCorrect2, setup_isUsernameCorrect1:format(u))
+			if choose then
+				print( "   "..writingData )
+				f = fs.open( dbUsersDir..u, "w" )
+				f.write( sha256.sha256(p) )
+				f.close()
+				fs.makeDir(folderUsersDir.."/"..u.."/desktop")
+				api.log("Created Account "..u)
+				sleep(0.1)
+			else
+				api.log("User deleted")
+				sleep(0.1)
+				login()
+			end
+			choose = ui.yesno(setup_createAnotherUser)
 		
-		if choose then
-			sleep(0.1)
-			api.log("Creating new user")
-			login()
-		else
-			api.log("Stop making new users")
-			userOk = fs.open(systemDir.."/.userCreateOk", "w")
-			userOk.write("ignore me please")
-			userOk.close()
-			sleep(0.1)
-			break
-		end
-	end	
+			if choose then
+				sleep(0.1)
+				api.log("Creating new user")
+				login()
+			else
+				api.log("Stop making new users")
+				userOk = fs.open(systemDir.."/.userCreateOk", "w")
+				userOk.write("ignore me please")
+				userOk.close()
+				sleep(0.1)
+				break
+			end
+		end	
 	end
 		clear()
+		local list = fs.list(dbUsersDir)
+		local users = {}
+		
+		for i = 1, #list do
+			if not fs.isDir(dbUsersDir..list[i]) then
+				table.insert(users, list[i])
+			end
+		end
+		
+		local u = ui.menu(users, login_title)
+		clear()
 		header()
-		print( "  "..login_title )
-		write( "\n  "..login_username.." > " )
-		u = read()
-		write( "  "..login_password.." > " )
+		
+		print("  "..login_title)
+		print("\n  "..u)
+		write( "\n  "..login_password.." > " )
 		p = read( "*" )
 		encryptedPassword = sha256.sha256(p)
 		if not fs.exists(dbUsersDir..u) or u == "" or fs.isDir(dbUsersDir..u) then

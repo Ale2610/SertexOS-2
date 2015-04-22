@@ -8,10 +8,6 @@
 --  RednetExplorer Made by ComputerCraftFan11
 --
 
-if multishell then
-	multishell.setTitle( multishell.getCurrent(), "Firewolf" )
-end
-
 
 --  -------- Variables
 
@@ -111,6 +107,10 @@ local function modemPresent()
 		end
 	else return true end
 	return false
+end
+
+if multishell then
+	multishell.setTitle( multishell.getCurrent(), "Firewolf" )
 end
 
 
