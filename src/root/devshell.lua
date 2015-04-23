@@ -1,3 +1,7 @@
+term.setBackgroundColor(colors.black)
+term.clear()
+term.setCursorPos(1,1)
+term.setTextColor(colors.blue)
 print( "SertexOS Developer Shell" )
 print( "" )
 print( "You opened this window by typing \"devshell\" in the main Operating System. If you don't know what this is, please type \"exit\". Type \"help\" for more commands. " )
@@ -33,6 +37,6 @@ If you are reading this then you are NOT a developer.
     ]])
   elseif input == "" then
   else
-  printerror( "Command Invalid" )
+  printError( "Invalid Command" )
   end
 end
