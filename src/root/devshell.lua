@@ -1,16 +1,16 @@
 print( "SertexOS Developer Shell" )
-print( "You opened this window by typing \"devshell\" in the main" )
-print( "Operating System. If you don't know what this is, please" )
-print( "type \"exit\". Type \"help\" for more commands." )
+print( "" )
+print( "You opened this window by typing \"devshell\" in the main Operating System. If you don't know what this is, please type \"exit\". Type \"help\" for more commands. " )
+print( "" )
 while true do
   term.setTextColor( colors.blue )
   write( "SertexOS@Root$ " )
   input = read()
   if input == "motd" then
     print( "SertexOS Developer Shell" )
-    print( "You opened this window by typing \"devshell\" in the main" )
-    print( "Operating System. If you don't know what this is, please" )
-    print( "type \"exit\". Type \"help\" for more commands." )
+    print( "" )
+    print( "You opened this window by typing \"devshell\" in the main Operating System. If you don't know what this is, please type \"exit\". Type \"help\" for more commands. " )
+    print( "" )
   elseif input == "exit" then
     return true
   elseif input == "help" then
