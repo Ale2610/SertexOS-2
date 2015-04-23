@@ -238,12 +238,12 @@ else
         term.redirect( parentTerm )
         term.setBackgroundColor( bgColour )
         term.setTextColour( promptColour )
-				if shell.dir() == "/user/"..SertexOS.u.."/Desktop" then
-					local dir = "Desktop"
-				else
-					local dir = shell.dir()
-				end
-				write(dir .. "> " )
+				--if shell.dir() == "/user/"..SertexOS.u.."/desktop" then
+					--local dir = "Desktop"
+				--else
+					--local dir = shell.dir()
+				--end
+				write(shell.dir .. "> " )
         term.setTextColour( textColour )
 
         local sLine = read( nil, tCommandHistory )
