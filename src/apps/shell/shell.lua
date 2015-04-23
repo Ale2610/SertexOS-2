@@ -241,7 +241,7 @@ else
 				if shell.dir() == "/user/"..SertexOS.u.."/Desktop" then
 					local dir = "Desktop"
 				else
-					shell.dir()
+					local dir = shell.dir()
 				end
 				write(dir .. "> " )
         term.setTextColour( textColour )
