@@ -15,18 +15,18 @@ while true do
     return true
   elseif input == "help" then
     print([[
-       _____           _             ____   _____ 
-       / ____|         | |           / __ \ / ____|
-       | (___   ___ _ __| |_ _____  _| |  | | (___  
-        \___ \ / _ \ '__| __/ _ \ \/ / |  | |\___ \ 
-       ____) |  __/ |  | ||  __/>  <| |__| |____) |
-      |_____/ \___|_|   \__\___/_/\_\\____/|_____/ 
+_____           _             ____   _____ 
+/ ____|         | |           / __ \ / ____|
+| (___   ___ _ __| |_ _____  _| |  | | (___  
+\___ \ / _ \ '__| __/ _ \ \/ / |  | |\___ \ 
+ ____) |  __/ |  | ||  __/>  <| |__| |____) |
+|_____/ \___|_|   \__\___/_/\_\\____/|_____/ 
                                               
-      You are in Dev Shell
+You are in Dev Shell
       
-      Please use the exit command to return to the operating system.
+Please use the exit command to return to the operating system.
       
-      If you are reading this then you are NOT a developer.
+If you are reading this then you are NOT a developer.
     ]])
   end
 end
