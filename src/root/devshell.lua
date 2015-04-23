@@ -31,5 +31,8 @@ Please use the exit command to return to the operating system.
       
 If you are reading this then you are NOT a developer.
     ]])
+  elseif input == "" then
+  else
+  printerror( "Command Invalid" )
   end
 end
