@@ -1,5 +1,5 @@
 -- Language for SertexOS 2
--- By MultMine (todo)
+-- By MultMine (todo) with a little bit of help from LewisTehMinerz
 -- using %s for string.format
 
 system_shuttingDown = "Herunterfahren..."
@@ -16,7 +16,7 @@ mainMenu_settings = "Einstellungen"
 desktop_user = "Benutzer: "
 desktop_computerID = "Computer-ID: "
 
-setup_title = "SertexOS 2 Account Setup"
+setup_title = "SertexOS 2 Kontoeinrichtung"
 setup_enterUsername = "Benutzername eingeben."
 setup_enterPassword = "Passwort eingeben."
 setup_repeatEnterPassword = "Passwort wiederholen."
