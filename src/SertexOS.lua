@@ -83,6 +83,25 @@ local systemDir = ".SertexOS"
 local dbUsersDir = systemDir.."/databaseUsers/"
 local folderUsersDir = "/user"
 
+--getTextColor
+
+local oldTextColor = term.setTextColor
+function term.setTextColor(color)
+	oldTextColor(color)
+	function term.getTextColor()
+		return color
+	end
+end
+
+--getBackgroundColor
+local oldBGColor = term.setBackgroundColor
+function term.setBackgroundColor(color)
+	oldBGColor(color)
+	function term.getBackgroundColor()
+		return color
+	end
+end
+
 -- clear
 
 local function clear()
