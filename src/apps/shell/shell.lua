@@ -224,6 +224,7 @@ if #tArgs > 0 then
 else
     -- "shell"
     -- Print the header
+		term.setTextColor(colors.yellow)
 		print(os.version())
 		term.setBackgroundColor(colors.black)
 		term.setTextColor(colors.white)
@@ -240,6 +241,8 @@ else
         term.setTextColour( promptColour )
 				if shell.dir() == "user/"..SertexOS.u.."/desktop" then
 					dir = "Desktop"
+				elseif shell.dir() == "user/"..SertexOS.u then
+					dir = SertexOS.u
 				else
 					dir = shell.dir()
 				end
