@@ -432,12 +432,6 @@ local function desktop()
 			if ev[1] == "mouse_click" then
 				local mx = ev[3]
 				local my = ev[4]
-				--if not quiet then
-					--term.setCursorPos(1, termH)
-					--term.setBackgroundColor(colors.white)
-					--term.setTextColor(colors.red)
-					--write("X: "..ev[3].."    Y: "..ev[4].."   ")
-				--end
 				if ev[3] == termW then
 					sidebarVisible = not sidebarVisible
 				elseif ev[3] >= termW - sidebarWidth and    ev[3] <= termW - 1 and    ev[4] >= 2 and    sidebarVisible then
@@ -446,7 +440,7 @@ local function desktop()
 					end
 				elseif (mx > 2 - 1 and my > 3 - 1) and (mx < 6 + 1 and my < 8 + 1) then
 					shell.openTab("/.SertexOS/apps/shell/app")
-				elseif (mx > 8 - 1 and my > 3 - 1) and (mx < 12 + 1 and my < 8 + 1) then
+				elseif (mx > 8 - 1 and my > 3 - 1) and (mx < 14 + 1 and my < 8 + 1) then
 					shell.openTab("/.SertexOS/apps/firewolf/app")
 				end
 			end
