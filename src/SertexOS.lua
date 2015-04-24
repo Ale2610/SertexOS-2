@@ -83,6 +83,10 @@ local systemDir = ".SertexOS"
 local dbUsersDir = systemDir.."/databaseUsers/"
 local folderUsersDir = "/user"
 
+
+
+
+
 --getTextColor
 
 local oldTextColor = term.setTextColor
