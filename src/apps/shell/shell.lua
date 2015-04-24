@@ -215,7 +215,7 @@ end
 
 shell.setAlias( "shell", "/.SertexOS/apps/shell/app" )
 
-shell.setDir("user/"..SertexOS.u.."/Desktop")
+shell.setDir("user/"..SertexOS.u.."/desktop")
 
 local tArgs = { ... }
 if #tArgs > 0 then
