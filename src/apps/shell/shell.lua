@@ -239,9 +239,9 @@ else
         term.setBackgroundColor( bgColour )
         term.setTextColour( promptColour )
 				if shell.dir() == "user/"..SertexOS.u.."/desktop" then
-					local dir = "Desktop"
+					dir = "Desktop"
 				else
-					local dir = shell.dir()
+					dir = shell.dir()
 				end
 				write(dir .. "> " )
         term.setTextColour( textColour )
