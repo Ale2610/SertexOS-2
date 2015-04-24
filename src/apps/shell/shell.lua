@@ -198,10 +198,10 @@ if multishell then
         local sCommand = tWords[1]
         if sCommand then
         	local sPath = shell.resolveProgram( sCommand )
-        	if sPath == ".SertexOS/apps/shell/shell" then
+        	if sPath == ".SertexOS/apps/shell/app" then
                 return multishell.launch( tEnv, sPath, unpack( tWords, 2 ) )
             elseif sPath ~= nil then
-                return multishell.launch( tEnv, ".SertexOS/apps/shell/shell", sPath, unpack( tWords, 2 ) )
+                return multishell.launch( tEnv, ".SertexOS/apps/shell/app", sPath, unpack( tWords, 2 ) )
             else
                 printError( "No such program" )
             end
@@ -213,7 +213,9 @@ if multishell then
     end
 end
 
-shell.setAlias( "shell", "/.SertexOS/apps/shell/shell" )
+shell.setAlias( "shell", "/.SertexOS/apps/shell/app" )
+
+shell.setDir("user/"..SertexOS.u.."/Desktop")
 
 local tArgs = { ... }
 if #tArgs > 0 then
