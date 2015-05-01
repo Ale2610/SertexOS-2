@@ -83,8 +83,6 @@ local systemDir = ".SertexOS"
 local dbUsersDir = systemDir.."/databaseUsers/"
 local folderUsersDir = "/user"
 
-
-
 --getLoadedAPIs
 loadedAPIs = {}
 
@@ -120,6 +118,45 @@ function term.setBackgroundColor(color)
 	function term.getBackgroundColor()
 		return color
 	end
+end
+
+os.forceShutdown = os.shutdown
+os.forceReboot = os.reboot
+
+function os.reboot()
+	local function printMsg(color)
+		term.setBackgroundColor(color)
+		term.setTextColor(colors.white)
+		term.clear()
+		term.setCursorPos(1, 1)
+		sertextext.centerDisplay(system_rebooting)
+		sleep(0.1)
+	end
+	printMsg(colors.white)
+	printMsg(colors.lightGray)
+	printMsg(colors.gray)
+	printMsg(colors.black)
+	sleep(0.6)
+	api.log("Reboot")
+	os.forceReboot()
+end
+
+function os.shutdown()
+	local function printMsg(color)
+		term.setBackgroundColor(color)
+		term.setTextColor(colors.white)
+		term.clear()
+		term.setCursorPos(1, 1)
+		sertextext.centerDisplay(system_shuttingDown)
+		sleep(0.1)
+	end
+	printMsg(colors.white)
+	printMsg(colors.lightGray)
+	printMsg(colors.gray)
+	printMsg(colors.black)
+	sleep(0.6)
+	api.log("Shutdown")
+	os.forceShutdown()
 end
 
 -- clear
@@ -229,7 +266,7 @@ local function settings()
 				printMsg(colors.black)
 				sleep(0.6)
 				api.log("Reboot")
-				os.reboot()
+				os.forceReboot()
 			else
 				return
 			end
@@ -342,7 +379,7 @@ local function desktop()
 				printMsg(colors.black)
 				sleep(0.6)
 				api.log("Shutdown")
-				os.shutdown()
+				os.forceShutdown()
 			end},
 			{mainMenu_reboot, function()
 				local function printMsg(color)
@@ -359,7 +396,7 @@ local function desktop()
 				printMsg(colors.black)
 				sleep(0.6)
 				api.log("Reboot")
-				os.reboot()
+				os.forceReboot()
 			end},
 			{mainMenu_logout, function()
 				local function printMsg(color)
