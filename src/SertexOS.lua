@@ -405,7 +405,7 @@ local function desktop()
 					term.clear()
 					term.setCursorPos(1, 1)
 					sertextext.centerDisplay(account_loggingOut)
-					api.log("Logged Out "..u)
+					api.log("Logged Out "..SertexOS.u)
 					sleep(0.1)
 				end
 				printMsg(colors.white)
