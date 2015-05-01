@@ -85,7 +85,23 @@ local folderUsersDir = "/user"
 
 
 
+--getLoadedAPIs
+loadedAPIs = {}
 
+local oldLoadAPI = os.loadAPI
+local oldUnloadAPI = os.unloadAPI
+function os.loadAPI(api)
+	oldLoadAPI(api)
+	table.insert(loadedAPIs, api)
+	function os.getAPIs()
+		return loadedAPIs
+	end
+end
+
+function os.unloadAPI(api)
+	oldUnloadAPI(api)
+	table.remove(loadedAPIs, api)
+end
 
 --getTextColor
 
