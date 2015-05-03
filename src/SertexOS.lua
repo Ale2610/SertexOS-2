@@ -813,6 +813,8 @@ if OneOS and not argData["-o"] then
   return
 end
 
+os.pullEvent = os.pullEventRaw
+
 term.setBackgroundColor(colors.white)
 term.clear()
 term.setTextColor(colors.red)
