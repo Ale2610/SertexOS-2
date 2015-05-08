@@ -78,10 +78,14 @@ local function get(user, repo, bran, path, save)
 	local text = remote.readAll()
 	remote.close()
 	if save then
-		local file = fs.open(save, "w")
-		file.write(text) --# attempt to index ? a nil value
-		file.close()
-		return true
+		if text then
+			local file = fs.open(save, "w")
+			file.write(text) --# attempt to index ? a nil value
+			file.close()
+			return true
+		else
+			return false
+		end
 	end
 	return text
 end
