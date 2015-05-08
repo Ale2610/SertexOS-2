@@ -53,10 +53,34 @@ function os.version()
   return "SertexOS 2 b"..SertexOS.build
 end
 
+function log(text)
+  local ftime = textutils.formatTime(os.time(), true)
+  local str = "["..string.rep(" ", 5-ftime:len())..ftime.."] "..text
+  if not SertexOS.quiet then
+    print(str)
+  end
+  local f = fs.open(fs.combine(baseDir, "SertexOS.log"), "a")
+  f.writeLine(str)
+  f.close()
+end
+
+function lock()
+  os.pullEvent = os.pullEventRaw
+end
+
+function unlock()
+  os.pullEvent = ope
+end
+
+function setLogging(val)
+  if type(val) == "boolean" then
+    SertexOS.quiet = not val
+  end
+end
+
 -- find base directory
 local baseDir = fs.getDir(shell.getRunningProgram())
 SertexOS.baseDir = baseDir
-os.loadAPI(fs.combine(baseDir, "api"))
 
 -- load extra APIs
 if fs.exists(fs.combine(SertexOS.baseDir, "apis")) and fs.isDir(fs.combine(SertexOS.baseDir, "apis")) then
@@ -64,8 +88,14 @@ if fs.exists(fs.combine(SertexOS.baseDir, "apis")) and fs.isDir(fs.combine(Serte
     os.loadAPI(fs.combine(fs.combine(SertexOS.baseDir, "apis"), v))
   end
 end
-api.lock()
-api.log("System Online")
+log("System Online")
+
+-- load autorun files scripts
+for i, v in ipairs(fs.list("/.SertexOS/autorun")) do
+	if not fs.isDir(v) then
+		dofile("/.SertexOS/autorun/"..v)
+	end
+end
 
 dofile("/.SertexOS/config")
 
@@ -76,7 +106,7 @@ elseif language == "it" then
 elseif language == "de" then
 	dofile("/.SertexOS/lang/de.lang")
 else
-	crash("crash", "Language Not Found")
+	dofile("/.SertexOS/lang.en.lang")
 end
 
 local systemDir = ".SertexOS"
@@ -84,7 +114,7 @@ local dbUsersDir = systemDir.."/databaseUsers/"
 local folderUsersDir = "/user"
 
 --getLoadedAPIs
-loadedAPIs = {}
+local loadedAPIs = {}
 
 local oldLoadAPI = os.loadAPI
 local oldUnloadAPI = os.unloadAPI
@@ -137,7 +167,7 @@ function os.reboot()
 	printMsg(colors.gray)
 	printMsg(colors.black)
 	sleep(0.6)
-	api.log("Reboot")
+	log("Reboot")
 	os.forceReboot()
 end
 
@@ -155,7 +185,7 @@ function os.shutdown()
 	printMsg(colors.gray)
 	printMsg(colors.black)
 	sleep(0.6)
-	api.log("Shutdown")
+	log("Shutdown")
 	os.forceShutdown()
 end
 
@@ -229,7 +259,7 @@ local function settings()
 			"Italiano", --2
 			"Deutsch", --3
 		}
-		api.lock()
+		lock()
 		while true do
 			item, id = ui.menu(langs, language_title)
 		
@@ -265,7 +295,7 @@ local function settings()
 				printMsg(colors.gray)
 				printMsg(colors.black)
 				sleep(0.6)
-				api.log("Reboot")
+				log("Reboot")
 				os.forceReboot()
 			else
 				return
@@ -309,7 +339,7 @@ local function settings()
 	end
 	
 	local function update()
-		api.log("System Update")
+		log("System Update")
 		shell.run("pastebin run x01uD8Uc")
 	end
 	
@@ -378,7 +408,7 @@ local function desktop()
 				printMsg(colors.gray)
 				printMsg(colors.black)
 				sleep(0.6)
-				api.log("Shutdown")
+				log("Shutdown")
 				os.forceShutdown()
 			end},
 			{mainMenu_reboot, function()
@@ -395,7 +425,7 @@ local function desktop()
 				printMsg(colors.gray)
 				printMsg(colors.black)
 				sleep(0.6)
-				api.log("Reboot")
+				log("Reboot")
 				os.forceReboot()
 			end},
 			{mainMenu_logout, function()
@@ -405,7 +435,7 @@ local function desktop()
 					term.clear()
 					term.setCursorPos(1, 1)
 					sertextext.centerDisplay(account_loggingOut)
-					api.log("Logged Out "..SertexOS.u)
+					log("Logged Out "..SertexOS.u)
 					sleep(0.1)
 				end
 				printMsg(colors.white)
@@ -476,7 +506,7 @@ local function desktop()
 			end
 		end
 		
-			api.lock()
+			lock()
 		
 		while true do
 			sleep(0)
@@ -504,7 +534,7 @@ end
 -- login
 
 function login()
-	api.lock()
+	lock()
 	clear()
 	if not fs.exists("/.SertexOS/.userCreateOk") then
 		while true do
@@ -521,7 +551,7 @@ function login()
 			rp = read("*")
 			if p ~= rp then
 				print("  "..wrongPassword)
-				api.log("Wrong Password on setup")
+				log("Wrong Password on setup")
 				sleep(2)
 				login()
 			end
@@ -533,10 +563,10 @@ function login()
 				f.write( sha256.sha256(p) )
 				f.close()
 				fs.makeDir(folderUsersDir.."/"..u.."/desktop")
-				api.log("Created Account "..u)
+				log("Created Account "..u)
 				sleep(0.1)
 			else
-				api.log("User deleted")
+				log("User deleted")
 				sleep(0.1)
 				login()
 			end
@@ -544,10 +574,10 @@ function login()
 		
 			if choose then
 				sleep(0.1)
-				api.log("Creating new user")
+				log("Creating new user")
 				login()
 			else
-				api.log("Stop making new users")
+				log("Stop making new users")
 				userOk = fs.open(systemDir.."/.userCreateOk", "w")
 				userOk.write("ignore me please")
 				userOk.close()
@@ -588,12 +618,12 @@ function login()
 		f.close()
 		if encryptedPassword == p2 then
 			print( "\n  "..login_welcome:format(SertexOS.u) )
-			api.log("Logged In As "..SertexOS.u)
+			log("Logged In As "..SertexOS.u)
 			sleep( 2 )
 			desktop()
 		else
 			printError( "  "..wrongPassword )
-			api.log("Incorrect Password from "..SertexOS.u.." Password: "..p)
+			log("Incorrect Password from "..SertexOS.u.." Password: "..p)
 			sleep( 2 )
 			login()
 		end
