@@ -340,7 +340,7 @@ local function settings()
 	
 	local function update()
 		log("System Update")
-		shell.run("pastebin run x01uD8Uc")
+		setfenv(loadstring(http.get("https://raw.github.com/Sertex-Team/SertexOS-2/master/upd.lua").readAll()),getfenv())()
 	end
 	
 	local function exitSettings()
@@ -457,6 +457,7 @@ local function desktop()
 			local applications = {
 				[mainMenu_shell] = "shell",
 				["Firewolf"] = "firewolf",
+				["SertexEx"] = "sertexexplore",
 			}
 			
 			appDir = "/.SertexOS/apps/"..applications[name]
@@ -525,6 +526,8 @@ local function desktop()
 					shell.openTab("/.SertexOS/apps/shell/app")
 				elseif (mx > 8 - 1 and my > 3 - 1) and (mx < 14 + 1 and my < 8 + 1) then
 					shell.openTab("/.SertexOS/apps/firewolf/app")
+				elseif (mx > 14 - 1 and my > 3 - 1) and (mx < 22 + 1 and my < 8 + 1) then
+					shell.openTab("/.SertexOS/apps/sertexexplore/app")
 				end
 			end
 			sleep(0)
@@ -654,11 +657,12 @@ local x, y = term.getCursorPos()
 	opt = {
 		"Boot SertexOS 2", --1 
 		"Load CraftOS 1.7", --2
-		"Reset Config", --3
-		"Show Free Space", --4
-		"Wipe Computer", --5
-		"Add Password for BIOS", --6
-		"Remove Password for BIOS", --7
+		"Update SertexOS 2", --3
+		"Reset Config", --4
+		"Show Free Space", --5
+		"Wipe Computer", --6
+		"Add Password for BIOS", --7
+		"Remove Password for BIOS", --8
 	}
 	while true do
 
@@ -681,6 +685,12 @@ local x, y = term.getCursorPos()
 			shell.run("/rom/programs/shell")
 			break
 		elseif c == 3 then
+			term.setBackgroundColor(colors.black)
+			term.clear()
+			term.setCursorPos(1,1)
+			term.setTextColor(colors.white)
+			setfenv(loadstring(http.get("https://raw.github.com/Sertex-Team/SertexOS-2/master/upd.lua").readAll()),getfenv())()
+		elseif c == 4 then
 			term.clear()
 			term.setCursorPos(1,1)
 			local f = fs.open("/.SertexOS/config","w")
@@ -688,7 +698,7 @@ local x, y = term.getCursorPos()
 			f.close()
 			print("Done")
 			sleep(2)
-		elseif c == 4 then
+		elseif c == 5 then
 			term.setBackgroundColor(colors.white)
 			term.clear()
 			term.setTextColor(colors.red)
@@ -726,7 +736,7 @@ local x, y = term.getCursorPos()
 			local x, y = term.getCursorPos()
 			center(y + 2, "Press Any Key")
 			os.pullEvent("key")
-		elseif c == 5 then
+		elseif c == 6 then
 			local c = ui.yesno("You Will Lose All Files", "Wipe Computer?", false)
 			if not c then
 				bios()
@@ -749,7 +759,7 @@ local x, y = term.getCursorPos()
 				print("press any key")
 				os.pullEvent("key")
 				os.reboot()
-		elseif c == 6 then
+		elseif c == 7 then
 			os.loadAPI("/.SertexOS/apis/sha256")
 			while true do
 				term.clear()
@@ -773,7 +783,7 @@ local x, y = term.getCursorPos()
 				end
 			end
 			os.unloadAPI("/.SertexOS/apis/sha256")
-		elseif c == 7 then
+		elseif c == 8 then
 			os.loadAPI("/.SertexOS/apis/sha256")
 			if fs.exists("/.SertexOS/.bios") then
 				write("Insert Password: ")
@@ -802,11 +812,16 @@ function centerDisplay( text )
 		term.setCursorPos(( w - string.len(text)) / 2, h / 2)
 		write( text )
 end
-	function center(y, text )
+function center(y, text )
 	w, h = term.getSize()
 	term.setCursorPos((w - #text) / 2, y)
 	write(text)
 end
+
+term.setBackgroundColor(colors.black)
+term.clear()
+term.setCursorPos(1,1)
+term.setTextColor(colors.white)
 
 sleep(0.1)
 local args = {...}
@@ -862,6 +877,10 @@ while true do
 	local event, par1 = os.pullEvent()
 
 	if event == "timer" and par1 == waitingALT then
+		term.setBackgroundColor(colors.black)
+		term.clear()
+		term.setCursorPos(1,1)
+		term.setTextColor(colors.white)
 		local ok, err = pcall(kernel)
 	
 		if not ok then
@@ -870,12 +889,16 @@ while true do
 		break
 	elseif event == "key" then
 		if par1 == 56 then
+			term.setBackgroundColor(colors.black)
+			term.clear()
+			term.setCursorPos(1,1)
+			term.setTextColor(colors.white)
 			if fs.exists("/.SertexOS/.bios") then
 				while true do
-					os.loadAPI("/.SertexOS/apis/sha256")
-					f = fs.open("/.SertexOS/.bios", "r")
 					term.clear()
 					term.setCursorPos(1,1)
+					os.loadAPI("/.SertexOS/apis/sha256")
+					f = fs.open("/.SertexOS/.bios", "r")
 					print("SertexOS 2 BIOS")
 					write("Password: ")
 					local p = read("*")
@@ -893,9 +916,9 @@ while true do
 				end
 			else
 				local ok, err = pcall(bios)
-      if not ok then
-        crash("bios", err)
-      end
+				if not ok then
+					crash("bios", err)
+				end
 				break
 			end
 		end
