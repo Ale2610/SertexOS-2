@@ -1,6 +1,7 @@
 --SertexOS 2 Installer
 
 shell.setDir("/")
+fs.makeDir("/.SertexOS/autorun")
 
 if not fs.exists("/.SertexOS/config") then
 	local f = fs.open("/.SertexOS/config","w")
