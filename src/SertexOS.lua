@@ -53,6 +53,10 @@ function os.version()
   return "SertexOS 2 b"..SertexOS.build
 end
 
+-- find base directory
+local baseDir = fs.getDir(shell.getRunningProgram())
+SertexOS.baseDir = baseDir
+
 function log(text)
   local ftime = textutils.formatTime(os.time(), true)
   local str = "["..string.rep(" ", 5-ftime:len())..ftime.."] "..text
@@ -77,10 +81,6 @@ function setLogging(val)
     SertexOS.quiet = not val
   end
 end
-
--- find base directory
-local baseDir = fs.getDir(shell.getRunningProgram())
-SertexOS.baseDir = baseDir
 
 -- load extra APIs
 if fs.exists(fs.combine(SertexOS.baseDir, "apis")) and fs.isDir(fs.combine(SertexOS.baseDir, "apis")) then
