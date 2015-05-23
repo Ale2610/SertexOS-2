@@ -215,6 +215,7 @@ local function about()
 	header()
 	sertextext.center(5, about_title)
 	sertextext.left(7, "(c) Copyright 2015 SertexOS 2 - All Rights Reserved")
+	sertextext.left(8, "Do not distribute!")
 	sertextext.left(9, "Firewolf by GravityScore")
 	local bytes = fs.getFreeSpace("/")
 	kbytes = bytes/1024
@@ -453,11 +454,12 @@ local function desktop()
 			end},
 		}
 		
-		local function app(name, x, y)
+		local function app(name, x, y) -- the max character are 7
 			local applications = {
 				[mainMenu_shell] = "shell",
-				["Firewolf"] = "firewolf",
-				["SertexEx"] = "sertexexplore",
+				["Frwlf"] = "firewolf",
+				["SrtxEx"] = "sertexexplore",
+				["Progrms"] = "programs",
 			}
 			
 			appDir = "/.SertexOS/apps/"..applications[name]
@@ -490,8 +492,8 @@ local function desktop()
 		local function redraw()
 			desktopHeader()
 			app(mainMenu_shell, 2,3)
-			app("Firewolf", 10,3)
-			app("SertexEx", 18,3)
+			app("Frwlf", 10,3)
+			app("SrtxEx", 18,3)
 			graphics.line(termW, 1, termW, termH, colors.red)
 			term.setCursorPos(termW, math.ceil(termH / 2))
 			term.setTextColor(colors.white)
@@ -746,15 +748,15 @@ local x, y = term.getCursorPos()
 				term.setBackgroundColor(colors.black)
 				term.clear()
 				term.setCursorPos(1,1)
-				term.setTextColor(colors.red)
+				term.setTextColor(colors.white)
 				list = fs.list("")
 				
 				for i = 1, #list do
 					if not fs.isReadOnly(list[i]) then
 						fs.delete(list[i])
-						print(list[i].." deleted")
+						printError(list[i].." deleted")
 					else
-						print(list[i].." is read only! (Can't be deleted)")
+						printError(list[i].." is read only! (Can't be deleted)")
 					end
 				end
 				print("press any key")
@@ -830,6 +832,7 @@ local args = {...}
 local argData = {
   ["-f"] = false,
   ["-o"] = false,
+  ["-u"] = false,
 }
 
 if #args > 0 then
@@ -852,6 +855,12 @@ if _G.SertexOS and not argData["-f"] then
   return
 end
 
+if argData["-u"] then
+	slep(0.1)
+	print("Getting SertexOS 2 installer...")
+	setfenv(loadstring(http.get("https://raw.github.com/Sertex-Team/SertexOS-2/master/upd.lua").readAll()),getfenv())()
+end
+
 if OneOS and not argData["-o"] then
   printError("Sorry, SertexOS and OneOS can't run in parallel.")
   print("Please reboot the computer without OneOS and start SertexOS.")
@@ -865,7 +874,7 @@ term.setBackgroundColor(colors.white)
 term.clear()
 term.setTextColor(colors.red)
 term.setCursorPos(1,1)
-print("Version BIOS: 1.5")
+print("BIOS Version: 1.6")
 centerDisplay("")
 local w, h = term.getSize()
 local x, y = term.getCursorPos()
@@ -896,7 +905,9 @@ while true do
 			term.setTextColor(colors.white)
 			if fs.exists("/.SertexOS/.bios") then
 				while true do
+					term.setBackgroundColor(colors.white)
 					term.clear()
+					term.setTextColor(colors.red)
 					term.setCursorPos(1,1)
 					os.loadAPI("/.SertexOS/apis/sha256")
 					f = fs.open("/.SertexOS/.bios", "r")

@@ -2,11 +2,11 @@
 -- By _Ale2610_ (and MultMine for %s)
 -- using %s for string.format
 
-system_shuttingDown = "Arresto..."
+system_shuttingDown = "Spegnimento..."
 system_rebooting = "Riavvio..."
 account_loggingOut = "Disconnessione..."
 
-mainMenu_shutdown = "Arresta"
+mainMenu_shutdown = "Spegni"
 mainMenu_reboot = "Riavvia"
 mainMenu_logout = "Esci"
 mainMenu_shell = "Shell"
@@ -24,7 +24,7 @@ setup_isUsernameCorrect1 = "Hai inserito %s come il tuo nome utente."
 setup_isUsernameCorrect2 = "E' corretto?"
 setup_createAnotherUser = "Vuoi creare un'altro utente?"
 
-login_title = "Entra"
+login_title = "Accedi"
 login_username = "Nome Utente"
 login_password = "Password"
 login_notRegistered = "Nome Utente Non Registrato!"

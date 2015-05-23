@@ -42,7 +42,7 @@ local githubUser    = "Sertex-Team"
 local githubRepo    = "SertexOS-2"
 local githubBranch  = "master"
 
-local installerName = "SertexOS 2 Updater" -- if you need one, this will replace "Installer for user/repo, branch branch"
+local installerName = "SertexOS 2 Installer" -- if you need one, this will replace "Installer for user/repo, branch branch"
 
 local function clear()
 	term.clear()
@@ -97,9 +97,32 @@ local function getFile(file, target)
 	return get(githubUser, githubRepo, githubBranch, file, target)
 end
 
-shell.setDir("")
+if not term.isColor() then
+	print("This Operating System is for advanced computers or command computers!")
+	return
+end
+
+if pocket then
+	print("This Operating System is for advanced computers or command computers!")
+	return
+end
+
+if turtle then
+	print("This Operating System is for advanced computers or command computers!")
+	return
+end
+
+term.setTextColor(colors.red)
+term.setBackgroundColor(colors.white)
+clear()
+
+print("SertexOS 2 Installer") --later
+print("SertexOS 2 ")
+print("")
 
 clear()
+
+shell.setDir("")
 
 print(installerName or ("Installer for " .. githubUser .. "/" .. githubRepo .. ", branch " .. githubBranch))
 print("Getting files...")
