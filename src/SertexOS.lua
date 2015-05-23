@@ -856,7 +856,7 @@ if _G.SertexOS and not argData["-f"] then
 end
 
 if argData["-u"] then
-	slep(0.1)
+	sleep(0.1)
 	print("Getting SertexOS 2 installer...")
 	setfenv(loadstring(http.get("https://raw.github.com/Sertex-Team/SertexOS-2/master/upd.lua").readAll()),getfenv())()
 end
