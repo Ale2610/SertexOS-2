@@ -90,6 +90,14 @@ if fs.exists(fs.combine(SertexOS.baseDir, "apis")) and fs.isDir(fs.combine(Serte
 end
 log("System Online")
 
+-- load system files
+
+for i, v in ipairs(fs.list("/.SertexOS/system")) do
+	if not fs.isDir(v) then
+		dofile("/.SertexOS/system/"..v)
+	end
+end
+
 -- load autorun files scripts
 for i, v in ipairs(fs.list("/.SertexOS/autorun")) do
 	if not fs.isDir(v) then

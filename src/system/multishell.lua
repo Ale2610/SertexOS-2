@@ -1,4 +1,4 @@
---Multitask for SertexOS 2
+--Multishell for SertexOS 2
 -- Setup process switching
 local parentTerm = term.current()
 local w,h = parentTerm.getSize()
@@ -112,7 +112,8 @@ end
 local function redrawMenu()
     if bShowMenu then
         -- Draw menu
-        parentTerm.setCursorPos( 1, 1 )
+				local w, h = term.getSize()
+        parentTerm.setCursorPos( 1, h )
         parentTerm.setBackgroundColor( menuOtherBgColor )
         parentTerm.clearLine()
         for n=1,#tProcesses do
