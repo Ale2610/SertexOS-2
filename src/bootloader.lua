@@ -24,4 +24,4 @@ end
 log( "Finished, executing SertexOS..." )
 print( "Running SertexOS..." )
 shell.run( ".SertexOS/SertexOS" )
-SertexOS.crash()
+SertexOS.crash( "bootloader", "The bootloader has continued running. This is not ment to happen. Please restart your computer." )
