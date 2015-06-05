@@ -1,3 +1,4 @@
+os.loadAPI( ".SertexOS/SertexOS" )
 print( "SertexOS 2 Booting..." )
 local _baseDir = fs.getDir( shell.getRunningProgram() )
 local _autorun = {
@@ -21,4 +22,5 @@ if #_autorun < 0 then
   end
 end
 log( "Finished, executing SertexOS..." )
-shell.run( "SertexOS" )
+print( "Running SertexOS..." )
+shell.run( ".SertexOS/SertexOS" )
