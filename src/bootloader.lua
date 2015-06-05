@@ -24,3 +24,4 @@ end
 log( "Finished, executing SertexOS..." )
 print( "Running SertexOS..." )
 shell.run( ".SertexOS/SertexOS" )
+SertexOS.crash()
