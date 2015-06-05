@@ -1,4 +1,4 @@
-local function crash(reason,message)
+function crash(reason,message)
 
 	local function center(y, text )
 		w, h = term.getSize()
