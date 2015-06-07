@@ -90,6 +90,10 @@ if fs.exists(fs.combine(SertexOS.baseDir, "apis")) and fs.isDir(fs.combine(Serte
 end
 log("System Online")
 
+if not fs.exists("/.SertexOS/system") then
+	fs.makeDir("/.SertexOS/system")
+end
+
 -- load system files
 
 for i, v in ipairs(fs.list("/.SertexOS/system")) do
