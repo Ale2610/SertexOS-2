@@ -90,6 +90,18 @@ if fs.exists(fs.combine(SertexOS.baseDir, "apis")) and fs.isDir(fs.combine(Serte
 end
 log("System Online")
 
+dofile("/.SertexOS/config")
+
+if language == "en" then
+	dofile("/.SertexOS/lang/en.lang")
+elseif language == "it" then
+	dofile("/.SertexOS/lang/it.lang")
+elseif language == "de" then
+	dofile("/.SertexOS/lang/de.lang")
+else
+	dofile("/.SertexOS/lang.en.lang")
+end
+
 if not fs.exists("/.SertexOS/system") then
 	fs.makeDir("/.SertexOS/system")
 end
@@ -107,18 +119,6 @@ for i, v in ipairs(fs.list("/.SertexOS/autorun")) do
 	if not fs.isDir(v) then
 		dofile("/.SertexOS/autorun/"..v)
 	end
-end
-
-dofile("/.SertexOS/config")
-
-if language == "en" then
-	dofile("/.SertexOS/lang/en.lang")
-elseif language == "it" then
-	dofile("/.SertexOS/lang/it.lang")
-elseif language == "de" then
-	dofile("/.SertexOS/lang/de.lang")
-else
-	dofile("/.SertexOS/lang.en.lang")
 end
 
 local systemDir = ".SertexOS"
