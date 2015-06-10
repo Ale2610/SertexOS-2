@@ -22,8 +22,7 @@ function box(x, y, x2, y2, color) --from graphic API for SertexOS 2
   end
   term.setCursorPos(ox, oy)
 end
-	local w, h = term.getSize()
-	box(1,1,w,3, colors.red)
+	box(1,1,51,3, colors.red)
 	term.setTextColor(colors.white)
 	center(2, "SertexOS 2")
 	term.setBackgroundColor(colors.white)
