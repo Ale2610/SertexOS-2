@@ -1,5 +1,10 @@
 -- UI API From LMNetOS
 
+if not lang_yes or not lang_no then
+	local lang_yes = "Yes"
+	local lang_no = "No"
+end
+
 
 function header()
 	function center(y, text ) --from SertexText API
