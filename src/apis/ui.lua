@@ -2,10 +2,10 @@
 
 
 function header()
-function center(y, text ) --from SertexText API
-        w, h = term.getSize()
-        term.setCursorPos((w - #text) / 2, y)
-        write(text)
+	function center(y, text ) --from SertexText API
+		w, h = term.getSize()
+    term.setCursorPos((w - #text) / 2, y)
+		write(text)
 end
 
 function box(x, y, x2, y2, color) --from graphic API for SertexOS 2
@@ -17,7 +17,8 @@ function box(x, y, x2, y2, color) --from graphic API for SertexOS 2
   end
   term.setCursorPos(ox, oy)
 end
-	box(1,1,51,3, colors.red)
+	local w, h = term.getSize()
+	box(1,1,w,3, colors.red)
 	term.setTextColor(colors.white)
 	center(2, "SertexOS 2")
 	term.setBackgroundColor(colors.white)
@@ -268,7 +269,7 @@ function menu(items, title, start,allowNil,moreTitle)
 			elseif eventData[2] == keys.right then
 				changePage(1)
 			end
-		elseif eventData[1] == 'mouse_click' then
+		elseif eventData[1] == 'mouse_click' or 'monitor_touch' then
 			if eventData[4] > 7 then
 				clear()
 				selected = (eventData[4]-8+((page-1)*drawSize))+1
@@ -294,15 +295,7 @@ function menu(items, title, start,allowNil,moreTitle)
 end
 
 function yesno(text, title, start)
-	dofile("/.SertexOS/config")
 
-	if language == "en" then
-		dofile("/.SertexOS/lang/en.lang")
-	elseif language == "it" then
-		dofile("/.SertexOS/lang/it.lang")
-	elseif language == "de" then
-		dofile("/.SertexOS/lang/de.lang")
-	end
 	local function clear()
 		term.clear()
 		term.setBackgroundColor(colors.white)
@@ -364,7 +357,7 @@ function yesno(text, title, start)
 				clear()
 				return selected
 			end
-		elseif eventData[1] == 'mouse_click' then
+		elseif eventData[1] == 'mouse_click' or 'monitor_touch' then
 			if eventData[4] == h-1 then
 				if eventData[3] >= math.floor(w/2)+1 and eventData[3] <= w-1 then
 					clear()

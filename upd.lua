@@ -26,6 +26,8 @@ local files = {
 	["src/apps/firewolf/logo"] = "/.SertexOS/apps/firewolf/logo",
 	["src/apps/sertexexplore/se.lua"] = "/.SertexOS/apps/sertexexplore/app",
 	["src/apps/sertexexplore/logo"] = "/.SertexOS/apps/sertexexplore/logo",
+	["src/apps/programs/programs.lua"] = "/.SertexOS/apps/programs/app",
+	["src/apps/programs/logo"] = "/.SertexOS/apps/programs/logo",
 	["src/apis/api.lua"] = "/.SertexOS/apis/api",
 	["src/apis/ui.lua"] = "/.SertexOS/apis/ui",
 	["src/apis/graphics.lua"] = "/.SertexOS/apis/graphics",
@@ -36,6 +38,10 @@ local files = {
 	["src/lang/en.lang"] = "/.SertexOS/lang/en.lang",
 	["src/lang/it.lang"] = "/.SertexOS/lang/it.lang",
 	["src/lang/de.lang"] = "/.SertexOS/lang/de.lang",
+	
+	["src/programs/Firewolf.lua"] = "/.SertexOS/programs/Firewolf",
+	["src/programs/Shell.lua"] = "/.SertexOS/programs/Shell",
+	
 }
 
 local githubUser    = "Sertex-Team"

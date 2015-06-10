@@ -1,4 +1,4 @@
-function crash(reason,message)
+local function crash(reason,message) --the crash error is only for OS crashes
 
 	local function center(y, text )
 		w, h = term.getSize()
@@ -506,6 +506,7 @@ local function desktop()
 			app(mainMenu_shell, 2,3)
 			app("Frwlf", 10,3)
 			app("SrtxEx", 18,3)
+			app("Progrms", 26, 3)
 			graphics.line(termW, 1, termW, termH, colors.red)
 			term.setCursorPos(termW, math.ceil(termH / 2))
 			term.setTextColor(colors.white)
@@ -543,6 +544,8 @@ local function desktop()
 					shell.openTab("/.SertexOS/apps/firewolf/app")
 				elseif (mx > 14 - 1 and my > 3 - 1) and (mx < 22 + 1 and my < 8 + 1) then
 					shell.openTab("/.SertexOS/apps/sertexexplore/app")
+				elseif (mx > 20 - 1 and my > 3 - 1) and (mx < 30 + 1 and my < 8 + 1) then
+					shell.openTab("/.SertexOS/apps/programs/app")
 				end
 			end
 			sleep(0)
