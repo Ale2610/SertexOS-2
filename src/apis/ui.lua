@@ -269,7 +269,7 @@ function menu(items, title, start,allowNil,moreTitle)
 			elseif eventData[2] == keys.right then
 				changePage(1)
 			end
-		elseif eventData[1] == 'mouse_click' or 'monitor_touch' then
+		elseif eventData[1] == 'mouse_click' then
 			if eventData[4] > 7 then
 				clear()
 				selected = (eventData[4]-8+((page-1)*drawSize))+1
