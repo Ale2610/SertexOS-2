@@ -299,6 +299,10 @@ function menu(items, title, start,allowNil,moreTitle)
 end
 
 function yesno(text, title, start)
+	if not lang_yes then
+		lang_yes = "Yes"
+		lang_no = "No"
+	end
 
 	local function clear()
 		term.clear()
