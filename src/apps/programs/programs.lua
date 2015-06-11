@@ -19,7 +19,7 @@ end
 local function draw()
 	clear()
 	local w,h = term.getSize()
-	graphics.line(1,1,1,h, colors.red)
+	graphics.line(1,1,h,1, colors.red)
 	term.setTextColor(colors.white)
 	--[[
 	Unused
@@ -30,7 +30,7 @@ local function draw()
 	term.setBackgroundColor(colors.orange)
 	write("-")
 	]]--
-	term.setCursorPos(h,1)
+	term.setCursorPos(1,h)
 	term.setBackgroundColor(colors.red)
 	write("X")
 	term.setCursorPos(1,3)
