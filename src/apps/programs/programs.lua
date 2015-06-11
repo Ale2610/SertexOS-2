@@ -19,7 +19,7 @@ end
 local function draw()
 	clear()
 	local w,h = term.getSize()
-	graphics.line(1,1,h,1, colors.red)
+	graphics.line(1,1,1,w, colors.red)
 	term.setTextColor(colors.white)
 	--[[
 	Unused
