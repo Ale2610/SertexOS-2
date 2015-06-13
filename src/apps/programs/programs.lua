@@ -48,12 +48,6 @@ while true do
 	end
 	local e, par1, x, y = os.pullEvent()
 	if e == "mouse_click" or e == "monitor_touch" then
-		if y == 1 and x == w then
-			return
-		elseif y > 2 then
-			if y < math.ceil(#pList + 1) then
-				shell.run("/.SertexOS/programs/"..pList[y+2])
-			end
-		end
+		shell.run("fg ","/.SertexOS/programs/"..pList[y-2])
 	end
 end
