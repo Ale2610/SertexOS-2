@@ -51,8 +51,8 @@ while true do
 		if y == 1 and x == w then
 			return
 		elseif y > 2 then
-			if y < math.cell(#pList + 1) then
-				shell.run("/.SertexOS/programs/"..pList[y])
+			if y < math.ceil(#pList + 1) then
+				shell.run("/.SertexOS/programs/"..pList[y+2])
 			end
 		end
 	end
