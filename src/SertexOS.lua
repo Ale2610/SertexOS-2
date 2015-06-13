@@ -12,7 +12,6 @@ local function crash(reason,message) --the crash error is only for OS crashes
 		["crash"] = "System Crashed",
 		["unknown"] = "Unknown Error",
 		["bios"] = "BIOS Error",
-		["bootloader"] = "Bootloader Error", -- Just in case xD
 		["seretx"] = "SeretxOS 2 crashed again :C", -- Devs need fun
 	}
 		term.setBackgroundColor(colors.blue)
