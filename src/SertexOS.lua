@@ -568,6 +568,11 @@ function login()
 				log("No User on setup")
 				sleep(2)
 				login()
+			elseif fs.isDir(dbUsersDir..u) or fs.exists(dbUsersDir..u) then
+				print("  User already exists/is Invalid")
+				log("Invalid or existing user on setup")
+				sleep(2)
+				login()
 			end
 			print( "  "..setup_enterPassword )
 			write( "  > " )
