@@ -1,5 +1,5 @@
 -- Default Language for SertexOS 2
--- By _Ale2610_, MultMine and lewislovesgames
+-- By Ale2610, MultMine and lewislovesgames
 -- using %s for string.format
 
 system_shuttingDown = "Shutting Down..."
@@ -23,7 +23,8 @@ setup_repeatEnterPassword = "Please Repeat The Password."
 setup_isUsernameCorrect1 = "You entered %s as your username."
 setup_isUsernameCorrect2 = "Is this correct?"
 setup_createAnotherUser = "Do you want to create another user?"
-
+setup_existsUser = "User already exists/is Invalid"
+User already exists/is Invalid
 login_title = "Please Log In"
 login_username = "Username"
 login_password = "Password"
