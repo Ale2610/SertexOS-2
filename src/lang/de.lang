@@ -23,6 +23,7 @@ setup_repeatEnterPassword = "Passwort wiederholen."
 setup_isUsernameCorrect1 = "Benutzername: %s."
 setup_isUsernameCorrect2 = "Ist dies korrekt?"
 setup_createAnotherUser = "Weiteren Benutzer erstellen?"
+setup_exisrsUser = "Benutzer ist bereits vorhanden / ist ungeultig"
 
 login_title = "Anmelden"
 login_username = "Benutzername"
