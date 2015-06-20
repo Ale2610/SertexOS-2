@@ -563,6 +563,12 @@ function login()
 			print( "\n  "..setup_enterUsername )
 			write( "  > " )
 			u = read()
+			if u == "" then
+				print("  "..noUser)	
+				log("No User on setup")
+				sleep(2)
+				login()
+			end
 			print( "  "..setup_enterPassword )
 			write( "  > " )
 			p = read( "*" )
