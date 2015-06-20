@@ -49,6 +49,7 @@ language_reboot2 = "Reboot System?"
 
 writingData = "Writing Data..."
 wrongPassword = "Wrong Password!"
+noUser = "No Username!"
 lang_exit = "Exit"
 lang_done = "Done"
 lang_yes = "Yes"
