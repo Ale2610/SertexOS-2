@@ -98,7 +98,7 @@ elseif language == "it" then
 elseif language == "de" then
 	dofile("/.SertexOS/lang/de.lang")
 else
-	dofile("/.SertexOS/lang.en.lang")
+	dofile("/.SertexOS/lang/en.lang")
 end
 
 if not fs.exists("/.SertexOS/system") then
