@@ -564,7 +564,7 @@ function login()
 			write( "  > " )
 			u = read()
 			if u == "" then
-				print("  "..setup_noUser)	
+				print("  "..noUser)	
 				log("No User on setup")
 				sleep(2)
 				login()
