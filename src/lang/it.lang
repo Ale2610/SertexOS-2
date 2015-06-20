@@ -49,6 +49,7 @@ language_reboot2 = "Riavviare Il Sistema?"
 
 writingData = "Scrittura Dati..."
 wrongPassword = "Password Errata!"
+noUser = "No Username!"
 lang_exit = "Esci"
 lang_done = "Fatto"
 lang_yes = "Si"
