@@ -24,6 +24,8 @@ setup_isUsernameCorrect1 = "Benutzername: %s."
 setup_isUsernameCorrect2 = "Ist dies korrekt?"
 setup_createAnotherUser = "Weiteren Benutzer erstellen?"
 setup_exisrsUser = "Benutzer ist bereits vorhanden / ist ungeultig"
+setup_adminPass = "Bitte geben Sie das Admin-Passwort"
+setup_adminTitle = "Admin-Kontoerstellung"
 
 login_title = "Anmelden"
 login_username = "Benutzername"
