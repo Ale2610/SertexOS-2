@@ -16,7 +16,9 @@ else
   print( "Please type the password of the admin of the system." )
   write( "Admin> " )
   i = read( "*" )
-  if i == SertexOS.adminPass then
+  sh = sha256.sha256( i )
+  f = fs.open( dbUsersDir .. "admin", "r" )
+    if sh == f.readLine() then
     print( "Allowed access." )
     SertexOS.program.adminRights = true
   else
