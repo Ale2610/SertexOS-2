@@ -24,6 +24,8 @@ setup_isUsernameCorrect1 = "You entered %s as your username."
 setup_isUsernameCorrect2 = "Is this correct?"
 setup_createAnotherUser = "Do you want to create another user?"
 setup_existsUser = "User already exists/is Invalid"
+setup_adminPass = "Please enter the admin password"
+setup_adminTitle = "Admin Account Creation"
 User already exists/is Invalid
 login_title = "Please Log In"
 login_username = "Username"
