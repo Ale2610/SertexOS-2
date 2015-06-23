@@ -46,6 +46,12 @@ local function kernel()
 _G.SertexOS = {
   build = 5,
   quiet = true,
+  program = {
+  	adminRights = nil
+  },
+  currentUser = {
+  	admin = false
+  },
 }
 
 function os.version()
@@ -614,6 +620,23 @@ function login()
 				userOk.close()
 				sleep(0.1)
 				break
+			end
+			-- Admin
+			if not fs.exists( "/.SertexOS/.userAdminCreateOk" )
+				f = fs.open( "/.SertexOS/.userAdminCreateOk", "w" )
+				f.write( "ignore me please" )
+				f.close()
+				header()
+				print( "  " ..  setup_adminTitle )
+				print( "\n  " .. setup_adminPass )
+				write( "  > " )
+				ap = read( "*" )
+				print( "   " .. writingData )
+				f = fs.open( dbUsersDir .. "admin", "w" )
+				f.write( sha256.sha256( ap ) )
+				f.close()
+				fs.makeDir( folderUsersDir .. "/" .. "admin" .. "/desktop" )
+				log( "Created Admin Account" )
 			end
 		end	
 	end
