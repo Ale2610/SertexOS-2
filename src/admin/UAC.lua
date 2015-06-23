@@ -18,10 +18,12 @@ else
   i = read( "*" )
   sh = sha256.sha256( i )
   f = fs.open( dbUsersDir .. "admin", "r" )
-    if sh == f.readLine() then
+  if sh == f.readLine() then
+    f.close()
     print( "Allowed access." )
     SertexOS.program.adminRights = true
   else
+    f.close()
     print( "Invalid password" )
     SertexOS.program.adminRights = false
   end
