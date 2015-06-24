@@ -622,7 +622,7 @@ function login()
 				break
 			end
 			-- Admin
-			if not fs.exists( "/.SertexOS/.userAdminCreateOk" )
+			if not fs.exists( "/.SertexOS/.userAdminCreateOk" ) then
 				f = fs.open( "/.SertexOS/.userAdminCreateOk", "w" )
 				f.write( "ignore me please" )
 				f.close()
