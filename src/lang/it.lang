@@ -16,7 +16,7 @@ mainMenu_settings = "Impostazioni"
 desktop_user = "Utente: "
 desktop_computerID = "ID Computer: "
 
-setup_title = "Configurazione profili SertexOS 2"
+setup_title = "Configurazione profili SertexOS"
 setup_enterUsername = "Inserisci Il Tuo Nome Utente."
 setup_enterPassword = "Inserisci La Tua Password."
 setup_repeatEnterPassword = "Ripeti La Password."
