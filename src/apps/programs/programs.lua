@@ -61,7 +61,7 @@ local function add()
 	term.setBackgroundColor(colors.white)
 	term.clear()
 	header_exit("<")
-	term.setCursorBilnk(true)
+	term.setCursorBlink(true)
 	write("File Directory: \\")
 	local w,h = term.getSize()
 	local e =  { os.pullEvent() }
