@@ -61,7 +61,7 @@ local function add()
 	term.setBackgroundColor(colors.white)
 	term.clear()
 	header_exit("<")
-	write("File Directory: \")
+	write("File Directory: \\")
 	local w,h = term.getSize()
 	local e =  { os.pullEvent() }
 	if e[1] == "mouse_click" or e[1] == "monitor_touch" then
