@@ -61,6 +61,7 @@ local function add()
 	term.setBackgroundColor(colors.white)
 	term.clear()
 	header_exit("<")
+	term.setCursorBilnk(true)
 	write("File Directory: \\")
 	local w,h = term.getSize()
 	local e =  { os.pullEvent() }
@@ -99,6 +100,9 @@ local function remove()
 		local y = e[4]
 		if y == 1 and x == w then
 			return
+		end
+		if y > 2 then
+			
 		end
 	end
 end
