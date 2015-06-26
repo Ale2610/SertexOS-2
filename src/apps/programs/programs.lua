@@ -128,7 +128,7 @@ while true do
 				remove()
 			end
 		else
-			if y - 2 > #pList then
+			if y - 2 <= #pList then
 				shell.run("fg ","/.SertexOS/programs/"..pList[y-2])
 			end
 		end
