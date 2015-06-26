@@ -482,6 +482,10 @@ local function desktop()
 			appDir = "/.SertexOS/apps/"..applications[name]
 			appLogo = paintutils.loadImage(appDir.."/logo")
 			
+			if not appLogo then
+				appLogo = paintutils.loadImage("/.SertexOS/apps/defaultLogo")
+			end
+			
 			paintutils.drawImage(appLogo, x, y)
 			
 			maxX = x + 4
