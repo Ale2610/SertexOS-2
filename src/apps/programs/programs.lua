@@ -25,7 +25,7 @@ end
 local function header_exit(char)
 	if not char then
 		char = "X"
-	emd
+	end
 	header()
 	local w, h = term.getSize()
 	term.setCursorPos(w,1)
