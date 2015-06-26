@@ -110,6 +110,7 @@ end
 draw()
 
 while true do
+	term.setCursorBlink(false)
 	local w, h = term.getSize()
 	draw()
 	local pList = fs.list("/.SertexOS/programs")
@@ -127,7 +128,9 @@ while true do
 				remove()
 			end
 		else
-			shell.run("fg ","/.SertexOS/programs/"..pList[y-2])
+			if y - 2 > #pList then
+				shell.run("fg ","/.SertexOS/programs/"..pList[y-2])
+			end
 		end
 	end
 end
