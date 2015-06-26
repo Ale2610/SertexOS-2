@@ -22,15 +22,17 @@ local function header()
 	term.setTextColor(colors.white)
 end
 
-local function header_exit(char)
-	if not char then
-		char = "X"
+local function header_exit(charX)
+	if not charX then
+		charX = "X"
 	end
-	header()
+	local w,h = term.getSize()
+	graphics.line(1,1,w,1, colors.red)
+	term.setTextColor(colors.white)
 	local w, h = term.getSize()
 	term.setCursorPos(w,1)
 	term.setBackgroundColor(colors.red)
-	write(char)
+	write(charX)
 	term.setBackgroundColor(colors.white)
 	term.setTextColor(colors.red)
 	term.setCursorPos(1,3)
