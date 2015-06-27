@@ -1,0 +1,60 @@
+-- Default Language for SertexOS 2
+-- By Ale2610, MultMine and lewislovesgames
+-- using %s for string.format
+
+system_shuttingDown = "Shutting Down..."
+system_rebooting = "Rebooting..."
+account_loggingOut = "Logging Out..."
+
+mainMenu_shutdown = "Shutdown"
+mainMenu_reboot = "Reboot"
+mainMenu_logout = "Logout"
+mainMenu_shell = "Shell"
+mainMenu_about = "About"
+mainMenu_settings = "Settings"
+
+desktop_user = "User: "
+desktop_computerID = "Computer ID: "
+
+setup_title = "SertexOS Account Setup"
+setup_enterUsername = "Please Enter Your Username."
+setup_enterPassword = "Please Enter A Password."
+setup_repeatEnterPassword = "Please Repeat The Password."
+setup_isUsernameCorrect1 = "You entered %s as your username."
+setup_isUsernameCorrect2 = "Is this correct?"
+setup_createAnotherUser = "Do you want to create another user?"
+setup_existsUser = "User already exists/is Invalid"
+setup_adminPass = "Please enter the admin password"
+setup_adminTitle = "Admin Account Setup"
+login_title = "Please Log In"
+login_username = "Username"
+login_password = "Password"
+login_notRegistered = "Username not registered!"
+login_welcome = "Welcome %s!"
+
+settings_title = "Settings"
+settings_changeLang = "Change Language"
+settings_changePassword = "Change Password"
+settings_update = "Update"
+
+about_title = "About"
+about_freeSpace = "Free Space:"
+
+changePassword_title = "Change Password For"
+changePassword_enterCurrentPassword = "Please Enter Your Current Password."
+changePassword_enterNewPassword = "Please Enter Your New Password."
+changePassword_repeatNewPassword = "Please Repeat Your New Password."
+
+language_title = "Choose A Language"
+language_reboot1 = "Reboot System To Change Language"
+language_reboot2 = "Reboot System?"
+
+writingData = "Writing Data..."
+wrongPassword = "Wrong Password!"
+noUser = "No Username!"
+lang_exit = "Exit"
+lang_done = "Done"
+lang_yes = "Yes"
+lang_no = "No"
+lang_pressAnyKey = "Press Any Key"
+
