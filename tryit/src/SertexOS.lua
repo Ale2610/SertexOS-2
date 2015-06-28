@@ -39,7 +39,7 @@ local function crash(reason,message) --the crash error is only for OS crashes
 		center(y+2,"Please reboot system!")
 		center(y+3,"Please report the issue here:")
 		center(y+4,"https://github.com/Sertex-Team/SertexOS-2/issues")
-        center(y+5, "Please also mention this is the 'TryIt!' version!")
+        	center(y+5, "Please also mention this is the 'TryIt!' version!")
 		while true do
 			sleep(0)
 		end
@@ -190,6 +190,8 @@ function os.reboot()
 	printMsg(colors.gray)
 	printMsg(colors.black)
 	sleep(0.6)
+	tryitend()
+	log( "TryItEnd" )
 	log("Reboot")
 	os.forceReboot()
 end
@@ -208,6 +210,8 @@ function os.shutdown()
 	printMsg(colors.gray)
 	printMsg(colors.black)
 	sleep(0.6)
+	tryitend()
+	log( "TryItEnd" )
 	log("Shutdown")
 	os.forceShutdown()
 end
@@ -319,6 +323,8 @@ local function settings()
 				printMsg(colors.gray)
 				printMsg(colors.black)
 				sleep(0.6)
+				tryitend()
+				log( "TryItEnd" )
 				log("Reboot")
 				os.forceReboot()
 			else
@@ -366,7 +372,7 @@ local function settings()
 	
 	local function update()
 		log("System Update")
-		setfenv(loadstring(http.get("https://raw.github.com/Sertex-Team/SertexOS-2/master/upd.lua").readAll()),getfenv())()
+		setfenv(loadstring(http.get("https://raw.github.com/Sertex-Team/SertexOS-2/master/tryit.lua").readAll()),getfenv())()
 	end
 	
 	local function exitSettings()
@@ -435,8 +441,8 @@ local function desktop()
 				printMsg(colors.black)
 				sleep(0.6)
 				log("Shutdown")
-                log( "Delete .SertexOS" ) -- TryIt! exclusive.
-                tryitend()
+                		log( "Delete .SertexOS" ) -- TryIt! exclusive.
+                		tryitend()
 				os.forceShutdown()
 			end},
 			{mainMenu_reboot, function()
@@ -454,6 +460,8 @@ local function desktop()
 				printMsg(colors.black)
 				sleep(0.6)
 				log("Reboot")
+				tryitend()
+				log( "TryItEnd" )
 				os.forceReboot()
 			end},
 			{mainMenu_logout, function()
@@ -471,7 +479,9 @@ local function desktop()
 				printMsg(colors.gray)
 				printMsg(colors.black)
 				sleep(0.6)
-				login()
+				tryitend()
+				log( "TryItEnd" )
+				os.shutdown()
 			end},
 			{mainMenu_settings, function()
 				settings()
@@ -725,7 +735,7 @@ local x, y = term.getCursorPos()
 	opt = {
 		"Boot SertexOS 2", --1 
 		"Load CraftOS 1.7", --2
-		"Update SertexOS 2", --3
+		"Update SertexOS 2 TryIt!", --3
 		"Reset Config", --4
 		"Show Free Space", --5
 		"Wipe Computer", --6
@@ -757,7 +767,7 @@ local x, y = term.getCursorPos()
 			term.clear()
 			term.setCursorPos(1,1)
 			term.setTextColor(colors.white)
-			setfenv(loadstring(http.get("https://raw.github.com/Sertex-Team/SertexOS-2/master/upd.lua").readAll()),getfenv())()
+			setfenv(loadstring(http.get("https://raw.github.com/Sertex-Team/SertexOS-2/master/tryit.lua").readAll()),getfenv())()
 		elseif c == 4 then
 			term.clear()
 			term.setCursorPos(1,1)
@@ -994,6 +1004,8 @@ while true do
 			else
 				local ok, err = pcall(bios)
 				if not ok then
+					tryitend()
+					log( "TryItEnd" )
 					crash("bios", err)
 				end
 				break
