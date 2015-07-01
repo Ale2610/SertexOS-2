@@ -75,6 +75,11 @@ local function add()
 		local dir = read()
 		write("Link Name: ")
 		local link = read()
+		if not fs.exists(link) then
+			print(link.." doesn't exist)
+			sleep(2.5)
+			add()
+		end
 		local f = fs.open("/.SertexOS/programs/"..link, "w")
 		f.write("dofile(\"/"..dir.."\")")
 		f.close()
