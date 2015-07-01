@@ -76,7 +76,7 @@ local function add()
 		write("Link Name: ")
 		local link = read()
 		if not fs.exists(link) then
-			print(link.." doesn't exist)
+			print(link.." doesn't exist")
 			sleep(2.5)
 			add()
 		end
