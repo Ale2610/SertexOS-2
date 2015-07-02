@@ -520,7 +520,7 @@ local function desktop()
 			term.setCursorPos(termW, math.ceil(termH / 2))
 			term.setTextColor(colors.white)
 			if sidebarVisible then
-				graphics.box(termW - sidebarWidth - 5, 1, termW - sidebarWidth - 3, termH, colors.orange)
+				graphics.box(termW - sidebarWidth - 4, 1, termW - sidebarWidth - 3, termH, colors.orange)
 				graphics.box(termW - sidebarWidth - 2, 1, termW - 1, termH, colors.red)
 				write(">")
 				for i, v in ipairs(sidebar) do
