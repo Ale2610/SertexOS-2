@@ -107,7 +107,7 @@ local function remove()
 			return
 		end
 		if y > 2 then
-			fs.remove("/.SertexOS/programs/"..pList[y+2])
+			fs.delete("/.SertexOS/programs/"..pList[y+2])
 			remove()
 		end
 	end
