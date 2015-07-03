@@ -552,7 +552,7 @@ local function desktop()
 				elseif (mx > 8 - 1 and my > 3 - 1) and (mx < 14 + 1 and my < 8 + 1) then
 					shell.openTab("/.SertexOS/apps/firewolf/app")
 				elseif (mx > 14 - 1 and my > 3 - 1) and (mx < 22 + 1 and my < 8 + 1) then
-					shell.openTab("/.SertexOS/apps/sertexexplore/app")
+					shell.openTab("/.SertexOS/apps/filemanager/app")
 				elseif (mx > 20 - 1 and my > 3 - 1) and (mx < 30 + 1 and my < 8 + 1) then
 					shell.openTab("/.SertexOS/apps/programs/app")
 				end
