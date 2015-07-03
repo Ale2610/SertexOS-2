@@ -475,7 +475,7 @@ local function desktop()
 			local applications = {
 				[mainMenu_shell] = "shell",
 				["Frwlf"] = "firewolf",
-				["SrtxEx"] = "sertexexplore",
+				["Files"] = "filemanager",
 				["Progrms"] = "programs",
 			}
 			
