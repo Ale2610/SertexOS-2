@@ -138,13 +138,13 @@ while true do
   local e,k,x,y = os.pullEvent()
   local sx,sy = term.getSize()
   if (e == "key" and k == keys.right) or (e == "mouse_click" and y == 1 and k == 1 and x == 2)then
-    curPage = curPage + 1
+    curPage = curPage - 1
     if curPage > #pages then
       curPage = 1
     end
     mx,my = nil,nil
   elseif (e == "key" and k == keys.left) or (e == "mouse_click" and k == 1 and x == (5 + #tostring(curPage)) and y == 1) then
-    curPage = curPage - 1
+    curPage = curPage + 1
     if curPage < 1 then
       curPage = #pages
     end
