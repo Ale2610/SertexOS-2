@@ -41,6 +41,7 @@ end
 local function updateTitle()
   local title = path
   if path == "" then title = "/" end
+  title = "File: "..title
   multishell.setTitle(multishell.getCurrent(),title)
 end
 updateTitle()
