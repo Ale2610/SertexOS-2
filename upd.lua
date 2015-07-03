@@ -20,24 +20,33 @@ systemDir = ".SertexOS"
 
 local files = {
 	["src/SertexOS.lua"] = "/.SertexOS/SertexOS",
+	
 	["src/apps/shell/shell.lua"] = "/.SertexOS/apps/shell/app",
 	["src/apps/shell/logo"] = "/.SertexOS/apps/shell/logo",
 	["src/apps/firewolf/firewolf.lua"] = "/.SertexOS/apps/firewolf/app",
 	["src/apps/firewolf/logo"] = "/.SertexOS/apps/firewolf/logo",
-	["src/apps/sertexexplore/se.lua"] = "/.SertexOS/apps/sertexexplore/app",
-	["src/apps/sertexexplore/logo"] = "/.SertexOS/apps/sertexexplore/logo",
+	["src/apps/filemanager/filemanager.lua"] = "/.SertexOS/apps/filemanager/app",
+	["src/apps/filemanager/logo"] = "/.SertexOS/apps/filemanager/logo",
+	["src/apps/filemanager/icons/folder"] = "/.SertexOS/apps/filemanager/icons/folder",
+	["src/apps/filemanager/icons/lua"] = "/.SertexOS/apps/filemanager/icons/lua",
+	["src/apps/filemanager/icons/unknown"] = "/.SertexOS/apps/filemanager/icons/unknown",
+	
 	["src/apps/programs/programs.lua"] = "/.SertexOS/apps/programs/app",
 	["src/apps/programs/logo"] = "/.SertexOS/apps/programs/logo",
+	
 	["src/apis/api.lua"] = "/.SertexOS/apis/api",
 	["src/apis/ui.lua"] = "/.SertexOS/apis/ui",
 	["src/apis/graphics.lua"] = "/.SertexOS/apis/graphics",
 	["src/apis/sertextext.lua"] = "/.SertexOS/apis/sertextext",
 	["src/apis/sha256.lua"] = "/.SertexOS/apis/sha256",
+	
 	["update"] = "/.SertexOS/update",
 	["src/startup"] = "/startup",
+	
 	["src/lang/en.lang"] = "/.SertexOS/lang/en.lang",
 	["src/lang/it.lang"] = "/.SertexOS/lang/it.lang",
 	["src/lang/de.lang"] = "/.SertexOS/lang/de.lang",
+	
 	["src/dev/devshell.lua"] = "/.SertexOS/dev/devshell",
 	--["src/system/multishell.lua"] = "/.SertexOS/system/multishell",
 	
