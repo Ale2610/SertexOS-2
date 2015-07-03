@@ -34,6 +34,8 @@ local files = {
 	["src/apps/programs/programs.lua"] = "/.SertexOS/apps/programs/app",
 	["src/apps/programs/logo"] = "/.SertexOS/apps/programs/logo",
 	
+	["src/apps/defaultLogo"] = "/.SertexOS/apps/defaultLogo",
+	
 	["src/apis/api.lua"] = "/.SertexOS/apis/api",
 	["src/apis/ui.lua"] = "/.SertexOS/apis/ui",
 	["src/apis/graphics.lua"] = "/.SertexOS/apis/graphics",
