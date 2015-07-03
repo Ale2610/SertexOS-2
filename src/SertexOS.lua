@@ -483,7 +483,7 @@ local function desktop()
 			if fs.exists(appDir.."/logo") then
 				appLogo = paintutils.loadImage(appDir.."/logo")
 			else
-				appLogo = paintutils.loadImage("/.SertexOS/apps/defaultLogo")	
+				appLogo = paintutils.loadImage("/.SertexOS/defaultLogo")	
 			end
 			
 			paintutils.drawImage(appLogo, x, y)
