@@ -480,10 +480,10 @@ local function desktop()
 			}
 			
 			appDir = "/.SertexOS/apps/"..applications[name]
-			appLogo = paintutils.loadImage(appDir.."/logo")
-			
-			if not appLogo then
-				appLogo = paintutils.loadImage("/.SertexOS/apps/defaultLogo")
+			if fs.exists(appDir.."/logo") then
+				appLogo = paintutils.loadImage(appDir.."/logo")
+			else
+				appLogo = paintutils.loadImage("/.SertexOS/apps/defaultLogo")	
 			end
 			
 			paintutils.drawImage(appLogo, x, y)
