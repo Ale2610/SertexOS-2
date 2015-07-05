@@ -103,6 +103,8 @@ elseif language == "it" then
 	dofile("/.SertexOS/lang/it.lang")
 elseif language == "de" then
 	dofile("/.SertexOS/lang/de.lang")
+elseif language == "fr" then
+	dofile("/.SertexOS/lang/de.lang")
 else
 	dofile("/.SertexOS/lang/en.lang")
 end
@@ -276,6 +278,7 @@ local function settings()
 			"English", --1
 			"Italiano", --2
 			"Deutsch", --3
+			"Francais", --4
 		}
 		lock()
 		while true do
@@ -294,6 +297,11 @@ local function settings()
 			elseif id == 3 then
 				local f = fs.open("/.SertexOS/config","w")
 				f.write("configVersion = "..configVersion.."\nlanguage = \"de\"")
+				f.close()
+				break
+			elseif id == 4 then
+				local f = fs.open("/.SertexOS/config","w")
+				f.write("configVersion = "..configVersion.."\nlanguage = \"fr\"")
 				f.close()
 				break
 			end
