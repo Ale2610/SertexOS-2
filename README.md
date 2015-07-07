@@ -1,3 +1,5 @@
+We have Gitter! Join us here: [![Join the chat at https://gitter.im/Sertex-Team/SertexOS-2](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Sertex-Team/SertexOS-2?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 SertexOS 2
 ==========
 The new SertexOS, with new touch UI!
@@ -17,5 +19,3 @@ or you can use
 ```
 S:http_whitelsit=*
 ```
-
-We have Gitter! Join us here: [![Join the chat at https://gitter.im/Sertex-Team/SertexOS-2](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Sertex-Team/SertexOS-2?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
