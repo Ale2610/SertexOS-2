@@ -104,7 +104,7 @@ elseif language == "it" then
 elseif language == "de" then
 	dofile("/.SertexOS/lang/de.lang")
 elseif language == "fr" then
-	dofile("/.SertexOS/lang/de.lang")
+	dofile("/.SertexOS/lang/fr.lang")
 else
 	dofile("/.SertexOS/lang/en.lang")
 end
