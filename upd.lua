@@ -40,6 +40,7 @@ local files = {
 	
 	["update"] = "/.SertexOS/update",
 	["src/startup"] = "/startup",
+	["src/startup"] = "/SertexOS",
 	
 	["src/lang/en.lang"] = "/.SertexOS/lang/en.lang",
 	["src/lang/it.lang"] = "/.SertexOS/lang/it.lang",
@@ -47,10 +48,6 @@ local files = {
 	["src/lang/fr.lang"] = "/.SertexOS/lang/fr.lang",
 	
 	["src/dev/devshell.lua"] = "/.SertexOS/dev/devshell",
-	--["src/system/multishell.lua"] = "/.SertexOS/system/multishell",
-	
-	["src/programs/Firewolf.lua"] = "/.SertexOS/programs/Firewolf",
-	["src/programs/Shell.lua"] = "/.SertexOS/programs/Shell",
 	
 }
 
