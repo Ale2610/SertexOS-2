@@ -47,6 +47,7 @@ local files = {
 	["src/lang/en.lang"] = "/.SertexOS/lang/en.lang",
 	["src/lang/it.lang"] = "/.SertexOS/lang/it.lang",
 	["src/lang/de.lang"] = "/.SertexOS/lang/de.lang",
+	["src/lang/fr.lang"] = "/.SertexOS/lang/fr.lang",
 	
 	["src/dev/devshell.lua"] = "/.SertexOS/dev/devshell",
 	--["src/system/multishell.lua"] = "/.SertexOS/system/multishell",
