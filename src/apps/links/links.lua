@@ -7,7 +7,7 @@ if not SertexOS then
 end
 
 if multishell then
-	multishell.setTitle( multishell.getCurrent(), "Programs" )
+	multishell.setTitle( multishell.getCurrent(), "Links" )
 end
 local function clear()
 	term.setBackgroundColor(colors.white)
@@ -62,7 +62,7 @@ local function add()
 	term.clear()
 	header_exit("<")
 	term.setCursorBlink(true)
-	write("File Directory: \\")
+	write("File Directory: /")
 	local w,h = term.getSize()
 	local e =  { os.pullEvent() }
 	if e[1] == "mouse_click" or e[1] == "monitor_touch" then
@@ -75,13 +75,14 @@ local function add()
 		local dir = read()
 		write("Link Name: ")
 		local link = read()
-		if not fs.exists(link) then
-			print(link.." doesn't exist")
+		if not fs.exists(dir) then
+			print(dir.." doesn't exist")
 			sleep(2.5)
 			add()
 		end
-		local f = fs.open("/.SertexOS/programs/"..link, "w")
-		f.write("dofile(\"/"..dir.."\")")
+		term.setCursorBlink(false)
+		local f = fs.open("/.SertexOS/links/"..link, "w")
+		f.write("dofile('/"..dir.."')")
 		f.close()
 		print("Done!")
 		print("Press Any Key")
@@ -95,7 +96,7 @@ local function remove()
 	term.clear()
 	header_exit("<")
 	local w,h = term.getSize()
-	local pList = fs.list("/.SertexOS/programs")
+	local pList = fs.list("/.SertexOS/links")
 	for i = 1, #pList do
 		print(pList[i])
 	end
@@ -107,8 +108,14 @@ local function remove()
 			return
 		end
 		if y > 2 then
-			fs.delete("/.SertexOS/programs/"..pList[y+2])
-			remove()
+			local choose = ui.yesno("Delete "..pList[y+2].."?", nil, false)
+			fs.delete("/.SertexOS/links/"..pList[y+2])
+			term.clear()
+			header()
+			print("Done!")
+			print("Press Any Key")
+			os.pullEvent("key")
+			return
 		end
 	end
 end
@@ -119,7 +126,7 @@ while true do
 	term.setCursorBlink(false)
 	local w, h = term.getSize()
 	draw()
-	local pList = fs.list("/.SertexOS/programs")
+	local pList = fs.list("/.SertexOS/links")
 	for i = 1, #pList do
 		print(pList[i])
 	end
@@ -135,7 +142,7 @@ while true do
 			end
 		else
 			if y - 2 <= #pList then
-				shell.run("fg ","/.SertexOS/programs/"..pList[y-2])
+				shell.run("fg ","/.SertexOS/links/"..pList[y-2])
 			end
 		end
 	end
