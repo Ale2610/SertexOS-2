@@ -179,6 +179,10 @@ print("Press any key to continue.")
 local w, h = term.getSize()
 term.setCursorPos(2, h-1)
 print("100% - "..tostring(filesDownloaded).."/"..tostring(fileCount))
+if fs.exists("/startup") then
+	fs.delete("/startup")	
+end
+fs.copy("/SertexOS", "startup")
 os.pullEvent("key")
 
 os.reboot()
