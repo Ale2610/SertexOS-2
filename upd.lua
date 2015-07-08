@@ -2,6 +2,7 @@
 
 shell.setDir("/")
 fs.makeDir("/.SertexOS/autorun")
+fs.makeDir("/.SertexOS/links")
 
 if not fs.exists("/.SertexOS/config") then
 	local f = fs.open("/.SertexOS/config","w")
