@@ -30,6 +30,8 @@ local files = {
 	["src/apps/filemanager/icons/folder"] = "/.SertexOS/apps/filemanager/icons/folder",
 	["src/apps/filemanager/icons/lua"] = "/.SertexOS/apps/filemanager/icons/lua",
 	["src/apps/filemanager/icons/unknown"] = "/.SertexOS/apps/filemanager/icons/unknown",
+	["src/apps/links/links.lua"] = "/.SertexOS/apps/links/app",
+	["src/apps/links/logo"] = "/.SertexOS/apps/links/logo",
 	
 	["src/defaultLogo"] = "/.SertexOS/defaultLogo",
 	
