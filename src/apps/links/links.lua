@@ -108,11 +108,17 @@ local function remove()
 			return
 		end
 		if y > 2 then
-			local choose = ui.yesno("Delete "..pList[y+2].."?", nil, false)
-			fs.delete("/.SertexOS/links/"..pList[y+2])
+			local choose = ui.yesno("Are you sure?", "Delete "..pList[y-2], false)
+			if choose then
+				fs.delete("/.SertexOS/links/"..pList[y-2])
+			end
 			term.clear()
 			header()
-			print("Done!")
+			if choose then
+				print("Done!")
+			else
+				print("Operation Canceled")
+			end
 			print("Press Any Key")
 			os.pullEvent("key")
 			return
