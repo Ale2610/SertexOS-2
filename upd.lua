@@ -22,16 +22,16 @@ systemDir = ".SertexOS"
 local files = {
 	["src/SertexOS.lua"] = "/.SertexOS/SertexOS",
 	
-	["src/apps/shell/shell.lua"] = "/.SertexOS/apps/shell/app",
+	["src/apps/shell/shell.lua"] = "/.SertexOS/apps/shell/SertexShell",
 	["src/apps/shell/logo"] = "/.SertexOS/apps/shell/logo",
-	["src/apps/firewolf/firewolf.lua"] = "/.SertexOS/apps/firewolf/app",
+	["src/apps/firewolf/firewolf.lua"] = "/.SertexOS/apps/firewolf/Firewolf",
 	["src/apps/firewolf/logo"] = "/.SertexOS/apps/firewolf/logo",
-	["src/apps/filemanager/filemanager.lua"] = "/.SertexOS/apps/filemanager/app",
+	["src/apps/filemanager/filemanager.lua"] = "/.SertexOS/apps/filemanager/FileManager",
 	["src/apps/filemanager/logo"] = "/.SertexOS/apps/filemanager/logo",
 	["src/apps/filemanager/icons/folder"] = "/.SertexOS/apps/filemanager/icons/folder",
 	["src/apps/filemanager/icons/lua"] = "/.SertexOS/apps/filemanager/icons/lua",
 	["src/apps/filemanager/icons/unknown"] = "/.SertexOS/apps/filemanager/icons/unknown",
-	["src/apps/links/links.lua"] = "/.SertexOS/apps/links/app",
+	["src/apps/links/links.lua"] = "/.SertexOS/apps/links/Links",
 	["src/apps/links/logo"] = "/.SertexOS/apps/links/logo",
 	
 	["src/defaultLogo"] = "/.SertexOS/defaultLogo",
