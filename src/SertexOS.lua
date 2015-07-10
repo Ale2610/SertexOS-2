@@ -557,13 +557,13 @@ local function desktop()
 						sidebar[ev[4] - 1][2]()
 					end
 				elseif (mx > 2 - 1 and my > 3 - 1) and (mx < 6 + 1 and my < 8 + 1) then
-					shell.openTab("/.SertexOS/apps/shell/app")
+					shell.openTab("/.SertexOS/apps/shell/SertexShell")
 				elseif (mx > 8 - 1 and my > 3 - 1) and (mx < 14 + 1 and my < 8 + 1) then
-					shell.openTab("/.SertexOS/apps/firewolf/app")
+					shell.openTab("/.SertexOS/apps/firewolf/Firewolf")
 				elseif (mx > 14 - 1 and my > 3 - 1) and (mx < 22 + 1 and my < 8 + 1) then
-					shell.openTab("/.SertexOS/apps/filemanager/app")
+					shell.openTab("/.SertexOS/apps/filemanager/FileManager")
 				elseif (mx > 20 - 1 and my > 3 - 1) and (mx < 30 + 1 and my < 8 + 1) then
-					shell.openTab("/.SertexOS/apps/links/app")
+					shell.openTab("/.SertexOS/apps/links/Links")
 				end
 			end
 			sleep(0)
