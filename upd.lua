@@ -182,7 +182,7 @@ print("100% - "..tostring(filesDownloaded).."/"..tostring(fileCount))
 if fs.exists("/startup") then
 	fs.delete("/startup")	
 end
-fs.copy("/SertexOS", "startup")
+fs.copy("/SertexOS", "/startup")
 os.pullEvent("key")
 
 os.reboot()
