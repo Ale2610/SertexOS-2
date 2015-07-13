@@ -19,5 +19,5 @@ S:http_whitelist=*.pastebin.com;*.github.com;*.githubusercontent.com
 ```
 or you can use
 ```
-S:http_whitelsit=*
+S:http_whitelist=*
 ```
