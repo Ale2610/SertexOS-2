@@ -20,6 +20,7 @@ end
 systemDir = ".SertexOS"
 
 local files = {
+	["src/boot.lua"] = "/.SertexOS/boot",
 	["src/SertexOS.lua"] = "/.SertexOS/SertexOS",
 	
 	["src/apps/shell/shell.lua"] = "/.SertexOS/apps/shell/SertexShell",
