@@ -40,7 +40,7 @@ local function crash(reason,message) --the crash error is only for OS crashes
 end
 
 local function loadKernel(...)
-	os.run({},"/.SertexOS/SertexOS")
+	shell.run("/.SertexOS/SertexOS",...)
 end
 
 local function bios()
