@@ -39,8 +39,179 @@ local function crash(reason,message) --the crash error is only for OS crashes
 		end
 end
 
-function loadKernel(...)
+local function loadKernel(...)
 	dofile("/.SertexOS/SertexOS")
+end
+
+local function bios()
+	os.pullEvent = os.pullEventRaw
+	os.loadAPI("/.SertexOS/apis/ui")
+	
+	function centerDisplay( text )
+		w, h = term.getSize()
+		term.setCursorPos(( w - string.len(text)) / 2, h / 2)
+		write( text )
+end
+	function center(y, text )
+	w, h = term.getSize()
+	term.setCursorPos((w - #text) / 2, y)
+	write(text)
+end
+
+local w, h = term.getSize()
+local x, y = term.getCursorPos()
+	
+	opt = {
+		"Boot SertexOS 2", --1 
+		"Load CraftOS 1.7", --2
+		"Update SertexOS 2", --3
+		"Reset Config", --4
+		"Show Free Space", --5
+		"Wipe Computer", --6
+		"Add Password for BIOS", --7
+		"Remove Password for BIOS", --8
+	}
+	while true do
+
+	n, c = ui.menu(opt, "BIOS")
+	
+		if c == 1 then
+			local ok, err = pcall(loadKernel)
+	
+			if not ok then
+				crash("crash", err)
+			end
+		elseif c == 2 then
+			crash = nil
+			SertexOS = nil
+			os.unloadAPI("/.SertexOS/apis/ui")
+			term.setBackgroundColor(colors.black)
+			term.clear()
+			term.setCursorPos(1,1)
+			sleep(0.1)
+			shell.run("/rom/programs/shell")
+			break
+		elseif c == 3 then
+			term.setBackgroundColor(colors.black)
+			term.clear()
+			term.setCursorPos(1,1)
+			term.setTextColor(colors.white)
+			setfenv(loadstring(http.get("https://raw.github.com/Sertex-Team/SertexOS-2/master/upd.lua").readAll()),getfenv())()
+		elseif c == 4 then
+			term.clear()
+			term.setCursorPos(1,1)
+			local f = fs.open("/.SertexOS/config","w")
+			f.write("configVersion = 1\nlanguage = \"en\"")
+			f.close()
+			print("Done")
+			sleep(2)
+		elseif c == 5 then
+			term.setBackgroundColor(colors.white)
+			term.clear()
+			term.setTextColor(colors.red)
+			bytes = fs.getFreeSpace("/")
+	   		kbytes = bytes/1024
+   			bytes = bytes%1024
+   			mbytes = kbytes/1024
+   			kbytes = kbytes%1024
+   			gbytes = mbytes/1024
+   			mbytes = mbytes%1024
+   			tbytes = gbytes/1024
+   			gbytes = gbytes%1024
+   
+   			tbytes = tbytes*100
+   			gbytes = gbytes*100
+			mbytes = mbytes*100
+   			kbytes = kbytes*100
+   			bytes = bytes*100
+   
+   			tbytes = math.floor(tbytes)
+   			gbytes = math.floor(gbytes)
+   			mbytes = math.floor(mbytes)
+   			kbytes = math.floor(kbytes)
+   			bytes = math.floor(bytes)
+   
+   			tbytes = tbytes/100
+   			gbytes = gbytes/100
+   			mbytes = mbytes/100
+   			kbytes = kbytes/100
+   			bytes = bytes/100
+   
+   			space = tbytes.."TB "..gbytes.."GB "..mbytes.."MB "..kbytes.."KB "..bytes.."B"
+			centerDisplay("Free Space: "..space)
+			local w, h = term.getSize()
+			local x, y = term.getCursorPos()
+			center(y + 2, "Press Any Key")
+			os.pullEvent("key")
+		elseif c == 6 then
+			local c = ui.yesno("You Will Lose All Files", "Wipe Computer?", false)
+			if not c then
+				bios()
+				break
+			end
+				term.setBackgroundColor(colors.black)
+				term.clear()
+				term.setCursorPos(1,1)
+				term.setTextColor(colors.white)
+				list = fs.list("")
+				
+				for i = 1, #list do
+					if not fs.isReadOnly(list[i]) then
+						fs.delete(list[i])
+						printError(list[i].." deleted")
+					else
+						printError(list[i].." is read only! (Can't be deleted)")
+					end
+				end
+				print("press any key")
+				os.pullEvent("key")
+				os.reboot()
+		elseif c == 7 then
+			os.loadAPI("/.SertexOS/apis/sha256")
+			while true do
+				term.clear()
+				term.setCursorPos(1,1)
+				print("SertexOS 2 BIOS")
+				write("Insert Password: ")
+				local p1 = read("*")
+				write("Repeat Password: ")
+				local p2 = read("*")
+				
+				if p1 == p2 then
+					local f = fs.open("/.SertexOS/.bios", "w")
+					f.write(sha256.sha256(p1))
+					f.close()
+					print("Done")
+					sleep(2)
+					break
+				else
+					print("Wrong Password")
+					sleep(2)
+				end
+			end
+			os.unloadAPI("/.SertexOS/apis/sha256")
+		elseif c == 8 then
+			os.loadAPI("/.SertexOS/apis/sha256")
+			if fs.exists("/.SertexOS/.bios") then
+				write("Insert Password: ")
+				local p = read("*")
+				local f = fs.open("/.SertexOS/.bios", "r")
+				if sha256.sha256(p) == f.readLine() then
+					fs.delete("/.SertexOS/.bios")
+					print("Done")
+					sleep(2)
+				else
+					print("Wrong Password")
+					sleep(2)
+				end
+				f.close()
+			else
+				print("No Password Set")
+				sleep(2)
+			end
+			os.unloadAPI("/.SertexOS/apis/sha256")
+		end
+	end
 end
 
 
