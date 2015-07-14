@@ -39,10 +39,6 @@ local function crash(reason,message) --the crash error is only for OS crashes
 		end
 end
 
-
-
-local function kernel()
-
 _G.SertexOS = {
   build = 5,
   quiet = true,
@@ -698,4 +694,3 @@ function login()
 end
 
 login()
-end --end kernel
