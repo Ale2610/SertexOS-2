@@ -1,3 +1,49 @@
+local function crash(reason,message) --the crash error is only for OS crashes
+
+	local function center(y, text )
+		w, h = term.getSize()
+		term.setCursorPos((w - #text) / 2, y)
+		write(text)
+	end
+	os.pullEvent = os.pullEventRaw
+	reasons = {
+		["bypass"] = "System Bypassed",
+		["security"] = "System Security Issue",
+		["crash"] = "System Crashed",
+		["unknown"] = "Unknown Error",
+		["bios"] = "BIOS Error",
+		["seretx"] = "SeretxOS 2 crashed again :C", -- Devs need fun
+	}
+		term.setBackgroundColor(colors.blue)
+		term.clear()
+		term.setCursorPos(1,1)
+		term.setTextColor(colors.white)
+		center(1,"SertexOS 2 Crashed:")
+		if not reasons or not reasons[reason] then
+			center(2,reasons["crash"])
+		else
+			center(2,reasons[reason])
+		end
+		
+		if not message then
+			center(4,"Undefined Crash")
+		else
+			print("\n\n"..message)
+		end
+		local x, y = term.getCursorPos()
+		center(y+2,"Please reboot system!")
+		center(y+3,"Please report the issue here:")
+		center(y+4,"https://github.com/Sertex-Team/SertexOS-2/issues")
+		while true do
+			sleep(0)
+		end
+end
+
+function loadKernel(...)
+	dofile("/.SertexOS/SertexOS")
+end
+
+
 function centerDisplay( text )
 		w, h = term.getSize()
 		term.setCursorPos(( w - string.len(text)) / 2, h / 2)
@@ -79,7 +125,7 @@ while true do
 		term.clear()
 		term.setCursorPos(1,1)
 		term.setTextColor(colors.white)
-		local ok, err = pcall(kernel)
+		local ok, err = pcall(loadKernel)
 	
 		if not ok then
 			crash("crash", err)
