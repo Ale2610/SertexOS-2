@@ -1,2 +1,2 @@
 local tArgs = {...}
-shell.run(".SertexOS/SertexOS", ...)
+shell.run(".SertexOS/boot", ...)
