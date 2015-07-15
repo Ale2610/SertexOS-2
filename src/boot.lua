@@ -65,6 +65,9 @@ SertexOS.baseDir = baseDir
   	end
 	end
 -- load system files
+	if not fs.exists("/.SertexOS/system") then
+		fs.makeDir("/.SertexOS/system")	
+	end
 
 	for i, v in ipairs(fs.list("/.SertexOS/system")) do
 		if not fs.isDir(v) then
