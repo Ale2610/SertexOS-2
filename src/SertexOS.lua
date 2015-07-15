@@ -39,6 +39,9 @@ local function crash(reason,message) --the crash error is only for OS crashes
 		end
 end
 
+local baseDir = fs.getDir(shell.getRunningProgram())
+SertexOS.baseDir = baseDir
+
 function log(text)
   local ftime = textutils.formatTime(os.time(), true)
   local str = "["..string.rep(" ", 5-ftime:len())..ftime.."] "..text
