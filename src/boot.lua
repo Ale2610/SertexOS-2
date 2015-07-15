@@ -40,6 +40,29 @@ local function crash(reason,message) --the crash error is only for OS crashes
 end
 
 local function loadKernel(...)
+	function os.version()
+  		return "SertexOS 2 b"..SertexOS.build
+	end
+-- load extra APIs
+	if fs.exists(fs.combine(SertexOS.baseDir, "apis")) and fs.isDir(fs.combine(SertexOS.baseDir, "apis")) then
+	 for i, v in ipairs(fs.list(fs.combine(SertexOS.baseDir, "apis"))) do
+	 os.loadAPI(fs.combine(fs.combine(SertexOS.baseDir, "apis"), v))
+  	end
+	end
+-- load system files
+
+	for i, v in ipairs(fs.list("/.SertexOS/system")) do
+		if not fs.isDir(v) then
+			dofile("/.SertexOS/system/"..v)
+		end
+	end
+
+-- load autorun files scripts
+	for i, v in ipairs(fs.list("/.SertexOS/autorun")) do
+		if not fs.isDir(v) then
+			dofile("/.SertexOS/autorun/"..v)
+		end
+	end
 	shell.run("/.SertexOS/SertexOS",...)
 end
 
