@@ -166,6 +166,10 @@ function os.shutdown()
 	os.forceShutdown()
 end
 
+-- copy comgr to multitask
+_G.multitask = comgr
+multitask = comgr
+
 -- clear
 
 local function clear()
