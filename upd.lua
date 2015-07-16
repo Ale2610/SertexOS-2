@@ -41,6 +41,7 @@ local files = {
 	["src/apis/graphics.lua"] = "/.SertexOS/apis/graphics",
 	["src/apis/sertextext.lua"] = "/.SertexOS/apis/sertextext",
 	["src/apis/sha256.lua"] = "/.SertexOS/apis/sha256",
+	["src/apis/comgr.lua"] = "/.SertexOS/apis/comgr",
 	
 	["update"] = "/.SertexOS/update",
 	["src/startup"] = "/startup",
