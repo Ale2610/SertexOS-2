@@ -1,1 +1,0 @@
-dofile("/.SertexOS/apps/shell/app")

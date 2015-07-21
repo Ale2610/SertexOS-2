@@ -54,7 +54,7 @@ local function loadKernel(...)
 -- find base directory
 local baseDir = fs.getDir(shell.getRunningProgram())
 SertexOS.baseDir = baseDir
-
+    craft = os.version
 	function os.version()
   		return "SertexOS 2 b"..SertexOS.build
 	end
@@ -104,8 +104,8 @@ local x, y = term.getCursorPos()
 	
 	opt = {
 		"Boot SertexOS 2", --1 
-		"Load CraftOS 1.7", --2
-		"Update SertexOS 2", --3
+		"Load " .. craft(), --2
+		"Update SertexOS 2 Server Edition", --3
 		"Reset Config", --4
 		"Show Free Space", --5
 		"Wipe Computer", --6
@@ -324,7 +324,7 @@ print("BIOS Version: 1.7")
 centerDisplay("")
 local w, h = term.getSize()
 local x, y = term.getCursorPos()
-center(y - 1, "SertexOS")
+center(y - 1, "SertexOS 2 Server Edition")
 center(y + 1, "Loading...")
 center(y + 3, "Press ALT to load BIOS")
 local waitingALT = os.startTimer(2)

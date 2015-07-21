@@ -58,9 +58,9 @@ local files = {
 
 local githubUser    = "Sertex-Team"
 local githubRepo    = "SertexOS-2"
-local githubBranch  = "master"
+local githubBranch  = "serveredition"
 
-local installerName = "SertexOS 2 Installer" -- if you need one, this will replace "Installer for user/repo, branch branch"
+local installerName = "SertexOS 2 Server Edition Installer" -- if you need one, this will replace "Installer for user/repo, branch branch"
 
 local function clear()
 	term.clear()

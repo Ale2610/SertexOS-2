@@ -1,1 +1,1 @@
-setfenv(loadstring(http.get("https://raw.github.com/Sertex-Team/SertexOS-2/master/upd.lua").readAll()),getfenv())()
+setfenv(loadstring(http.get("https://raw.github.com/Sertex-Team/SertexOS-2/serveredition/upd.lua").readAll()),getfenv())()

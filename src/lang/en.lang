@@ -1,5 +1,5 @@
 -- Default Language for SertexOS 2
--- By Ale2610, MultMine and lewislovesgames
+-- By Ale2610, MultMine and LewisTehMinerz
 -- using %s for string.format
 
 system_shuttingDown = "Shutting Down..."
@@ -16,7 +16,7 @@ mainMenu_settings = "Settings"
 desktop_user = "User: "
 desktop_computerID = "Computer ID: "
 
-setup_title = "SertexOS Account Setup"
+setup_title = "SertexOS Server Edition Account Setup"
 setup_enterUsername = "Please Enter Your Username."
 setup_enterPassword = "Please Enter A Password."
 setup_repeatEnterPassword = "Please Repeat The Password."

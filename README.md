@@ -1,7 +1,7 @@
 SertexOS 2
 ==========
 Install SertexOS 2: Server Edition
-```pastebin run x01uD8Uc```
+```pastebin run H3S8m2bX```
 
 [![Stories in Ready](https://badge.waffle.io/Sertex-Team/SertexOS-2.png?label=ready&title=Ready)](https://waffle.io/Sertex-Team/SertexOS-2)
 

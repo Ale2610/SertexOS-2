@@ -34,6 +34,7 @@ local function crash(reason,message) --the crash error is only for OS crashes
 		center(y+2,"Please reboot system!")
 		center(y+3,"Please report the issue here:")
 		center(y+4,"https://github.com/Sertex-Team/SertexOS-2/issues")
+        center(y+5, "Please also mention that this is for Server Edition!")
 		while true do
 			sleep(0)
 		end
@@ -197,7 +198,8 @@ local function about()
 	sertextext.center(5, about_title)
 	sertextext.left(7, "(c) Copyright 2015 SertexOS 2 - All Rights Reserved")
 	sertextext.left(8, "Do not distribute!")
-	sertextext.left(9, "Firewolf by GravityScore")
+    sertextext.left(9, "Server Edition by LewisTehMinerz")
+	sertextext.left(10, "Firewolf by GravityScore")
 	local bytes = fs.getFreeSpace("/")
 	kbytes = bytes/1024
 	bytes = bytes%1024
