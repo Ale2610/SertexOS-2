@@ -39,6 +39,8 @@ local function crash(reason,message) --the crash error is only for OS crashes
 		end
 end
 
+local function kernel()
+
 local baseDir = fs.getDir(shell.getRunningProgram())
 SertexOS.baseDir = baseDir
 
@@ -632,3 +634,4 @@ function login()
 end
 
 login()
+end
