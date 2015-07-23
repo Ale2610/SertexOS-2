@@ -552,7 +552,7 @@ function login()
 				sleep(0.1)
 				login()
 			end
-			choose = ui.yesno(setup_createAnotherUser)
+			choose = ui.yesno(setup_createAnotherUser, "", false)
 		
 			if choose then
 				sleep(0.1)
