@@ -57,7 +57,7 @@ local baseDir = fs.getDir(shell.getRunningProgram())
 SertexOS.baseDir = baseDir
 
 	function os.version()
-  		return "SertexOS 2 b"..SertexOS.version
+  		return "SertexOS 2 "..SertexOS.version
 	end
 -- load extra APIs
 	if fs.exists(fs.combine(SertexOS.baseDir, "apis")) and fs.isDir(fs.combine(SertexOS.baseDir, "apis")) then
