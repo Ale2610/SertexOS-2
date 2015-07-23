@@ -619,11 +619,13 @@ function login()
 			print( "\n  "..login_welcome:format(SertexOS.u) )
 			log("Logged In As "..SertexOS.u)
 			sleep( 2 )
+			SertexOS.user = SertexOS.u
 			desktop()
 		else
 			printError( "  "..wrongPassword )
 			log("Incorrect Password from "..SertexOS.u.." Password: "..p)
 			sleep( 2 )
+			SertexOS.u = nil
 			login()
 		end
 			
