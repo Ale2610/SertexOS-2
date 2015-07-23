@@ -635,3 +635,9 @@ end
 
 login()
 end
+
+local ok, err = pcall(kernel)
+
+if not ok then
+	crash("crash", err)	
+end
