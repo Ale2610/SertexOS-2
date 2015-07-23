@@ -141,7 +141,6 @@ os.forceShutdown = os.shutdown
 os.forceReboot = os.reboot
 
 function os.reboot()
-	checkVersion()
 	local function printMsg(color)
 		term.setBackgroundColor(color)
 		term.setTextColor(colors.white)
@@ -160,7 +159,6 @@ function os.reboot()
 end
 
 function os.shutdown()
-	checkVersion()
 	local function printMsg(color)
 		term.setBackgroundColor(color)
 		term.setTextColor(colors.white)
@@ -282,21 +280,7 @@ local function settings()
 		end
 		requestReboot = ui.yesno(language_reboot2, language_reboot1)
 		if requestReboot then
-			local function printMsg(color)
-					term.setBackgroundColor(color)
-					term.setTextColor(colors.white)
-					term.clear()
-					term.setCursorPos(1, 1)
-					sertextext.centerDisplay(system_rebooting)
-					sleep(0.1)
-				end
-				printMsg(colors.white)
-				printMsg(colors.lightGray)
-				printMsg(colors.gray)
-				printMsg(colors.black)
-				sleep(0.6)
-				log("Reboot")
-				os.forceReboot()
+			os.reboot()
 			else
 				return
 			end
@@ -385,7 +369,7 @@ local function desktop()
 		term.setTextColor(colors.white)
 		sertextext.center(1, "SertexOS")
 		sertextext.left(1, desktop_computerID..os.getComputerID())
-		sertextext.right(1, desktop_user..SertexOS.u)		
+		sertextext.right(1, SertexOS.u)		
 		term.setBackgroundColor(colors.white)
 		term.setTextColor(colors.red)
 	end
@@ -395,38 +379,12 @@ local function desktop()
 
 		local sidebar = {
 			{mainMenu_shutdown, function()
-				local function printMsg(color)
-					term.setBackgroundColor(color)
-					term.setTextColor(colors.white)
-					term.clear()
-					term.setCursorPos(1, 1)
-					sertextext.centerDisplay(system_shuttingDown)
-					sleep(0.1)
-				end
-				printMsg(colors.white)
-				printMsg(colors.lightGray)
-				printMsg(colors.gray)
-				printMsg(colors.black)
-				sleep(0.6)
-				log("Shutdown")
-				os.forceShutdown()
+				checkVersion()
+				os.shutdown()
 			end},
 			{mainMenu_reboot, function()
-				local function printMsg(color)
-					term.setBackgroundColor(color)
-					term.setTextColor(colors.white)
-					term.clear()
-					term.setCursorPos(1, 1)
-					sertextext.centerDisplay(system_rebooting)
-					sleep(0.1)
-				end
-				printMsg(colors.white)
-				printMsg(colors.lightGray)
-				printMsg(colors.gray)
-				printMsg(colors.black)
-				sleep(0.6)
-				log("Reboot")
-				os.forceReboot()
+				checkVersion()
+				os.reboot()
 			end},
 			{mainMenu_logout, function()
 				local function printMsg(color)
@@ -453,9 +411,9 @@ local function desktop()
 			end},
 		}
 		
-		local function app(name, x, y) -- the max character are 7
+		local function app(name, x, y) -- the max characters are 7
 			local applications = {
-				[mainMenu_shell] = "shell",
+				["Shell"] = "shell",
 				["Frwlf"] = "firewolf",
 				["Files"] = "filemanager",
 				["Progrms"] = "programs",
@@ -495,7 +453,7 @@ local function desktop()
 
 		local function redraw()
 			desktopHeader()
-			app(mainMenu_shell, 2,3)
+			app("Shell", 2,3)
 			app("Frwlf", 10,3)
 			app("Files", 18,3)
 			app("Links", 26,3)
