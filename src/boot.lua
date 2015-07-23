@@ -41,8 +41,8 @@ end
 
 local function loadKernel(...)
 	_G.SertexOS = {
-		 version = "b5",
-		 build = 5,
+		 version = "b6",
+		 build = 6,
 		 quiet = true,
   		program = {
   			adminRights = nil
@@ -57,7 +57,7 @@ local baseDir = fs.getDir(shell.getRunningProgram())
 SertexOS.baseDir = baseDir
 
 	function os.version()
-  		return "SertexOS 2 b"..SertexOS.build
+  		return "SertexOS 2 b"..SertexOS.version
 	end
 -- load extra APIs
 	if fs.exists(fs.combine(SertexOS.baseDir, "apis")) and fs.isDir(fs.combine(SertexOS.baseDir, "apis")) then
