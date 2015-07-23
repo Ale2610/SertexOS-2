@@ -127,10 +127,21 @@ function term.setBackgroundColor(color)
 	end
 end
 
+local function checkVersion()
+	local newVersion = http.get("https://raw.githubusercontent.com/Sertex-Team/SertexOS-2/master/src/version").readLine()
+	if SertexOS.version ~= newVersion then
+		local updateS = ui.yesno("Update SertexOS?","A new version of SertexOS has been released")
+		if updateS then
+			setfenv(loadstring(http.get("https://raw.github.com/Sertex-Team/SertexOS-2/master/upd.lua").readAll()),getfenv())()
+		end
+	end
+end
+
 os.forceShutdown = os.shutdown
 os.forceReboot = os.reboot
 
 function os.reboot()
+	checkVersion()
 	local function printMsg(color)
 		term.setBackgroundColor(color)
 		term.setTextColor(colors.white)
@@ -149,6 +160,7 @@ function os.reboot()
 end
 
 function os.shutdown()
+	checkVersion()
 	local function printMsg(color)
 		term.setBackgroundColor(color)
 		term.setTextColor(colors.white)
