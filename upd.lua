@@ -184,6 +184,7 @@ print("100% - "..tostring(filesDownloaded).."/"..tostring(fileCount))
 if fs.exists("/startup") then
 	fs.delete("/startup")	
 end
+sleep(0.1)
 fs.copy("/SertexOS", "/startup")
 os.pullEvent("key")
 
