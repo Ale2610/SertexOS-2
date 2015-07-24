@@ -381,7 +381,7 @@ while true do
 				break
 			end
 		elseif key == 36 then
-			crash("seretx", "Good job man! You crahed SeretxOS")
+			crash("seretx", "Good job man! You crashed SeretxOS")
 		end
 	end
 	sleep(0)
