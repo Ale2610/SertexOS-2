@@ -73,13 +73,13 @@ local function add()
 		end
 	elseif e[1] == "key" then
 		local dir = read()
-		write("Link Name: ")
-		local link = read()
-		if not fs.exists(dir) then
-			print(dir.." doesn't exist")
+		if not fs.exists("/"..dir) then
+			print(.."/"..dir.." doesn't exist")
 			sleep(2.5)
 			add()
 		end
+		write("Link Name: ")
+		local link = read()
 		term.setCursorBlink(false)
 		local f = fs.open("/.SertexOS/links/"..link, "w")
 		f.write("dofile('/"..dir.."')")
