@@ -209,7 +209,7 @@ local function about()
 	sertextext.center(5, about_title)
 	sertextext.left(7, "(c) Copyright 2015 SertexOS 2 - All Rights Reserved")
 	sertextext.left(8, "Do not distribute!")
-	sertextext.left(9, "Firewolf by GravityScore")
+	sertextext.left(9, "Firewolf by GravityScore and 1lann")
 	local bytes = fs.getFreeSpace("/")
 	kbytes = bytes/1024
 	bytes = bytes%1024
