@@ -238,7 +238,8 @@ local function about()
   bytes = bytes/100
 	
 	sertextext.center(11,about_freeSpace.." "..mbytes.."MB")
-	sertextext.center(13, lang_pressAnyKey)
+	sertextext.center(13,desktop_computerID..os.getComputerID())
+	sertextext.center(15, lang_pressAnyKey)
 	os.pullEvent("key")
 	return
 end
