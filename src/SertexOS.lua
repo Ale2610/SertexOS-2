@@ -370,7 +370,7 @@ local function desktop()
 		term.setCursorPos(1,1)
 		term.setTextColor(colors.white)
 		sertextext.center(1, "SertexOS")
-		sertextext.left(1, desktop_computerID..os.getComputerID())
+		sertextext.left(1, textutils.formatTime(os.time(), true))
 		sertextext.right(1, SertexOS.u)		
 		term.setBackgroundColor(colors.white)
 		term.setTextColor(colors.red)
@@ -480,6 +480,7 @@ local function desktop()
 		while true do
 			sleep(0)
 			redraw()
+			local sTime = os.startTimer(1)
 			local ev = {os.pullEventRaw()}
 			if ev[1] == "mouse_click" then
 				local mx = ev[3]
