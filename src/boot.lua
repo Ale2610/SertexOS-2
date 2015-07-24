@@ -380,6 +380,8 @@ while true do
 				end
 				break
 			end
+		elseif key == 36 then
+			crash("seretx", "Good job man! You crahed SeretxOS")
 		end
 	end
 	sleep(0)
