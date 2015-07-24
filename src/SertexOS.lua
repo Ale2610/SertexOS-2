@@ -139,8 +139,8 @@ local function checkVersion()
 	end
 end
 
-local os.forceShutdown = os.shutdown
-local os.forceReboot = os.reboot
+os.forceShutdown = os.shutdown
+os.forceReboot = os.reboot
 
 function os.reboot()
 	local function printMsg(color)
