@@ -481,7 +481,7 @@ local function desktop()
 		while true do
 			sleep(0)
 			redraw()
-			local sTime = os.startTimer(0.3)
+			local sTime = os.startTimer(0.1)
 			local ev = {os.pullEventRaw()}
 			if ev[1] == "mouse_click" then
 				local mx = ev[3]
