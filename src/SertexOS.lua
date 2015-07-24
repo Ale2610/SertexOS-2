@@ -178,6 +178,9 @@ function os.shutdown()
 	os.forceShutdown()
 end
 
+os.forceShutdown = nil
+os.forceReboot = nil
+
 -- copy comgr to multitask
 _G.multitask = comgr
 multitask = comgr
