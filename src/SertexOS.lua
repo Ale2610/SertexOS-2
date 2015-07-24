@@ -44,7 +44,7 @@ local function kernel()
 local baseDir = fs.getDir(shell.getRunningProgram())
 SertexOS.baseDir = baseDir
 
-function log(text)
+local function log(text)
   local ftime = textutils.formatTime(os.time(), true)
   local str = "["..string.rep(" ", 5-ftime:len())..ftime.."] "..text
   if not SertexOS.quiet then
@@ -55,15 +55,15 @@ function log(text)
   f.close()
 end
 
-function lock()
+local function lock()
   os.pullEvent = os.pullEventRaw
 end
 
-function unlock()
+local function unlock()
   os.pullEvent = ope
 end
 
-function setLogging(val)
+local function setLogging(val)
   if type(val) == "boolean" then
     SertexOS.quiet = not val
   end
@@ -139,8 +139,8 @@ local function checkVersion()
 	end
 end
 
-os.forceShutdown = os.shutdown
-os.forceReboot = os.reboot
+local os.forceShutdown = os.shutdown
+local os.forceReboot = os.reboot
 
 function os.reboot()
 	local function printMsg(color)
