@@ -380,7 +380,7 @@ while true do
 				end
 				break
 			end
-		elseif key == 36 then
+		elseif par1 == 36 then
 			crash("seretx", "Good job man! You crashed SeretxOS")
 		end
 	end
