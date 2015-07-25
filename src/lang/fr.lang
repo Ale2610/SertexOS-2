@@ -36,6 +36,9 @@ settings_title = "Parametres"
 settings_changeLang = "Changer de langue"
 settings_changePassword = "Changer de mot de passe"
 settings_update = "Mettre a jour"
+settings_dynamicClock = "Dynamic Clock"
+
+dynamicClock_enable = "Enable Dynamic clock? (It may lags)"
 
 about_title = "A propos"
 about_freeSpace = "Espace libre:"
