@@ -265,22 +265,22 @@ local function settings()
 		
 			if id == 1 then
 				local f = fs.open("/.SertexOS/config","w")
-				f.write("configVersion = "..configVersion.."\nlanguage = \"en\"")
+				f.write("configVersion = "..configVersion.."\nlanguage = 'en'\ndynamicClock = "..SertexOS.dynamicClock.."")
 				f.close()
 				break
 			elseif id == 2 then
 				local f = fs.open("/.SertexOS/config","w")
-				f.write("configVersion = "..configVersion.."\nlanguage = \"it\"")
+				f.write("configVersion = "..configVersion.."\nlanguage = 'it'\ndynamicClock = "..SertexOS.dynamicClock.."")
 				f.close()
 				break
 			elseif id == 3 then
 				local f = fs.open("/.SertexOS/config","w")
-				f.write("configVersion = "..configVersion.."\nlanguage = \"de\"")
+				f.write("configVersion = "..configVersion.."\nlanguage = 'de'\ndynamicClock = "..SertexOS.dynamicClock.."")
 				f.close()
 				break
 			elseif id == 4 then
 				local f = fs.open("/.SertexOS/config","w")
-				f.write("configVersion = "..configVersion.."\nlanguage = \"fr\"")
+				f.write("configVersion = "..configVersion.."\nlanguage = 'fr'\ndynamicClock = "..SertexOS.dynamicClock.."")
 				f.close()
 				break
 			end
