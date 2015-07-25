@@ -72,6 +72,9 @@ log("System Online")
 
 dofile("/.SertexOS/config")
 
+SertexOS.dynamicClock = dynamicClock
+dynamicClock = nil
+
 if language == "en" then
 	dofile("/.SertexOS/lang/en.lang")
 elseif language == "it" then
@@ -482,7 +485,9 @@ local function desktop()
 		while true do
 			sleep(0)
 			redraw()
-			local sTime = os.startTimer(0)
+			if SertexOS.dynamicClock then
+				local sTime = os.startTimer(0)
+			end
 			local ev = {os.pullEventRaw()}
 			if ev[1] == "mouse_click" then
 				local mx = ev[3]
