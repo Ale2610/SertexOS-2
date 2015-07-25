@@ -41,8 +41,8 @@ end
 
 local function loadKernel(...)
 	_G.SertexOS = {
-		 version = "b6.7",
-		 build = 7,
+		 version = "b6.8",
+		 build = 8,
 		 quiet = true,
   		program = {
   			adminRights = nil
