@@ -329,6 +329,22 @@ local function settings()
 		return
 	end
 	
+	local function dynamicClock()
+		dofile("/.SertexOS/config")
+		local language
+		local configVersion
+		local choose = ui.yesno(dynamicClock_enable)
+		if choose then
+			local f = fs.open("/.SertexOS/config","w")
+			f.write("configVersion = "..configVersion.."\nlanguage = '"..language.."'\ndynamicClock = true")
+			f.close()
+		else
+			local f = fs.open("/.SertexOS/config","w")
+			f.write("configVersion = "..configVersion.."\nlanguage = '"..language.."'\ndynamicClock = false")
+			f.close()	
+		end
+	end
+	
 	local function update()
 		log("System Update")
 		setfenv(loadstring(http.get("https://raw.github.com/Sertex-Team/SertexOS-2/master/upd.lua").readAll()),getfenv())()
@@ -340,8 +356,9 @@ local function settings()
 	options = {
 		settings_changeLang, --1
 		settings_changePassword, --2
-		settings_update, --3
-		lang_exit, --4
+		settings_dynamicClock, --3
+		settings_update, --4
+		lang_exit, --5
 	}
 	
 	item, id = ui.menu(options, settings_title)
@@ -350,9 +367,11 @@ local function settings()
 		changeLang()
 	elseif id == 2 then
 		changePassword()
-	elseif id == 3 then	
+	elseif id == 3 then
+		dynamicClock()
+	elseif id == 4 then	
 		update()
-	elseif id == 4 then
+	elseif id == 5 then
 		exitSettings()
 	end
 end
