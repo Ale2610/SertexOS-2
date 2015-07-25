@@ -10,9 +10,9 @@ if not fs.exists("/.SertexOS/config") then
 	f.close()
 else
 	dofile("/.SertexOS/config")
-	if not configVersion == 1 then
+	if not configVersion == 2 then
 		local f = fs.open("/.SertexOS/config","w")
-		f.write("configVersion = 1\nlanguage = \"en\"")
+		f.write("configVersion = 2\nlanguage = 'en'\ndynamicClock = true")
 		f.close()
 	end
 end
