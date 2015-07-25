@@ -3,10 +3,11 @@ NOTES
 - [ ]main text: red
 - [ ]other text: green or blue
 
-IDEAS (XX: nope, -: idk, >>: letz do dis, x: done)
-- [>>]GUI
-- [>>]Touch
+IDEAS (XX: nope, -: maybe, >>: Add it, x: done)
+- [x]GUI
+- [x]Touch
 - [XX] Command block interface
 - [ ]File sharing (SertexShare)
-- [>>]Better shell
-- [>>]Multi language
+- [x]Better shell
+- [x]Multi language
+- [>>]Custom multishell
