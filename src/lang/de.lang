@@ -37,6 +37,9 @@ settings_title = "Einstellungen"
 settings_changeLang = "Sprache"
 settings_changePassword = "Passwort"
 settings_update = "Update"
+settings_dynamicClock = "dynamische Uhr"
+
+dynamicClock_enable = "Aktivieren dynamischer Uhr? (Es kann lag)"
 
 about_title = "Info"
 about_freeSpace = "Freiraum:"
