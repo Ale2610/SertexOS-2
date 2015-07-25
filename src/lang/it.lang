@@ -37,6 +37,9 @@ settings_title = "Impostazioni"
 settings_changeLang = "Cambia Lingua"
 settings_changePassword = "Cambia Password"
 settings_update = "Aggiorna"
+settings_dynamicClock = "Orologio Dinamico"
+
+dynamicClock_enable = "Abilitare orologio dinamico? (Puo' causare lag)"
 
 about_title = "Info"
 about_freeSpace = "Spazio Libero:"
