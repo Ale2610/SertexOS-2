@@ -7,13 +7,13 @@ fs.makeDir("/.SertexOS/system")
 
 if not fs.exists("/.SertexOS/config") then
 	local f = fs.open("/.SertexOS/config","w")
-	f.write("SertexOS.configVersion = 2\nSertexOS.language = \"en\"\nSertexOS.dynamicClock = false")
+	f.write("SertexOS.configVersion = 3\nSertexOS.language = \"en\"\nSertexOS.dynamicClock = false")
 	f.close()
 else
 	dofile("/.SertexOS/config")
-	if SertexOS.configVersion ~= 2 then
+	if SertexOS.configVersion ~= 3 then
 		local f = fs.open("/.SertexOS/config","w")
-		f.write("SertexOS.configVersion = 2\nSertexOS.language = 'en'\nSertexOS.dynamicClock = false")
+		f.write("SertexOS.configVersion = 3\nSertexOS.language = 'en'\nSertexOS.dynamicClock = false")
 		f.close()
 	end
 end
