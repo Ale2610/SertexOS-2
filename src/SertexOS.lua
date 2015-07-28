@@ -69,14 +69,18 @@ local function setLogging(val)
   end
 end
 
+SertexOS.configVersion = 3
+SertexOS.language = "en"
+SertexOS.dynamicClock = false
+
 dofile("/.SertexOS/config")
 
 function SertexOS.writeConfig(language, dynamicClock)
 	if not language then
-		local language = SertexOS.language
+		language = SertexOS.language
 	end
 	if dynamicClock == nil then
-		local dynamicClock = SertexOS.dynamicClock
+		dynamicClock = SertexOS.dynamicClock
 	end
 	
 	if dynamicClock == true then
