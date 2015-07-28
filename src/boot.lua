@@ -44,6 +44,7 @@ local function loadKernel(...)
 		 version = "b6.8",
 		 build = 8,
 		 quiet = true,
+		 configVersion = 2,
   		program = {
   			adminRights = nil
 		 },
