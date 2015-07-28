@@ -72,9 +72,6 @@ log("System Online")
 
 dofile("/.SertexOS/config")
 
-SertexOS.dynamicClock = dynamicClock
-dynamicClock = nil
-
 if language == "en" then
 	dofile("/.SertexOS/lang/en.lang")
 elseif language == "it" then
@@ -265,22 +262,22 @@ local function settings()
 		
 			if id == 1 then
 				local f = fs.open("/.SertexOS/config","w")
-				f.write("configVersion = "..configVersion.."\nlanguage = 'en'\ndynamicClock = "..SertexOS.dynamicClock.."")
+				f.write("configVersion = "..configVersion.."\nlanguage = 'en'")
 				f.close()
 				break
 			elseif id == 2 then
 				local f = fs.open("/.SertexOS/config","w")
-				f.write("configVersion = "..configVersion.."\nlanguage = 'it'\ndynamicClock = "..SertexOS.dynamicClock.."")
+				f.write("configVersion = "..configVersion.."\nlanguage = 'it'")
 				f.close()
 				break
 			elseif id == 3 then
 				local f = fs.open("/.SertexOS/config","w")
-				f.write("configVersion = "..configVersion.."\nlanguage = 'de'\ndynamicClock = "..SertexOS.dynamicClock.."")
+				f.write("configVersion = "..configVersion.."\nlanguage = 'de'")
 				f.close()
 				break
 			elseif id == 4 then
 				local f = fs.open("/.SertexOS/config","w")
-				f.write("configVersion = "..configVersion.."\nlanguage = 'fr'\ndynamicClock = "..SertexOS.dynamicClock.."")
+				f.write("configVersion = "..configVersion.."\nlanguage = 'fr'")
 				f.close()
 				break
 			end
@@ -336,11 +333,11 @@ local function settings()
 		local choose = ui.yesno(dynamicClock_enable)
 		if choose then
 			local f = fs.open("/.SertexOS/config","w")
-			f.write("configVersion = "..configVersion.."\nlanguage = '"..language.."'\ndynamicClock = true")
+			f.write("configVersion = "..configVersion.."\nlanguage = '"..language.."'")
 			f.close()
 		else
 			local f = fs.open("/.SertexOS/config","w")
-			f.write("configVersion = "..configVersion.."\nlanguage = '"..language.."'\ndynamicClock = false")
+			f.write("configVersion = "..configVersion.."\nlanguage = '"..language.."'")
 			f.close()	
 		end
 	end
@@ -356,9 +353,9 @@ local function settings()
 	options = {
 		settings_changeLang, --1
 		settings_changePassword, --2
-		settings_dynamicClock, --3
-		settings_update, --4
-		lang_exit, --5
+		--settings_dynamicClock, --3
+		settings_update, --3
+		lang_exit, --4
 	}
 	
 	item, id = ui.menu(options, settings_title)
@@ -367,11 +364,11 @@ local function settings()
 		changeLang()
 	elseif id == 2 then
 		changePassword()
-	elseif id == 3 then
-		dynamicClock()
-	elseif id == 4 then	
+	--elseif id == 3 then
+		--dynamicClock()
+	elseif id == 3 then	
 		update()
-	elseif id == 5 then
+	elseif id == 4 then
 		exitSettings()
 	end
 end
@@ -504,9 +501,9 @@ local function desktop()
 		while true do
 			sleep(0)
 			redraw()
-			if SertexOS.dynamicClock then
-				local sTime = os.startTimer(0)
-			end
+			--if SertexOS.dynamicClock then
+				--local sTime = os.startTimer(0)
+			--end
 			local ev = {os.pullEventRaw()}
 			if ev[1] == "mouse_click" then
 				local mx = ev[3]
