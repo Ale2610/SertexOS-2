@@ -44,7 +44,7 @@ local function loadKernel(...)
 		 version = "b7.1",
 		 build = 1,
 		 quiet = true,
-		 configVersion = 2,
+		 configVersion = 3,
   		program = {
   			adminRights = nil
 		 },
@@ -144,7 +144,7 @@ local x, y = term.getCursorPos()
 			term.clear()
 			term.setCursorPos(1,1)
 			local f = fs.open("/.SertexOS/config","w")
-			f.write("configVersion = 1\nlanguage = \"en\"")
+			f.write("SertexOS.configVersion = 3\nSertexOS.language = 'en'\nSertexOS.dynamicClock = false")
 			f.close()
 			print("Done")
 			sleep(2)
