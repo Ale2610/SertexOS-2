@@ -3,21 +3,22 @@
 shell.setDir("/")
 fs.makeDir("/.SertexOS/autorun")
 fs.makeDir("/.SertexOS/links")
+fs.makeDir("/.SertexOS/system")
 
 if not fs.exists("/.SertexOS/config") then
 	local f = fs.open("/.SertexOS/config","w")
-	f.write("configVersion = 1\nlanguage = \"en\"")
+	f.write("SertexOS.configVersion = 2\nSertexOS.language = \"en\"\nSertexOS.dynamicClock = false")
 	f.close()
 else
 	dofile("/.SertexOS/config")
-	if not configVersion == 2 then
+	if SertexOS.configVersion ~= 2 then
 		local f = fs.open("/.SertexOS/config","w")
-		f.write("configVersion = 2\nlanguage = 'en'\ndynamicClock = true")
+		f.write("SertexOS.configVersion = 2\nSertexOS.language = 'en'\nSertexOS.dynamicClock = false")
 		f.close()
 	end
 end
 
-systemDir = ".SertexOS"
+systemDir = "/.SertexOS"
 
 local files = {
 	["src/boot.lua"] = "/.SertexOS/boot",
