@@ -507,9 +507,9 @@ local function desktop()
 		while true do
 			sleep(0)
 			redraw()
-			--if SertexOS.dynamicClock then
-				--local sTime = os.startTimer(0)
-			--end
+			if SertexOS.dynamicClock then
+				local sTime = os.startTimer(0)
+			end
 			local ev = {os.pullEventRaw()}
 			if ev[1] == "mouse_click" then
 				local mx = ev[3]
