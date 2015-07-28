@@ -68,17 +68,39 @@ local function setLogging(val)
     SertexOS.quiet = not val
   end
 end
-log("System Online")
 
 dofile("/.SertexOS/config")
 
-if language == "en" then
+function SertexOS.writeConfig(language, dynamicClock)
+	if not language then
+		local language = SertexOS.language
+	end
+	if dynamicClock == nil then
+		local dynamicClock = SertexOS.dynamicClock
+	end
+	
+	if dynamicClock == true then
+		dynamicClock = "true"
+	else
+		dynamicClock = "false"	
+	end
+	local f = fs.open("/.SertexOS/config","w")
+	f.write("if not SertexOS then SertexOS = {} end\n")
+	f.write("SertexOS.configVersion = "..SertexOS.configVersion.."\n")
+	f.write("SertexOS.language = "..language.."\n")
+	f.write("SertexOS.dynamicClock = "..dynamicClock")
+	f.close()
+end
+
+log("System Online")
+
+if SertexOS.language == "en" then
 	dofile("/.SertexOS/lang/en.lang")
-elseif language == "it" then
+elseif SertexOS.language == "it" then
 	dofile("/.SertexOS/lang/it.lang")
-elseif language == "de" then
+elseif SertexOS.language == "de" then
 	dofile("/.SertexOS/lang/de.lang")
-elseif language == "fr" then
+elseif SertexOS.language == "fr" then
 	dofile("/.SertexOS/lang/fr.lang")
 else
 	dofile("/.SertexOS/lang/en.lang")
@@ -88,7 +110,7 @@ if not fs.exists("/.SertexOS/system") then
 	fs.makeDir("/.SertexOS/system")
 end
 
-local systemDir = ".SertexOS"
+local systemDir = "/.SertexOS"
 local dbUsersDir = systemDir.."/databaseUsers/"
 local folderUsersDir = "/user"
 
@@ -260,24 +282,16 @@ local function settings()
 		while true do
 			item, id = ui.menu(langs, language_title)
 			if id == 1 then
-				local f = fs.open("/.SertexOS/config","w")
-				f.write("configVersion = "..SertexOS.configVersion.."\nlanguage = 'en'")
-				f.close()
+				SertexOS.writeConfig("en")
 				break
 			elseif id == 2 then
-				local f = fs.open("/.SertexOS/config","w")
-				f.write("configVersion = "..SertexOS.configVersion.."\nlanguage = 'it'")
-				f.close()
+				SertexOS.writeConfig("it")
 				break
 			elseif id == 3 then
-				local f = fs.open("/.SertexOS/config","w")
-				f.write("configVersion = "..SertexOS.configVersion.."\nlanguage = 'de'")
-				f.close()
+				SertexOS.writeConfig("de")
 				break
 			elseif id == 4 then
-				local f = fs.open("/.SertexOS/config","w")
-				f.write("configVersion = "..SertexOS.configVersion.."\nlanguage = 'fr'")
-				f.close()
+				SertexOS.writeConfig("fr")
 				break
 			end
 		end
@@ -326,18 +340,11 @@ local function settings()
 	end
 	
 	local function dynamicClock()
-		dofile("/.SertexOS/config")
-		local language
-		local configVersion
 		local choose = ui.yesno(dynamicClock_enable)
 		if choose then
-			local f = fs.open("/.SertexOS/config","w")
-			f.write("configVersion = "..configVersion.."\nlanguage = '"..language.."'")
-			f.close()
+			SertexOS.writeConfig(nil, true)
 		else
-			local f = fs.open("/.SertexOS/config","w")
-			f.write("configVersion = "..configVersion.."\nlanguage = '"..language.."'")
-			f.close()	
+			SertexOS.writeConfig(nil, true)	
 		end
 	end
 	
@@ -352,9 +359,9 @@ local function settings()
 	options = {
 		settings_changeLang, --1
 		settings_changePassword, --2
-		--settings_dynamicClock, --3
-		settings_update, --3
-		lang_exit, --4
+		settings_dynamicClock, --3
+		settings_update, --4
+		lang_exit, --5
 	}
 	
 	item, id = ui.menu(options, settings_title)
@@ -363,11 +370,11 @@ local function settings()
 		changeLang()
 	elseif id == 2 then
 		changePassword()
-	--elseif id == 3 then
-		--dynamicClock()
-	elseif id == 3 then	
+	elseif id == 3 then
+		dynamicClock()
+	elseif id == 4 then	
 		update()
-	elseif id == 4 then
+	elseif id == 5 then
 		exitSettings()
 	end
 end
