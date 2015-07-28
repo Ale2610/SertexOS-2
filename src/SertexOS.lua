@@ -259,7 +259,7 @@ local function settings()
 		lock()
 		while true do
 			item, id = ui.menu(langs, language_title)
-		
+			dofile("/.SertexOS/config")
 			if id == 1 then
 				local f = fs.open("/.SertexOS/config","w")
 				f.write("configVersion = "..configVersion.."\nlanguage = 'en'")
