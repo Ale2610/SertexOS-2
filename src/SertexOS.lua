@@ -259,25 +259,24 @@ local function settings()
 		lock()
 		while true do
 			item, id = ui.menu(langs, language_title)
-			dofile("/.SertexOS/config")
 			if id == 1 then
 				local f = fs.open("/.SertexOS/config","w")
-				f.write("configVersion = "..configVersion.."\nlanguage = 'en'")
+				f.write("configVersion = "..SertexOS.configVersion.."\nlanguage = 'en'")
 				f.close()
 				break
 			elseif id == 2 then
 				local f = fs.open("/.SertexOS/config","w")
-				f.write("configVersion = "..configVersion.."\nlanguage = 'it'")
+				f.write("configVersion = "..SertexOS.configVersion.."\nlanguage = 'it'")
 				f.close()
 				break
 			elseif id == 3 then
 				local f = fs.open("/.SertexOS/config","w")
-				f.write("configVersion = "..configVersion.."\nlanguage = 'de'")
+				f.write("configVersion = "..SertexOS.configVersion.."\nlanguage = 'de'")
 				f.close()
 				break
 			elseif id == 4 then
 				local f = fs.open("/.SertexOS/config","w")
-				f.write("configVersion = "..configVersion.."\nlanguage = 'fr'")
+				f.write("configVersion = "..SertexOS.configVersion.."\nlanguage = 'fr'")
 				f.close()
 				break
 			end
