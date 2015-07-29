@@ -165,10 +165,37 @@ local function checkVersion()
 	end
 end
 
+-- clear
+
+local function clear()
+	term.setBackgroundColor(colors.white)
+	term.clear()
+	term.setCursorPos(1,1)
+	term.setTextColor(colors.red)
+end
+
+-- header
+local function header()
+	clear()
+	graphics.box(1,1,51,3, colors.red)
+	term.setTextColor(colors.white)
+	sertextext.center(2, "Sertex")
+	term.setBackgroundColor(colors.white)
+	term.setTextColor(colors.red)
+	term.setCursorPos(1,5)
+end
+
 os.forceShutdown = os.shutdown
 os.forceReboot = os.reboot
 
 function os.reboot()
+	repeat
+		if multishell.getCount() < 2 then
+			header()
+			print("Close all tasks before reboot")
+		end
+		sleep(0.3)
+	until multishell.getCount() < 2
 	local function printMsg(color)
 		term.setBackgroundColor(color)
 		term.setTextColor(colors.white)
@@ -187,6 +214,13 @@ function os.reboot()
 end
 
 function os.shutdown()
+	repeat
+		if multishell.getCount() < 2 then
+			header()
+			print("Close all tasks before shutdown")
+		end
+		sleep(0.3)
+	until multishell.getCount() < 2
 	local function printMsg(color)
 		term.setBackgroundColor(color)
 		term.setTextColor(colors.white)
@@ -208,26 +242,6 @@ end
 -- copy comgr to multitask
 _G.multitask = comgr
 multitask = comgr
-
--- clear
-
-local function clear()
-	term.setBackgroundColor(colors.white)
-	term.clear()
-	term.setCursorPos(1,1)
-	term.setTextColor(colors.red)
-end
-
--- header
-local function header()
-	clear()
-	graphics.box(1,1,51,3, colors.red)
-	term.setTextColor(colors.white)
-	sertextext.center(2, "Sertex")
-	term.setBackgroundColor(colors.white)
-	term.setTextColor(colors.red)
-	term.setCursorPos(1,5)
-end
 
 -- about
 
