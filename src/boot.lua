@@ -108,11 +108,12 @@ local x, y = term.getCursorPos()
 		"Boot SertexOS 2", --1 
 		"Load CraftOS 1.7", --2
 		"Update SertexOS 2", --3
-		"Reset Config", --4
-		"Show Free Space", --5
-		"Wipe Computer", --6
-		"Add Password for BIOS", --7
-		"Remove Password for BIOS", --8
+		"Reset SertexOS 2", --4
+		"Reset Config", --5
+		"Show Free Space", --6
+		"Wipe Computer", --7
+		"Add Password for BIOS", --8
+		"Remove Password for BIOS", --9
 	}
 	while true do
 
@@ -141,6 +142,24 @@ local x, y = term.getCursorPos()
 			term.setTextColor(colors.white)
 			setfenv(loadstring(http.get("https://raw.github.com/Sertex-Team/SertexOS-2/master/upd.lua").readAll()),getfenv())()
 		elseif c == 4 then
+			local c = ui.yesno("Reset SertexOS 2?","", false)
+			if not c then
+				bios()
+				break
+			end
+				term.setBackgroundColor(colors.black)
+				term.clear()
+				term.setCursorPos(1,1)
+				term.setTextColor(colors.white)
+				list = fs.list("/.SertexOS")
+				
+				for i = 1, #list do
+					fs.delete("/.SertexOS/"..list[i])
+					printError("/.SertexOS/"..list[i].." deleted")
+					sleep(0.4)
+				end
+				setfenv(loadstring(http.get("https://raw.github.com/Sertex-Team/SertexOS-2/master/upd.lua").readAll()),getfenv())()
+		elseif c == 5 then
 			term.clear()
 			term.setCursorPos(1,1)
 			local f = fs.open("/.SertexOS/config","w")
@@ -148,7 +167,7 @@ local x, y = term.getCursorPos()
 			f.close()
 			print("Done")
 			sleep(2)
-		elseif c == 5 then
+		elseif c == 6 then
 			term.setBackgroundColor(colors.white)
 			term.clear()
 			term.setTextColor(colors.red)
@@ -186,7 +205,7 @@ local x, y = term.getCursorPos()
 			local x, y = term.getCursorPos()
 			center(y + 2, "Press Any Key")
 			os.pullEvent("key")
-		elseif c == 6 then
+		elseif c == 7 then
 			local c = ui.yesno("You Will Lose All Files", "Wipe Computer?", false)
 			if not c then
 				bios()
@@ -205,11 +224,12 @@ local x, y = term.getCursorPos()
 					else
 						printError(list[i].." is read only! (Can't be deleted)")
 					end
+					sleep(0.4)
 				end
 				print("press any key")
 				os.pullEvent("key")
 				os.reboot()
-		elseif c == 7 then
+		elseif c == 8 then
 			os.loadAPI("/.SertexOS/apis/sha256")
 			while true do
 				term.clear()
@@ -233,7 +253,7 @@ local x, y = term.getCursorPos()
 				end
 			end
 			os.unloadAPI("/.SertexOS/apis/sha256")
-		elseif c == 8 then
+		elseif c == 9 then
 			os.loadAPI("/.SertexOS/apis/sha256")
 			if fs.exists("/.SertexOS/.bios") then
 				write("Insert Password: ")
