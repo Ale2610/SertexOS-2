@@ -74,7 +74,7 @@ local function add()
 	elseif e[1] == "key" then
 		local dir = read()
 		if not fs.exists("/"..dir) then
-			print(.."/"..dir.." doesn't exist")
+			print("/"..dir.." doesn't exist")
 			sleep(2.5)
 			add()
 		end
