@@ -1,6 +1,9 @@
 -- French for SertexOS 2
 -- By BadCoder_
--- using %s for string.format
+if not SertexOS.user then
+  SertexOS.user = "Unknown"
+end
+local user = SertexOS.user
 SertexOS.language = {
   ID = "fr_FR",
   system_shuttingDown = "Arret en cours...",
@@ -21,7 +24,7 @@ SertexOS.language = {
   setup_enterUsername = "Entrez votre nom d'utilisateur.",
   setup_enterPassword = "Entrez votre mot de passe.",
   setup_repeatEnterPassword = "Repetez votre mot de passe.",
-  setup_isUsernameCorrect1 = "Vous avez entre %s comme nom d'utilisateur.",
+  setup_isUsernameCorrect1 = "Vous avez entre "..user.." comme nom d'utilisateur.",
   setup_isUsernameCorrect2 = "Est-ce correct?",
   setup_createAnotherUser = "Voulez-vous creer un autre utilisateur?",
   setup_existsUser = "Cet utilisateur existe deja / est invalide",
@@ -31,7 +34,7 @@ SertexOS.language = {
   login_username = "Nom d'utilisateur",
   login_password = "Mot de passe",
   login_notRegistered = "Cet utilisateur n'est pas enregistre!",
-  login_welcome = "Bonjour %s!",
+  login_welcome = "Bonjour "..user.."!",
 
   settings_title = "Parametres",
   settings_changeLang = "Changer de langue",
