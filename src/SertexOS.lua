@@ -70,14 +70,14 @@ local function setLogging(val)
 end
 
 SertexOS.configVersion = 3
-SertexOS.language = "en"
+SertexOS.languageID = "en"
 SertexOS.dynamicClock = false
 
 dofile("/.SertexOS/config")
 
 function SertexOS.writeConfig(language, dynamicClock)
 	if not language then
-		language = SertexOS.language
+		language = SertexOS.languageID
 	end
 	if dynamicClock == nil then
 		dynamicClock = SertexOS.dynamicClock
@@ -91,20 +91,20 @@ function SertexOS.writeConfig(language, dynamicClock)
 	local f = fs.open("/.SertexOS/config","w")
 	f.write("if not SertexOS then SertexOS = {} end\n")
 	f.write("SertexOS.configVersion = "..SertexOS.configVersion.."\n")
-	f.write("SertexOS.language = "..language.."\n")
+	f.write("SertexOS.languageID = "..language.."\n")
 	f.write("SertexOS.dynamicClock = "..dynamicClock)
 	f.close()
 end
 
 log("System Online")
 
-if SertexOS.language == "en" then
+if SertexOS.languageID == "en" then
 	dofile("/.SertexOS/lang/en.lang")
-elseif SertexOS.language == "it" then
+elseif SertexOS.languageID == "it" then
 	dofile("/.SertexOS/lang/it.lang")
-elseif SertexOS.language == "de" then
+elseif SertexOS.languageID == "de" then
 	dofile("/.SertexOS/lang/de.lang")
-elseif SertexOS.language == "fr" then
+elseif SertexOS.languageID == "fr" then
 	dofile("/.SertexOS/lang/fr.lang")
 else
 	dofile("/.SertexOS/lang/en.lang")
@@ -201,7 +201,7 @@ function os.reboot()
 		term.setTextColor(colors.white)
 		term.clear()
 		term.setCursorPos(1, 1)
-		sertextext.centerDisplay(system_rebooting)
+		sertextext.centerDisplay(SertexOS.language.system_rebooting)
 		sleep(0.1)
 	end
 	printMsg(colors.white)
@@ -226,7 +226,7 @@ function os.shutdown()
 		term.setTextColor(colors.white)
 		term.clear()
 		term.setCursorPos(1, 1)
-		sertextext.centerDisplay(system_shuttingDown)
+		sertextext.centerDisplay(SertexOS.language.system_shuttingDown)
 		sleep(0.1)
 	end
 	printMsg(colors.white)
@@ -247,7 +247,7 @@ multitask = comgr
 
 local function about()
 	header()
-	sertextext.center(5, about_title)
+	sertextext.center(5, SertexOS.language.about_title)
 	sertextext.left(7, "(c) Copyright 2015 SertexOS 2 - All Rights Reserved")
 	sertextext.left(8, "Do not distribute!")
 	sertextext.left(9, "Firewolf by GravityScore and 1lann")
@@ -278,9 +278,9 @@ local function about()
   kbytes = kbytes/100
   bytes = bytes/100
 	
-	sertextext.center(11,about_freeSpace.." "..mbytes.."MB")
-	sertextext.center(13,desktop_computerID..os.getComputerID())
-	sertextext.center(15, lang_pressAnyKey)
+	sertextext.center(11,SertexOS.language.about_freeSpace.." "..mbytes.."MB")
+	sertextext.center(13,SertexOS.language.desktop_computerID..os.getComputerID())
+	sertextext.center(15, SertexOS.language.pressAnyKey)
 	os.pullEvent("key")
 	return
 end
@@ -313,7 +313,7 @@ local function settings()
 				break
 			end
 		end
-		requestReboot = ui.yesno(language_reboot2, language_reboot1)
+		requestReboot = ui.yesno(SertexOS.language.language_reboot2, SertexOS.language.language_reboot1)
 		if requestReboot then
 			os.reboot()
 			else
@@ -324,8 +324,8 @@ local function settings()
 	local function changePassword()
 		clear()
 		header()
-		sertextext.center(5, changePassword_title.." "..SertexOS.u.."\n\n")
-		print("  "..changePassword_enterCurrentPassword)
+		sertextext.center(5, SertexOS.language.changePassword_title.." "..SertexOS.u.."\n\n")
+		print("  "..SertexOS.language.changePassword_enterCurrentPassword)
 		write("  > ")
 		currentPW = read("*")
 		f = fs.open(dbUsersDir..SertexOS.u, "r")
@@ -336,20 +336,20 @@ local function settings()
 			sleep(2)
 			changePassword()
 		else
-			print("  "..changePassword_enterNewPassword)
+			print("  "..SertexOS.language.changePassword_enterNewPassword)
 			write("  > ")
 			local newPW = read("*")
-			print("  "..changePassword_repeatNewPassword)
+			print("  "..SertexOS.language.changePassword_repeatNewPassword)
 			write("  > ")
 			local repeatNewPW = read("*")
 			if newPW == repeatNewPW then
 				local f = fs.open(dbUsersDir..SertexOS.u, "w")
 				f.write(sha256.sha256(newPW))
 				f.close()
-				print("\n  "..lang_done)
+				print("\n  "..SertexOS.language.done)
 				sleep(2)
 			else
-				print("\n  "..wrongPassword)
+				print("\n  "..SertexOS.language.wrongPassword)
 				sleep(2)
 				changePassword()
 			end
@@ -358,7 +358,7 @@ local function settings()
 	end
 	
 	local function dynamicClock()
-		local choose = ui.yesno(dynamicClock_enable)
+		local choose = ui.yesno(SertexOS.language.dynamicClock_enable)
 		if choose then
 			SertexOS.writeConfig(nil, true)
 		else
@@ -375,14 +375,14 @@ local function settings()
 		return
 	end
 	options = {
-		settings_changeLang, --1
-		settings_changePassword, --2
-		settings_dynamicClock, --3
-		settings_update, --4
-		lang_exit, --5
+		SertexOS.language.settings_changeLang, --1
+		SertexOS.language.settings_changePassword, --2
+		SertexOS.language.settings_dynamicClock, --3
+		SertexOS.language.settings_update, --4
+		SertexOS.language.exit, --5
 	}
 	
-	item, id = ui.menu(options, settings_title)
+	item, id = ui.menu(options, SertexOS.language.settings_title)
 	
 	if id == 1 then
 		changeLang()
@@ -425,21 +425,21 @@ local function desktop()
 		local termW, termH = term.getSize()
 
 		local sidebar = {
-			{mainMenu_shutdown, function()
+			{SertexOS.language.mainMenu_shutdown, function()
 				checkVersion()
 				os.shutdown()
 			end},
-			{mainMenu_reboot, function()
+			{SertexOS.language.mainMenu_reboot, function()
 				checkVersion()
 				os.reboot()
 			end},
-			{mainMenu_logout, function()
+			{SertexOS.language.mainMenu_logout, function()
 				local function printMsg(color)
 					term.setBackgroundColor(color)
 					term.setTextColor(colors.white)
 					term.clear()
 					term.setCursorPos(1, 1)
-					sertextext.centerDisplay(account_loggingOut)
+					sertextext.centerDisplay(SertexOS.language.account_loggingOut)
 					log("Logged Out "..SertexOS.u)
 					sleep(0.1)
 				end
@@ -450,10 +450,10 @@ local function desktop()
 				sleep(0.6)
 				login()
 			end},
-			{mainMenu_settings, function()
+			{SertexOS.language.mainMenu_settings, function()
 				settings()
 			end},
-			{mainMenu_about, function()
+			{SertexOS.language.mainMenu_about, function()
 				about()
 			end},
 		}
@@ -560,37 +560,37 @@ function login()
 	if not fs.exists("/.SertexOS/.userCreateOk") then
 		while true do
 			header()
-			print( "  "..setup_title )
-			print( "\n  "..setup_enterUsername )
+			print( "  "..SertexOS.language.setup_title )
+			print( "\n  "..SertexOS.language.setup_enterUsername )
 			write( "  > " )
 			u = read()
 			if u == "" then
-				print("  "..noUser)	
+				print("  "..SertexOS.language.noUser)	
 				log("No User on setup")
 				sleep(2)
 				login()
 			elseif fs.isDir(dbUsersDir..u) or fs.exists(dbUsersDir..u) then
-				print("  "..setup_existsUser)
+				print("  "..SertexOS.language.setup_existsUser)
 				log("Invalid or existing user on setup")
 				sleep(2)
 				login()
 			end
-			print( "  "..setup_enterPassword )
+			print( "  "..SertexOS.language.setup_enterPassword )
 			write( "  > " )
 			p = read( "*" )
-			print( "  "..setup_repeatEnterPassword )
+			print( "  "..SertexOS.language.setup_repeatEnterPassword )
 			write( "  > " )
 			rp = read("*")
 			if p ~= rp then
-				print("  "..wrongPassword)
+				print("  "..SertexOS.language.wrongPassword)
 				log("Wrong Password on setup")
 				sleep(2)
 				login()
 			end
 			encrtyptedPassword = sha256.sha256(p)
-			choose = ui.yesno(setup_isUsernameCorrect2, setup_isUsernameCorrect1:format(u))
+			choose = ui.yesno(SertexOS.language.setup_isUsernameCorrect2, SertexOS.language.setup_isUsernameCorrect1:format(u))
 			if choose then
-				print( "   "..writingData )
+				print( "   "..SertexOS.language.writingData )
 				f = fs.open( dbUsersDir..u, "w" )
 				f.write( sha256.sha256(p) )
 				f.close()
@@ -602,7 +602,7 @@ function login()
 				sleep(0.1)
 				login()
 			end
-			choose = ui.yesno(setup_createAnotherUser, "", false)
+			choose = ui.yesno(SertexOS.language.setup_createAnotherUser, "", false)
 		
 			if choose then
 				sleep(0.1)
@@ -622,11 +622,11 @@ function login()
 				f.write( "ignore me please" )
 				f.close()
 				header()
-				print( "  " ..  setup_adminTitle )
-				print( "\n  " .. setup_adminPass )
+				print( "  " ..  SertexOS.language.setup_adminTitle )
+				print( "\n  " .. SertexOS.language.setup_adminPass )
 				write( "  > " )
 				ap = read( "*" )
-				print( "   " .. writingData )
+				print( "   " .. SertexOS.language.writingData )
 				f = fs.open( dbUsersDir .. "admin", "w" )
 				f.write( sha256.sha256( ap ) )
 				f.close()
@@ -645,20 +645,20 @@ function login()
 			end
 		end
 		
-		SertexOS.u = ui.menu(users, login_title)
+		SertexOS.u = ui.menu(users, SertexOS.language.login_title)
 		if not SertexOS.u then
 			login()
 		end
 		clear()
 		header()
 		
-		print("  "..login_title)
-		print("\n  "..SertexOS.u)
-		write( "\n  "..login_password.." > " )
+		print("  "..SertexOS.language.login_title)
+		print("\n  "..SertexOS.language.SertexOS.u)
+		write( "\n  "..SertexOS.language.login_password.." > " )
 		p = read( "*" )
 		encryptedPassword = sha256.sha256(p)
 		if not fs.exists(dbUsersDir..SertexOS.u) or SertexOS.u == "" or fs.isDir(dbUsersDir..SertexOS.u) then
-			print("  "..login_notRegistered)
+			print("  "..SertexOS.language.login_notRegistered)
 			sleep(2)
 			login()
 		end
@@ -666,13 +666,13 @@ function login()
 		p2 = f.readLine()
 		f.close()
 		if encryptedPassword == p2 then
-			print( "\n  "..login_welcome:format(SertexOS.u) )
+			print( "\n  "..SertexOS.language.login_welcome:format(SertexOS.u) )
 			log("Logged In As "..SertexOS.u)
 			sleep( 2 )
 			SertexOS.user = SertexOS.u
 			desktop()
 		else
-			printError( "  "..wrongPassword )
+			printError( "  "..SertexOS.language.wrongPassword )
 			log("Incorrect Password from "..SertexOS.u.." Password: "..p)
 			sleep( 2 )
 			SertexOS.u = nil
