@@ -1,6 +1,9 @@
 -- Default Language for SertexOS 2
 -- By Ale2610, MultMine and lewislovesgames
--- using %s for string.format
+if not SertexOS.user then
+  SertexOS.user = "Unknown"
+end
+local user = SertexOS.user
 SertexOS.language = {
   ID = "en_US",
   
@@ -22,7 +25,7 @@ SertexOS.language = {
   setup_enterUsername = "Please Enter Your Username.",
   setup_enterPassword = "Please Enter A Password.",
   setup_repeatEnterPassword = "Please Repeat The Password.",
-  setup_isUsernameCorrect1 = "You entered %s as your username.",
+  setup_isUsernameCorrect1 = "You entered "..user.." as your username.",
   setup_isUsernameCorrect2 = "Is this correct?",
   setup_createAnotherUser = "Do you want to create another user?",
   setup_existsUser = "User already exists/is Invalid",
@@ -32,7 +35,7 @@ SertexOS.language = {
   login_username = "Username",
   login_password = "Password",
   login_notRegistered = "Username not registered!",
-  login_welcome = "Welcome %s!",
+  login_welcome = "Welcome "..user.."!",
 
   settings_title = "Settings",
   settings_changeLang = "Change Language",
