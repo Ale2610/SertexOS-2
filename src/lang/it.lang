@@ -1,6 +1,9 @@
 -- Language for SertexOS 2
--- By Ale2610 (and MultMine for %s)
--- using %s for string.format
+-- By Ale2610
+if not SertexOS.user then
+  SertexOS.user = "Unknown"
+end
+local user = SertexOS.user
 SertexOS.language = {
   ID = "it_IT",
   system_shuttingDown = "Arresto...",
@@ -21,7 +24,7 @@ SertexOS.language = {
   setup_enterUsername = "Inserisci Il Tuo Nome Utente.",
   setup_enterPassword = "Inserisci La Tua Password.",
   setup_repeatEnterPassword = "Ripeti La Password.",
-  setup_isUsernameCorrect1 = "Hai inserito %s come il tuo nome utente.",
+  setup_isUsernameCorrect1 = "Hai inserito "..user.." come il tuo nome utente.",
   setup_isUsernameCorrect2 = "E' corretto?",
   setup_createAnotherUser = "Vuoi creare un'altro utente?",
   setup_existsUser = "Nome utente esistene o invalido!",
@@ -32,7 +35,7 @@ SertexOS.language = {
   login_username = "Nome Utente",
   login_password = "Password",
   login_notRegistered = "Nome Utente Non Registrato!",
-  login_welcome = "Benvenuto %s!",
+  login_welcome = "Benvenuto "..user.."!",
 
   settings_title = "Impostazioni",
   settings_changeLang = "Cambia Lingua",
