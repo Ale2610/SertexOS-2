@@ -1,64 +1,66 @@
 -- Language for SertexOS 2
 -- By Ale2610 (and MultMine for %s)
 -- using %s for string.format
+SertexOS.language = {
+  ID = "it_IT",
+  system_shuttingDown = "Arresto...",
+  system_rebooting = "Riavvio...",
+  account_loggingOut = "Disconnessione...",
 
-system_shuttingDown = "Arresto..."
-system_rebooting = "Riavvio..."
-account_loggingOut = "Disconnessione..."
+  mainMenu_shutdown = "Spegni",
+  mainMenu_reboot = "Riavvia",
+  mainMenu_logout = "Disconnetti",
+  mainMenu_shell = "Shell",
+  mainMenu_about = "Info",
+  mainMenu_settings = "Impostazioni",
 
-mainMenu_shutdown = "Spegni"
-mainMenu_reboot = "Riavvia"
-mainMenu_logout = "Disconnetti"
-mainMenu_shell = "Shell"
-mainMenu_about = "Info"
-mainMenu_settings = "Impostazioni"
+  desktop_user = "Utente: ",
+  desktop_computerID = "ID Computer: ",
 
-desktop_user = "Utente: "
-desktop_computerID = "ID Computer: "
+  setup_title = "Configurazione profili SertexOS",
+  setup_enterUsername = "Inserisci Il Tuo Nome Utente.",
+  setup_enterPassword = "Inserisci La Tua Password.",
+  setup_repeatEnterPassword = "Ripeti La Password.",
+  setup_isUsernameCorrect1 = "Hai inserito %s come il tuo nome utente.",
+  setup_isUsernameCorrect2 = "E' corretto?",
+  setup_createAnotherUser = "Vuoi creare un'altro utente?",
+  setup_existsUser = "Nome utente esistene o invalido!",
+  setup_adminPass = "Inserire la password per amministratore",
+  setup_adminTitle = "Configurazione Account Amministratore",
+  
+  login_title = "Accedi",
+  login_username = "Nome Utente",
+  login_password = "Password",
+  login_notRegistered = "Nome Utente Non Registrato!",
+  login_welcome = "Benvenuto %s!",
 
-setup_title = "Configurazione profili SertexOS"
-setup_enterUsername = "Inserisci Il Tuo Nome Utente."
-setup_enterPassword = "Inserisci La Tua Password."
-setup_repeatEnterPassword = "Ripeti La Password."
-setup_isUsernameCorrect1 = "Hai inserito %s come il tuo nome utente."
-setup_isUsernameCorrect2 = "E' corretto?"
-setup_createAnotherUser = "Vuoi creare un'altro utente?"
-setup_existsUser = "Nome utente esistene o invalido!"
-setup_adminPass = "Inserire la password per amministratore"
-setup_adminTitle = "Configurazione Account Amministratore"
+  settings_title = "Impostazioni",
+  settings_changeLang = "Cambia Lingua",
+  settings_changePassword = "Cambia Password",
+  settings_update = "Aggiorna",
+  settings_dynamicClock = "Orologio Dinamico",
 
-login_title = "Accedi"
-login_username = "Nome Utente"
-login_password = "Password"
-login_notRegistered = "Nome Utente Non Registrato!"
-login_welcome = "Benvenuto %s!"
+  dynamicClock_enable = "Abilitare orologio dinamico? (Puo' causare lag)",
 
-settings_title = "Impostazioni"
-settings_changeLang = "Cambia Lingua"
-settings_changePassword = "Cambia Password"
-settings_update = "Aggiorna"
-settings_dynamicClock = "Orologio Dinamico"
+  about_title = "Info",
+  about_freeSpace = "Spazio Libero:",
 
-dynamicClock_enable = "Abilitare orologio dinamico? (Puo' causare lag)"
+  changePassword_title = "Cambia Password Per",
+  changePassword_enterCurrentPassword = "Inserisci La Corrente Password",
+  changePassword_enterNewPassword = "Inserisci La Nuova Password",
+  changePassword_repeatNewPassword = "Ripeti La Nuova Password",
 
-about_title = "Info"
-about_freeSpace = "Spazio Libero:"
+  language_title = "Scegli Una Lingua",
+  language_reboot1 = "La lingua e' stata cambiata!",
+  language_reboot2 = "Riavviare Il Sistema?",
 
-changePassword_title = "Cambia Password Per"
-changePassword_enterCurrentPassword = "Inserisci La Corrente Password"
-changePassword_enterNewPassword = "Inserisci La Nuova Password"
-changePassword_repeatNewPassword = "Ripeti La Nuova Password"
-
-language_title = "Scegli Una Lingua"
-language_reboot1 = "La lingua e' stata cambiata!"
-language_reboot2 = "Riavviare Il Sistema?"
-
-writingData = "Scrittura Dati..."
-wrongPassword = "Password Errata!"
-noUser = "Nome Utente Non Inserito!"
-lang_exit = "Esci"
-lang_done = "Fatto"
-lang_yes = "Si"
-lang_no = "No"
-lang_pressAnyKey = "Premi Qualsiasi Tasto"
+  writingData = "Scrittura Dati...",
+  wrongPassword = "Password Errata!",
+  noUser = "Nome Utente Non Inserito!",
+  exit = "Esci",
+  done = "Fatto",
+  yes = "Si",
+  no = "No",
+  pressAnyKey = "Premi Qualsiasi Tasto",
+}
 
