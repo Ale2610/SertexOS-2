@@ -1,62 +1,64 @@
 -- French for SertexOS 2
 -- By BadCoder_
 -- using %s for string.format
+SertexOS.language = {
+  ID = "fr_FR",
+  system_shuttingDown = "Arret en cours...",
+  system_rebooting = "Redemarrage en cours...",
+  account_loggingOut = "Deconnexion...",
 
-system_shuttingDown = "Arret en cours..."
-system_rebooting = "Redemarrage en cours..."
-account_loggingOut = "Deconnexion..."
+  mainMenu_shutdown = "Arreter",
+  mainMenu_reboot = "Redemarrer",
+  mainMenu_logout = "Deconnexion",
+  mainMenu_shell = "Shell",
+  mainMenu_about = "A propos",
+  mainMenu_settings = "Parametres",
 
-mainMenu_shutdown = "Arreter"
-mainMenu_reboot = "Redemarrer"
-mainMenu_logout = "Deconnexion"
-mainMenu_shell = "Shell"
-mainMenu_about = "A propos"
-mainMenu_settings = "Parametres"
+  desktop_user = "Utilisateur: ",
+  desktop_computerID = "ID du PC: ",
 
-desktop_user = "Utilisateur: "
-desktop_computerID = "ID du PC: "
+  setup_title = "SertexOS Configuration du compte",
+  setup_enterUsername = "Entrez votre nom d'utilisateur.",
+  setup_enterPassword = "Entrez votre mot de passe.",
+  setup_repeatEnterPassword = "Repetez votre mot de passe.",
+  setup_isUsernameCorrect1 = "Vous avez entre %s comme nom d'utilisateur.",
+  setup_isUsernameCorrect2 = "Est-ce correct?",
+  setup_createAnotherUser = "Voulez-vous creer un autre utilisateur?",
+  setup_existsUser = "Cet utilisateur existe deja / est invalide",
+  setup_adminPass = "Entrez le mot de passe administrateur",
+  setup_adminTitle = "Configuration du compte administrateur",
+  login_title = "Connectez vous",
+  login_username = "Nom d'utilisateur",
+  login_password = "Mot de passe",
+  login_notRegistered = "Cet utilisateur n'est pas enregistre!",
+  login_welcome = "Bonjour %s!",
 
-setup_title = "SertexOS Configuration du compte"
-setup_enterUsername = "Entrez votre nom d'utilisateur."
-setup_enterPassword = "Entrez votre mot de passe."
-setup_repeatEnterPassword = "Repetez votre mot de passe."
-setup_isUsernameCorrect1 = "Vous avez entre %s comme nom d'utilisateur."
-setup_isUsernameCorrect2 = "Est-ce correct?"
-setup_createAnotherUser = "Voulez-vous creer un autre utilisateur?"
-setup_existsUser = "Cet utilisateur existe deja / est invalide"
-setup_adminPass = "Entrez le mot de passe administrateur"
-setup_adminTitle = "Configuration du compte administrateur"
-login_title = "Connectez vous"
-login_username = "Nom d'utilisateur"
-login_password = "Mot de passe"
-login_notRegistered = "Cet utilisateur n'est pas enregistre!"
-login_welcome = "Bonjour %s!"
+  settings_title = "Parametres",
+  settings_changeLang = "Changer de langue",
+  settings_changePassword = "Changer de mot de passe",
+  settings_update = "Mettre a jour",
+  settings_dynamicClock = "Horloge dynamique",
 
-settings_title = "Parametres"
-settings_changeLang = "Changer de langue"
-settings_changePassword = "Changer de mot de passe"
-settings_update = "Mettre a jour"
-settings_dynamicClock = "Horloge dynamique"
+  dynamicClock_enable = "Activer l'horloge dynamique? (Peut causer des lags)",
 
-dynamicClock_enable = "Activer l'horloge dynamique? (Peut causer des lags)"
+  about_title = "A propos",
+  about_freeSpace = "Espace libre:",
 
-about_title = "A propos"
-about_freeSpace = "Espace libre:"
+  changePassword_title = "Changer votre mot de passe en ",
+  changePassword_enterCurrentPassword = "Entrez votre mot de passe acutel.",
+  changePassword_enterNewPassword = "Entrez votre nouveau mot de passe.",
+  changePassword_repeatNewPassword = "Repetez votre nouveau mot de passe.",
 
-changePassword_title = "Changer votre mot de passe en "
-changePassword_enterCurrentPassword = "Entrez votre mot de passe acutel."
-changePassword_enterNewPassword = "Entrez votre nouveau mot de passe."
-changePassword_repeatNewPassword = "Repetez votre nouveau mot de passe."
+  language_title = "Choisir une langue",
+  language_reboot1 = "Redemarrer le systeme pour changer la langue",
+  language_reboot2 = "Redemarrer le systeme?",
 
-language_title = "Choisir une langue"
-language_reboot1 = "Redemarrer le systeme pour changer la langue"
-language_reboot2 = "Redemarrer le systeme?"
-
-writingData = "Ecriture des donnees..."
-wrongPassword = "Mauvais mot de passe!"
-noUser = "Aucun nom d'utilisateur!"
-lang_exit = "Quitter"
-lang_done = "Fait"
-lang_yes = "Oui"
-lang_no = "Non"
-lang_pressAnyKey = "Appuyez sur une touche..."
+  writingData = "Ecriture des donnees...",
+  wrongPassword = "Mauvais mot de passe!",
+  noUser = "Aucun nom d'utilisateur!",
+  exit = "Quitter",
+  done = "Fait",
+  yes = "Oui",
+  no = "Non",
+  pressAnyKey = "Appuyez sur une touche...",
+}
