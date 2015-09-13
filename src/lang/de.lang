@@ -1,63 +1,66 @@
 -- Language for SertexOS 2
 -- By MultMine (todo) with a little bit of help from LewisTehMinerz
 -- using %s for string.format
+SertexOS.language = {
+  ID = "de_DE",
+  
+  system_shuttingDown = "Herunterfahren...",
+  system_rebooting = "Neu starten...",
+  account_loggingOut = "Abmelden...",
 
-system_shuttingDown = "Herunterfahren..."
-system_rebooting = "Neu starten..."
-account_loggingOut = "Abmelden..."
+  mainMenu_shutdown = "Herunterfahren",
+  mainMenu_reboot = "Neu starten",
+  mainMenu_logout = "Abmelden",
+  mainMenu_shell = "Shell",
+  mainMenu_about = "Info",
+  mainMenu_settings = "Einstellungen",
 
-mainMenu_shutdown = "Herunterfahren"
-mainMenu_reboot = "Neu starten"
-mainMenu_logout = "Abmelden"
-mainMenu_shell = "Shell"
-mainMenu_about = "Info"
-mainMenu_settings = "Einstellungen"
+  desktop_user = "Benutzer: ",
+  desktop_computerID = "Computer-ID: ",
 
-desktop_user = "Benutzer: "
-desktop_computerID = "Computer-ID: "
+  setup_title = "SertexOS Kontoeinrichtung",
+  setup_enterUsername = "Benutzername eingeben.",
+  setup_enterPassword = "Passwort eingeben.",
+  setup_repeatEnterPassword = "Passwort wiederholen.",
+  setup_isUsernameCorrect1 = "Benutzername: %s.",
+  setup_isUsernameCorrect2 = "Ist dies korrekt?",
+  setup_createAnotherUser = "Weiteren Benutzer erstellen?",
+  setup_exisrsUser = "Benutzer ist bereits vorhanden / ist ungeultig",
+  setup_adminPass = "Bitte geben Sie das Admin-Passwort",
+  setup_adminTitle = "Admin-Kontoerstellung",
 
-setup_title = "SertexOS Kontoeinrichtung"
-setup_enterUsername = "Benutzername eingeben."
-setup_enterPassword = "Passwort eingeben."
-setup_repeatEnterPassword = "Passwort wiederholen."
-setup_isUsernameCorrect1 = "Benutzername: %s."
-setup_isUsernameCorrect2 = "Ist dies korrekt?"
-setup_createAnotherUser = "Weiteren Benutzer erstellen?"
-setup_exisrsUser = "Benutzer ist bereits vorhanden / ist ungeultig"
-setup_adminPass = "Bitte geben Sie das Admin-Passwort"
-setup_adminTitle = "Admin-Kontoerstellung"
+  login_title = "Anmelden",
+  login_username = "Benutzername",
+  login_password = "Passwort",
+  login_notRegistered = "Benutzername nicht registriert!",
+  login_welcome = "Willkommen %s!",
 
-login_title = "Anmelden"
-login_username = "Benutzername"
-login_password = "Passwort"
-login_notRegistered = "Benutzername nicht registriert!"
-login_welcome = "Willkommen %s!"
+  settings_title = "Einstellungen",
+  settings_changeLang = "Sprache",
+  settings_changePassword = "Passwort",
+  settings_update = "Update",
+  settings_dynamicClock = "dynamische Uhr",
 
-settings_title = "Einstellungen"
-settings_changeLang = "Sprache"
-settings_changePassword = "Passwort"
-settings_update = "Update"
-settings_dynamicClock = "dynamische Uhr"
+  dynamicClock_enable = "Aktivieren dynamischer Uhr? (Es kann lag)",
 
-dynamicClock_enable = "Aktivieren dynamischer Uhr? (Es kann lag)"
+  about_title = "Info",
+  about_freeSpace = "Freiraum:",
 
-about_title = "Info"
-about_freeSpace = "Freiraum:"
+  changePassword_title = "Passwort aendern fuer",
+  changePassword_enterCurrentPassword = "Passwort eingeben.",
+  changePassword_enterNewPassword = "Neues Passwort eingeben.",
+  changePassword_repeatNewPassword = "Neues Passwort wiederholen.",
+  
+  language_title = "Sprache waehlen",
+  language_reboot1 = "System neustarten, um Sprache zu aendern",
+  language_reboot2 = "System neustarten?",
 
-changePassword_title = "Passwort aendern fuer"
-changePassword_enterCurrentPassword = "Passwort eingeben."
-changePassword_enterNewPassword = "Neues Passwort eingeben."
-changePassword_repeatNewPassword = "Neues Passwort wiederholen."
-
-language_title = "Sprache waehlen"
-language_reboot1 = "System neustarten, um Sprache zu aendern"
-language_reboot2 = "System neustarten?"
-
-writingData = "Speichern..."
-wrongPassword = "Falsches Passwort!"
-noUser = "Kein Benutzername!"
-lang_exit = "Beenden"
-lang_done = "Fertig"
-lang_yes = "Ja"
-lang_no = "Nein"
-lang_pressAnyKey = "Druecke eine Taste"
+  writingData = "Speichern...",
+  wrongPassword = "Falsches Passwort!",
+  noUser = "Kein Benutzername!",
+  lang_exit = "Beenden",
+  lang_done = "Fertig",
+  lang_yes = "Ja",
+  lang_no = "Nein",
+  lang_pressAnyKey = "Druecke eine Taste",
+}
