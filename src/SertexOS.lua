@@ -588,7 +588,7 @@ function login()
 				login()
 			end
 			encrtyptedPassword = sha256.sha256(p)
-			choose = ui.yesno(SertexOS.language.setup_isUsernameCorrect2, SertexOS.language.setup_isUsernameCorrect1:format(u))
+			choose = ui.yesno(SertexOS.language.setup_isUsernameCorrect2, SertexOS.language.setup_isUsernameCorrect1)
 			if choose then
 				print( "   "..SertexOS.language.writingData )
 				f = fs.open( dbUsersDir..u, "w" )
@@ -653,7 +653,7 @@ function login()
 		header()
 		
 		print("  "..SertexOS.language.login_title)
-		print("\n  "..SertexOS.language.SertexOS.u)
+		print("\n  "..SertexOS.u)
 		write( "\n  "..SertexOS.language.login_password.." > " )
 		p = read( "*" )
 		encryptedPassword = sha256.sha256(p)
@@ -666,7 +666,7 @@ function login()
 		p2 = f.readLine()
 		f.close()
 		if encryptedPassword == p2 then
-			print( "\n  "..SertexOS.language.login_welcome:format(SertexOS.u) )
+			print( "\n  "..SertexOS.language.login_welcome)
 			log("Logged In As "..SertexOS.u)
 			sleep( 2 )
 			SertexOS.user = SertexOS.u
