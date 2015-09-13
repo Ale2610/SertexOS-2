@@ -1,8 +1,8 @@
 -- UI API From LMNetOS
 
-if not lang_yes or not lang_no then
-	local lang_yes = "Yes"
-	local lang_no = "No"
+if not SertexOS.language.yes or not SertexOS.language.no then
+	local SertexOS.language.yes = "Yes"
+	local SertexOS.language.no = "No"
 end
 
 
@@ -299,9 +299,9 @@ function menu(items, title, start,allowNil,moreTitle)
 end
 
 function yesno(text, title, start)
-	if not lang_yes then
-		lang_yes = "Yes"
-		lang_no = "No"
+	if not SertexOS.language.yes then
+		SertexOS.language.yes = "Yes"
+		SertexOS.language.no = "No"
 	end
 
 	local function clear()
@@ -344,8 +344,8 @@ function yesno(text, title, start)
 		term.setCursorPos(1,7)
 		cprint(text)
 		local w, h = term.getSize()
-		drawButton(lang_yes, 2, h-1, math.floor(w/2)-1, h-1, selected)
-		drawButton(lang_no, math.floor(w/2)+1, h-1, w-1, h-1, not selected)
+		drawButton(SertexOS.language.yes, 2, h-1, math.floor(w/2)-1, h-1, selected)
+		drawButton(SertexOS.language.no, math.floor(w/2)+1, h-1, w-1, h-1, not selected)
 	end
 	
 	if start ~= nil and type(start) == "boolean" then
