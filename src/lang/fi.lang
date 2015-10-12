@@ -1,0 +1,67 @@
+-- Finnish Language for SertexOS 2
+if not SertexOS.user then
+  SertexOS.user = "Tuntematon"
+end
+local user = SertexOS.user
+SertexOS.language = {
+  ID = "fi_FI",
+  
+  system_shuttingDown = "Sammutetaan...",
+  system_rebooting = "Uudelleenkäynnistetään...",
+  account_loggingOut = "Kirjaudutaan ulos...",
+
+  mainMenu_shutdown = "Sammuta",
+  mainMenu_reboot = "Käynnistä uudelleen",
+  mainMenu_logout = "Kirjaudu ulos",
+  mainMenu_shell = "Terminaali",
+  mainMenu_about = "Tietoa",
+  mainMenu_settings = "Asetukset",
+
+  desktop_user = "Käyttäjätunnus: ",
+  desktop_computerID = "Tietokoneen ID: ",
+
+  setup_title = "SertexOS Käyttäjätunnuksen Luonti",
+  setup_enterUsername = "Please Enter Your Username.",
+  setup_enterPassword = "Please Enter A Password.",
+  setup_repeatEnterPassword = "Please Repeat The Password.",
+  setup_isUsernameCorrect1 = "You entered "..user.." as your username.",
+  setup_isUsernameCorrect2 = "Is this correct?",
+  setup_createAnotherUser = "Do you want to create another user?",
+  setup_existsUser = "User already exists/is Invalid",
+  setup_adminPass = "Please enter the admin password",
+  setup_adminTitle = "Admin Account Setup",
+  login_title = "Please Log In",
+  login_username = "Username",
+  login_password = "Password",
+  login_notRegistered = "Username not registered!",
+  login_welcome = "Welcome "..user.."!",
+
+  settings_title = "Settings",
+  settings_changeLang = "Change Language",
+  settings_changePassword = "Change Password",
+  settings_update = "Update",
+  settings_dynamicClock = "Dynamic Clock",
+
+  dynamicClock_enable = "Enable dynamic clock? (It may lags)",
+
+  about_title = "Info",
+  about_freeSpace = "Free Space:",
+
+  changePassword_title = "Change Password For",
+  changePassword_enterCurrentPassword = "Please Enter Your Current Password.",
+  changePassword_enterNewPassword = "Please Enter Your New Password.",
+  changePassword_repeatNewPassword = "Please Repeat Your New Password.",
+
+  language_title = "Choose A Language",
+  language_reboot1 = "Reboot System To Change Language",
+  language_reboot2 = "Reboot System?",
+
+  writingData = "Writing Data...",
+  wrongPassword = "Wrong Password!",
+  noUser = "No Username!",
+  exit = "Exit",
+  done = "Done",
+  yes = "Yes",
+  no = "No",
+  pressAnyKey = "Press Any Key",
+}
