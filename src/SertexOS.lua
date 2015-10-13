@@ -91,7 +91,7 @@ function SertexOS.writeConfig(language, dynamicClock)
 	local f = fs.open("/.SertexOS/config","w")
 	f.write("if not SertexOS then SertexOS = {} end\n")
 	f.write("SertexOS.configVersion = "..SertexOS.configVersion.."\n")
-	f.write("SertexOS.languageID = "..language.."\n")
+	f.write("SertexOS.languageID = \""..language.."\"\n")
 	f.write("SertexOS.dynamicClock = "..dynamicClock)
 	f.close()
 end
