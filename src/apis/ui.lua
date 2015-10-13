@@ -292,6 +292,8 @@ function menu(items, title, start,allowNil,moreTitle)
 end
 
 function yesno(text, title, start)
+	if not SertexOS then SertexOS = {} end
+	if not SertexOS.language then SertexOS.language = {} end
 	if not SertexOS.language.yes then
 		SertexOS.language.yes = "Yes"
 		SertexOS.language.no = "No"
