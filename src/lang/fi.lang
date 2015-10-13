@@ -61,7 +61,7 @@ SertexOS.language = {
   noUser = "Väärä käyttäjätunnus!",
   exit = "Poistu",
   done = "Valmis",
-  yes = "Yes",
-  no = "No",
-  pressAnyKey = "Press Any Key",
+  yes = "Kyllä",
+  no = "Ei",
+  pressAnyKey = "Paina mitä tahansa näppäintä.",
 }
