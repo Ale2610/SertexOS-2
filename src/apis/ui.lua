@@ -1,11 +1,4 @@
 -- UI API From LMNetOS
-
-if type(SertexOS) ~= "table" then SertexOS = {} end
-if type(SertexOS.language) ~= "table" then SertexOS.language = {} end
-if not SertexOS.language.no then SertexOS.language.no = "No" end
-if not SertexOS.language.yes then SertexOS.language.yes = "Yes" end
-
-
 function header()
 	function center(y, text ) --from SertexText API
 		w, h = term.getSize()
