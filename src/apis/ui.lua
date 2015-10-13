@@ -1,9 +1,9 @@
 -- UI API From LMNetOS
 
-if not SertexOS.language.yes or not SertexOS.language.no then
-	local SertexOS.language.yes = "Yes"
-	local SertexOS.language.no = "No"
-end
+if type(SertexOS) ~= "table" then SertexOS = {}
+if type(SertexOS.language) ~= "table" then SertexOS.language = {}
+if not SertexOS.language.no then SertexOS.language.no = "No" end
+if not SertexOS.language.yes then SertexOS.language.yes = "Yes" end
 
 
 function header()
