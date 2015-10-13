@@ -25,10 +25,10 @@ SertexOS.language = {
   setup_enterUsername = "Benutzername eingeben.",
   setup_enterPassword = "Passwort eingeben.",
   setup_repeatEnterPassword = "Passwort wiederholen.",
-  setup_isUsernameCorrect1 = "Benutzername: "..user..".",
+  setup_isUsernameCorrect1 = "Benutzername: %username%.",
   setup_isUsernameCorrect2 = "Ist dies korrekt?",
   setup_createAnotherUser = "Weiteren Benutzer erstellen?",
-  setup_exisrsUser = "Benutzer ist bereits vorhanden / ist ungeultig",
+  setup_exisrsUser = "Benutzer ist bereits vorhanden / ist ungueltig",
   setup_adminPass = "Bitte geben Sie das Admin-Passwort",
   setup_adminTitle = "Admin-Kontoerstellung",
 
@@ -36,15 +36,15 @@ SertexOS.language = {
   login_username = "Benutzername",
   login_password = "Passwort",
   login_notRegistered = "Benutzername nicht registriert!",
-  login_welcome = "Willkommen "..user.."!",
+  login_welcome = "Willkommen %username%!",
 
   settings_title = "Einstellungen",
   settings_changeLang = "Sprache",
   settings_changePassword = "Passwort",
   settings_update = "Update",
-  settings_dynamicClock = "dynamische Uhr",
+  settings_dynamicClock = "Dynamische Uhr",
 
-  dynamicClock_enable = "Aktivieren dynamischer Uhr? (Es kann lag)",
+  dynamicClock_enable = "Aktivieren der Dynamischen Uhr? (Lag kann auftreten)",
 
   about_title = "Info",
   about_freeSpace = "Freiraum:",
