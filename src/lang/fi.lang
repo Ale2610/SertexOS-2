@@ -28,7 +28,7 @@ SertexOS.language = {
   setup_isUsernameCorrect2 = "Onko se oikein?",
   setup_createAnotherUser = "Haluatko luoda toisen kayttajan?",
   setup_existsUser = "Tunnus on virheellinen tai on jo olemassa.",
-  setup_adminPass = "Syötä paakayttajan salasana.",
+  setup_adminPass = "Syota paakayttajan salasana.",
   setup_adminTitle = "Paakayttajan luonti",
   login_title = "Kirjaudu sisaan",
   login_username = "Kayttajatunnus",
@@ -53,8 +53,8 @@ SertexOS.language = {
   changePassword_repeatNewPassword = "Anna uusi salasana uudelleen.",
 
   language_title = "Valitse kieli",
-  language_reboot1 = "Käynnistä uudelleen vaihtaaksesi kielen.",
-  language_reboot2 = "Haluatko käynnistaa uudelleen?",
+  language_reboot1 = "Kaynnista uudelleen vaihtaaksesi kielen.",
+  language_reboot2 = "Haluatko kaynnistaa uudelleen?",
 
   writingData = "Tallentaa dataa...",
   wrongPassword = "Vaara salasana!",
