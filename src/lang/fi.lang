@@ -7,11 +7,11 @@ SertexOS.language = {
   ID = "fi_FI",
   
   system_shuttingDown = "Sammutetaan...",
-  system_rebooting = "Uudelleenkäynnistetaan...",
+  system_rebooting = "Uudelleenkaynnistetaan...",
   account_loggingOut = "Kirjaudutaan ulos...",
 
   mainMenu_shutdown = "Sammuta",
-  mainMenu_reboot = "Kaynnistä uudelleen",
+  mainMenu_reboot = "Kaynnista uudelleen",
   mainMenu_logout = "Kirjaudu ulos",
   mainMenu_shell = "Terminaali",
   mainMenu_about = "Tietoa",
@@ -54,14 +54,14 @@ SertexOS.language = {
 
   language_title = "Valitse kieli",
   language_reboot1 = "Käynnistä uudelleen vaihtaaksesi kielen.",
-  language_reboot2 = "Haluatko käynnistää uudelleen?",
+  language_reboot2 = "Haluatko käynnistaa uudelleen?",
 
   writingData = "Tallentaa dataa...",
   wrongPassword = "Vaara salasana!",
   noUser = "Vaara kayttajatunnus!",
   exit = "Poistu",
   done = "Valmis",
-  yes = "Kyllä",
+  yes = "Kylla",
   no = "Ei",
-  pressAnyKey = "Paina mitä tahansa nappainta.",
+  pressAnyKey = "Paina mita tahansa nappainta.",
 }
