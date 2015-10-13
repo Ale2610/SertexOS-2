@@ -295,6 +295,7 @@ local function settings()
 			"Italiano", --2
 			"Deutsch", --3
 			"Francais", --4
+			"Suomi" --5
 		}
 		lock()
 		while true do
@@ -310,6 +311,9 @@ local function settings()
 				break
 			elseif id == 4 then
 				SertexOS.writeConfig("fr")
+				break
+			elseif id == 5 then
+				SertexOS.writeConfig("fi")
 				break
 			end
 		end
