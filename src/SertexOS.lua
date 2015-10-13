@@ -98,14 +98,8 @@ end
 
 log("System Online")
 
-if SertexOS.languageID == "en" then
-	dofile("/.SertexOS/lang/en.lang")
-elseif SertexOS.languageID == "it" then
-	dofile("/.SertexOS/lang/it.lang")
-elseif SertexOS.languageID == "de" then
-	dofile("/.SertexOS/lang/de.lang")
-elseif SertexOS.languageID == "fr" then
-	dofile("/.SertexOS/lang/fr.lang")
+if fs.exists("/.SertexOS/lang/"..SertexOS.languageID..".lang") then
+	dofile("/.SertexOS/lang/"..SertexOS.languageID..".lang")
 else
 	dofile("/.SertexOS/lang/en.lang")
 end
