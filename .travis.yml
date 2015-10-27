@@ -1,1 +1,25 @@
-language: lua
+language: c
+
+env:
+  - LUA='Lua 5.1'
+  - LUA='Lua 5.2'
+  - LUA='Lua 5.3'
+  - LUA='LuaJIT 2.0'
+
+before_install:
+  - bash .travis_setup.sh
+
+install:
+  - sudo apt-get update -qq
+  - sudo luarocks install busted
+
+script: busted
+
+branches:
+  except:
+    - gh-pages
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
