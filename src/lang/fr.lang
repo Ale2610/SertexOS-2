@@ -20,7 +20,7 @@ SertexOS.language = {
   desktop_user = "Utilisateur: ",
   desktop_computerID = "ID du PC: ",
 
-  setup_title = "SertexOS Configuration du compte",
+  setup_title = "Configuration du compte SertexOS",
   setup_enterUsername = "Entrez votre nom d'utilisateur.",
   setup_enterPassword = "Entrez votre mot de passe.",
   setup_repeatEnterPassword = "Repetez votre mot de passe.",
@@ -47,8 +47,8 @@ SertexOS.language = {
   about_title = "A propos",
   about_freeSpace = "Espace libre:",
 
-  changePassword_title = "Changer votre mot de passe en ",
-  changePassword_enterCurrentPassword = "Entrez votre mot de passe acutel.",
+  changePassword_title = "Changer votre mot de passe en",
+  changePassword_enterCurrentPassword = "Entrez votre mot de passe actuel.",
   changePassword_enterNewPassword = "Entrez votre nouveau mot de passe.",
   changePassword_repeatNewPassword = "Repetez votre nouveau mot de passe.",
 
