@@ -58,7 +58,7 @@ local files = {
 	
 }
 
-local githubUser    = "Sertex-Team"
+local githubUser    = "BeaconNet"
 local githubRepo    = "SertexOS-2"
 local githubBranch  = "master"
 
