@@ -33,7 +33,7 @@ local function crash(reason,message) --the crash error is only for OS crashes
 		local x, y = term.getCursorPos()
 		center(y+2,"Please reboot system!")
 		center(y+3,"Please report the issue here:")
-		center(y+4,"https://github.com/Sertex-Team/SertexOS-2/issues")
+		center(y+4,"https://github.com/BeaconNet/SertexOS-2/issues")
 		while true do
 			sleep(0)
 		end
@@ -150,11 +150,11 @@ function term.setBackgroundColor(color)
 end
 
 local function checkVersion()
-	local newVersion = http.get("https://raw.githubusercontent.com/Sertex-Team/SertexOS-2/master/src/version").readLine()
+	local newVersion = http.get("https://raw.githubusercontent.com/BeaconNet/SertexOS-2/master/src/version").readLine()
 	if SertexOS.version ~= newVersion then
 		local updateS = ui.yesno("Update Sertex?","A new version of Sertex has been released")
 		if updateS then
-			setfenv(loadstring(http.get("https://raw.github.com/Sertex-Team/SertexOS-2/master/upd.lua").readAll()),getfenv())()
+			setfenv(loadstring(http.get("https://raw.github.com/BeaconNet/SertexOS-2/master/upd.lua").readAll()),getfenv())()
 		end
 	end
 end
@@ -366,7 +366,7 @@ local function settings()
 	
 	local function update()
 		log("System Update")
-		setfenv(loadstring(http.get("https://raw.github.com/Sertex-Team/SertexOS-2/master/upd.lua").readAll()),getfenv())()
+		setfenv(loadstring(http.get("https://raw.github.com/BeaconNet/SertexOS-2/master/upd.lua").readAll()),getfenv())()
 	end
 	
 	local function exitSettings()
