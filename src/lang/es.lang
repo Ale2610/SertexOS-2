@@ -1,0 +1,68 @@
+-- European Spanish for SertexOS 2
+-- By blur48 aka manu_03
+if not SertexOS.user then
+  SertexOS.user = "Unknown"
+end
+local user = SertexOS.user
+SertexOS.language = {
+  ID = "es_ES",
+  
+  system_shuttingDown = "Apagando...",
+  system_rebooting = "Reiniciando...",
+  account_loggingOut = "Cerrando sesión...",
+
+  mainMenu_shutdown = "Apagar",
+  mainMenu_reboot = "Reiniciar",
+  mainMenu_logout = "Cerrar sesión",
+  mainMenu_shell = "Shell",
+  mainMenu_about = "Acerca de",
+  mainMenu_settings = "Ajustes",
+
+  desktop_user = "Usuario: ",
+  desktop_computerID = "ID del ordenador: ",
+
+  setup_title = "Configuración de la cuenta SertexOS",
+  setup_enterUsername = "Por favor, introduce tu nombre de usuario.",
+  setup_enterPassword = "Por favor, introduce una contraseña.",
+  setup_repeatEnterPassword = "Por favor, repite la contraseña.",
+  setup_isUsernameCorrect1 = "Has introducido %username% como tu nombre de usuario.",
+  setup_isUsernameCorrect2 = "¿Es correcto?",
+  setup_createAnotherUser = "¿Quieres crear otra cuenta?",
+  setup_existsUser = "La cuenta ya existe/es inválida",
+  setup_adminPass = "Por favor, introduce la contraseña de administrador",
+  setup_adminTitle = "Configuración de la cuenta de administrador",
+  login_title = "Por favor, inicia sesión",
+  login_username = "Nombre de usuario",
+  login_password = "Contraseña",
+  login_notRegistered = "¡Cuenta no registrada!",
+  login_welcome = "¡Bienvenido/a, %username%!",
+
+  settings_title = "Ajustes",
+  settings_changeLang = "Cambiar idioma",
+  settings_changePassword = "Cambiar contraseña",
+  settings_update = "Actualizar",
+  settings_dynamicClock = "Reloj dinámico",
+
+  dynamicClock_enable = "¿Activar reloj dinámico? (Puede causar problemas)",
+
+  about_title = "Información",
+  about_freeSpace = "Espacio disponible:",
+
+  changePassword_title = "Cambiar contraseña de",
+  changePassword_enterCurrentPassword = "Por favor, introduce tu contraseña actual.",
+  changePassword_enterNewPassword = "Por favor, introduce tu nueva contraseña.",
+  changePassword_repeatNewPassword = "Por favor, repite tu nueva contraseña.",
+
+  language_title = "Elige un idioma",
+  language_reboot1 = "Reinicia el sistema para cambiar el idioma",
+  language_reboot2 = "¿Reiniciar el sistema?",
+
+  writingData = "Escribiendo datos...",
+  wrongPassword = "¡Contraseña incorrecta!",
+  noUser = "¡No hay nombre de usuario!",
+  exit = "Salir",
+  done = "Hecho",
+  yes = "Sí",
+  no = "No",
+  pressAnyKey = "Pulsa cualquier tecla...",
+}
